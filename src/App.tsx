@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Login from './pages/Login';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface IMapProps {
+    
+}
+
+interface IMapState {
+    
+}
+
+class App extends Component<IMapProps, IMapState> {
+    constructor (props: IMapProps) {
+      super(props);
+    }
+
+    render () {
+        return (
+            <BrowserRouter> 
+                <Switch>
+                    <Route path='/login' component={Login}/>
+                </Switch>
+            </BrowserRouter>
+        )
+    }
 }
 
 export default App;
