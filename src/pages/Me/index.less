@@ -1,0 +1,105 @@
+#me{
+    margin-bottom: 50px;
+    background-color: #FFFFFF;
+    height: 100%;
+    #wrapper{
+        #topBox{
+            background-color:rgb(198, 86, 36);
+            height: 200px;
+            position: relative;
+            #settingIcon{
+                height: 30px;
+                width: 30px;
+                position: absolute;
+                top:15px;
+                right: 20px;
+            }
+            #user{
+                position: absolute;
+                width: 90%;
+                height: 160px;
+                top: 70px;
+                left:5%;
+                background-color: #FFFFFF;
+                border-radius: 15px;
+                border-color: #aaaaaa;
+                box-shadow:0px -1px 3px #aaaaaa;
+                #userInfo{
+                    display: flex;
+                    #avatar{
+                        height: 90px;
+                        width: 90px;
+                        flex:1;
+                        position: absolute;
+                        top: -30px;
+                        left: 10px;
+                        border-radius: 90px;
+                    }
+                    #name{
+                        flex: 5;
+                        position: absolute;
+                        left: 120px;
+                        h1{
+                            font-size: 15px;
+                        }
+                    }
+                }
+                #links{
+                    margin-top: 100px;
+                    ul{
+                        display: flex;
+                        width: 100%;
+                        li{
+                            display: inline-block;
+                            width: 25%;
+                            text-align: center;
+                            color: rgb(179, 179, 179);
+                        }
+                        li:nth-child(-n+3){
+                            border-right: solid rgba(179, 179, 179,0.3);
+                        }
+                    }
+                }
+            }
+        }
+        #orderBox{
+            margin-top: 60px;
+            width: 100%;
+            padding: 0 20px;
+            #caption{
+                display: flex;
+                justify-content: space-between;
+                font-size: 15px;
+                align-items: center;
+                border-bottom: solid rgba(179, 179, 179,0.2);
+                h1{
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: #000;
+                }
+                span{
+                    color: rgb(179, 179, 179);
+                }
+            }
+            #stages{
+                margin-top: 15px;
+                ul{
+                    display: flex;
+                    justify-content: space-around;
+                    li{
+                        width: 20%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 13px;
+                        .stagesIcon{
+                            height: 25px;
+                            width: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

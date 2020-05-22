@@ -45,25 +45,6 @@
                 font-size: 0.5rem;
                 color: #808080;
             }
-            #way-box{
-                display: flex;
-                justify-content: space-around;
-                padding: 0 50px;
-                li{
-                    display: inline-block;
-                    height: 30px;
-                    font-size: 0.6rem;
-                    color: #000000;
-                    img{
-                        height: 38px;
-                        display: block;
-                        margin-bottom:0;
-                    }
-                }
-                li:hover{
-                    cursor: pointer;
-                }
-            }
         }
         .register-form{
             .tailBtn{
@@ -74,6 +55,11 @@
                 background: none;
                 font-size: 0.8rem;
             }
+        }
+    }
+    .register-section{
+        h1{
+            display: none;
         }
     }
     @media (max-width:500px) {
@@ -99,6 +85,26 @@
                 .login-form-button:nth-child(2){
                     margin-left: 0px;
                 }
+            }
+
+            .register-form{
+                margin: 0;
+            }
+        }
+
+        .register-section{
+            padding-top: 5vh;
+            h1{
+                display: block;
+                margin-top: 0;
+                font-size: 1.67rem;
+            }
+        }
+    }
+    @media (max-width:355px) {
+        .register-section{
+            h1{
+                display: none;
             }
         }
     }
