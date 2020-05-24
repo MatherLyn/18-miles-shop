@@ -76,7 +76,7 @@ export default class Home extends Component {
                         <h2>热卖TOP3</h2>
                         <ShowSellWell topThree={true} />
                         <button onClick={this.buttonOnClick} id="moreButton">
-                            更多>>
+                            更多
                         </button>
                     </div>
                     <div id="dailyRecommend">

@@ -7,8 +7,8 @@ import Search from './pages/Search'
 import SellWell from './pages/SellWell'
 import Sort from './pages/Sort'
 import ShoppingCart from './pages/ShoppingCart'
-import Me from './pages/Me'
-import './App.css';
+import Profile from './pages/Profile'
+import './App.css'
 
 interface IMapProps {
 
@@ -39,7 +39,7 @@ class App extends Component<IMapProps, IMapState> {
                     <Route path='/sellwell' component={SellWell} />
                     <Route path='/sort' component={Sort} />
                     <Route path='/shoppingcart' component={ShoppingCart} />
-                    <Route path='/me' component={Me} />
+                    <Route path='/profile' component={Profile} />
                 </Switch>
             </BrowserRouter>
         )

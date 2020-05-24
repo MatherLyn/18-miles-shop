@@ -13,7 +13,7 @@ export default function ajax (url,data={},method='GET'){
         promise.then(response=>{
             resolve(response.data)
         }).catch(error=>{
-            //统一处理请求错误的情况
+            //统一处理请求错误的情�?
             message.error('请求错误：'+error.message);
         })
     })

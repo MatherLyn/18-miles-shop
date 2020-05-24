@@ -29,8 +29,8 @@ class ICarousel extends Component {
               style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
             >
               <img
-                src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
-                alt=""
+                src={``}
+                alt="哈哈哈"
                 style={{ width: '100%', verticalAlign: 'top' }}
                 onLoad={() => {
                   // fire window resize event to change height向window派发resize事件

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { TabBar } from 'antd-mobile';
-import './index.css'
 import homeIcon from './images/home.svg'
 import homeSelectedIcon from './images/homeSelected.svg'
 import sortIcon from './images/sort.svg'
@@ -9,6 +8,7 @@ import shoppingCartIcon from './images/shoppingCart.svg'
 import shoppingCartSelectedIcon from './images/shoppingCartSelected.svg'
 import meIcon from './images/me.svg'
 import meSelectedIcon from './images/meSelected.svg'
+import './index.css'
 
 
 interface IMapProps {
@@ -49,6 +49,7 @@ class ITabBar extends Component<IMapProps, IMapState> {
   }
 
   renderTab = (router: string) => {
+      window.location.href = `localhost:3000/${router}`;
   }
 
   render() {
@@ -113,7 +114,7 @@ class ITabBar extends Component<IMapProps, IMapState> {
           <TabBar.Item
             icon={{ uri: meIcon }}
             selectedIcon={{ uri: meSelectedIcon }}
-            title="我"
+            title="我的"
             key="me"
             badge={this.state.meBadge}
             dot={this.state.meDot}

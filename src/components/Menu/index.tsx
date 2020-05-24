@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { store } from '../../store';
+import { observer } from 'mobx-react';
 
 interface IMapProps {
     
