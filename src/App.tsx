@@ -34,7 +34,7 @@ class App extends Component<IMapProps, IMapState> {
                 <Switch>
                     <Route path='/login' component={Login} />
                     <Route path='/register' component={Register} />
-                    <Route path='/home' component={Home} />
+                    <Route exact path='/' component={Home} />
                     <Route path='/search' component={Search} />
                     <Route path='/sellwell' component={SellWell} />
                     <Route path='/sort' component={Sort} />

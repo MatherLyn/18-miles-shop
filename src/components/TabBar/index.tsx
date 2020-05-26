@@ -76,7 +76,7 @@ class ITabBar extends Component<IMapProps, IMapState> {
             }}
             data-seed="logId"
           >
-            {(e: Event) => this.renderTab('home')}
+            {(e: Event) => this.renderTab('/home')}
           </TabBar.Item>
           <TabBar.Item
             icon={{ uri: sortIcon }}
@@ -93,7 +93,7 @@ class ITabBar extends Component<IMapProps, IMapState> {
             }}
             data-seed="logId1"
           >
-            {(e: Event) => this.renderTab('sort')}
+            {(e: Event) => this.renderTab('/sort')}
           </TabBar.Item>
           <TabBar.Item
             icon={{ uri: shoppingCartIcon }}
@@ -109,7 +109,7 @@ class ITabBar extends Component<IMapProps, IMapState> {
               });
             }}
           >
-            {(e: Event) => this.renderTab('Life')}
+            {(e: Event) => this.renderTab('/cart')}
           </TabBar.Item>
           <TabBar.Item
             icon={{ uri: meIcon }}
@@ -125,7 +125,7 @@ class ITabBar extends Component<IMapProps, IMapState> {
               });
             }}
           >
-            {(e: Event) => this.renderTab('Life')}
+            {(e: Event) => this.renderTab('/me')}
           </TabBar.Item>
         </TabBar>
       </div>

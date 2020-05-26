@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import CommodityShow1 from '../CommodityShow1';
 import { observer } from 'mobx-react';
-import { commodity, store } from '../../store';
-import Store from '../../store/store';
+import { topCommodity, store } from '../../store';
 import "./index.less";
 
 interface IProps {
@@ -19,7 +18,7 @@ class ShowSellWell extends Component<IProps, IState> {
         focusIndex: 0
     }
     
-    handleOnClick = (id: number) => {
+    handleClick = (id: number) => {
         this.setState({
             focusIndex: id
         })
@@ -31,7 +30,7 @@ class ShowSellWell extends Component<IProps, IState> {
                 <div id="draggableBar">
                     {
                         store.categories.map((content, index) =>
-                            <span className={`category${index === this.state.focusIndex ? ' category-focus' : ''}`} key={index} onClick={() => this.handleOnClick(index)}>
+                            <span className={`category${index === this.state.focusIndex ? ' category-focus' : ''}`} key={index} onClick={() => this.handleClick(index)}>
                                 {content}
                             </span>
                         )
@@ -40,7 +39,7 @@ class ShowSellWell extends Component<IProps, IState> {
                 </div>
                 <ul>
                     {
-                        store.commodities.map((content: commodity, index: number) => 
+                        store.topCommodities.map((content: topCommodity, index: number) => 
                             this.props.topThree ? (
                                 index < 3 ? (
                                     <li key={index}>
