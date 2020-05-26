@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import TabBar from '../../components/TabBar'
+import React, { Component } from 'react';
+import { Checkbox } from 'antd-mobile';
 import './index.less';
 
 class ShoppingCart extends Component {
@@ -42,7 +42,7 @@ class ShoppingCart extends Component {
                         return (
                             <div className="commodityEntry" key={index}>
                                 <div className="checkBox">
-                                    <input className="check" type="checkbox" checked={this.state.cart[index].isChecked} />
+                                    <Checkbox />
                                 </div>
                                 <div className="pic">
                                     <img src={this.state.cart[index].sku_pic} alt="#" />
@@ -66,7 +66,6 @@ class ShoppingCart extends Component {
                         );
                     })}
                 </div>
-                <TabBar />
             </div>
         );
     }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import TabBar from '../../components/TabBar'
 import notPay from './images/notPay.svg'
 import notComment from './images/notComment.svg'
 import notShip from './images/notShip.svg'
@@ -27,7 +26,7 @@ class Profile extends Component {
                             <div id="links">
                                 <ul>
                                     <li onClick={this.handle1}>收藏</li>
-                                    <li onClick={this.handle2}>优惠�?</li>
+                                    <li onClick={this.handle2}>优惠</li>
                                     <li onClick={this.handle3}>足迹</li>
                                     <li onClick={this.handle4}>账单</li>
                                 </ul>
@@ -49,7 +48,6 @@ class Profile extends Component {
                         </div>
                     </div>
                 </div>
-                <TabBar />
             </div>
         );
     }

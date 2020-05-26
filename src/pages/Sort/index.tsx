@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SearchBar from '../../components/SearchBar'
-import TabBar from '../../components/TabBar'
 import Menu from '../../components/Menu'
 import image1 from './images/commodity1.png'
 import image2 from './images/commodity2.png'
@@ -58,7 +57,6 @@ class Sort extends Component {
                         <img src={image2} alt="商品展示2" />
                     </div>
                 </div>
-                <TabBar />
             </div>
         );
     }

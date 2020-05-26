@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './index.less';
 import ShowSellWell from '../../components/ShowSellWell';
-import TabBar from '../../components/TabBar';
 
 class SellWell extends Component {
 
@@ -15,7 +14,6 @@ class SellWell extends Component {
                         <h2>木有更多了</h2>
                     </div>
                 </div>
-                <TabBar />
             </div>
         )
     }

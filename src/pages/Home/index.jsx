@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ISearchBar from '../../components/SearchBar'
 import ICarousel from '../../components/Carousel'
-import ITabBar from '../../components/TabBar'
 import './index.less'
 import Categories from '../../components/Categories'
 import CommodityShow2 from '../../components/CommodityShow2'
@@ -69,8 +68,8 @@ export default class Home extends Component {
         return (
             <div id="home">
                 <ISearchBar jumpTo={this.handleJumpToSearch} />
+                <ICarousel />
                 <div id="wrapper">
-                    <ICarousel />
                     <Categories />
                     <div id="sellWell">
                         <h2>热卖TOP3</h2>
@@ -89,7 +88,6 @@ export default class Home extends Component {
                         <h2>木有更多拉</h2>
                     </div>
                 </div>
-                <ITabBar />
             </div>
         )
     }
