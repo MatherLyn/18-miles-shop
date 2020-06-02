@@ -7,8 +7,8 @@ import React, { Component } from 'react'
 //     Button,
 //     Tooltip,
 //   } from 'antd';
-// // import './index.less';
-// import logo from './images/logo.png'
+// import './index.less';
+import logo from './images/logo.png'
 // import { QuestionCircleOutlined } from '@ant-design/icons';
 // import { reqRegister } from '../../api'
 
@@ -178,5 +178,5 @@ export default class Register extends Component {
 //                 </section>
 //             </div>
 //         )
-//     }
+// }
 }

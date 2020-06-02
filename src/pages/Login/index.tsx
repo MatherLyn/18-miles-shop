@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { List, InputItem } from 'antd-mobile';
 import logo from './images/logo.png';
 import wechatLogo from './images/wechat.svg';
 import messageLogo from './images/message.svg';
 import touristLogo from './images/tourist.svg';
-import { List, InputItem } from 'antd-mobile';
+// import {  } from '../../api'
 import './index.less';
 
 interface IProps {
@@ -29,9 +30,8 @@ export default class Login extends Component<IProps, IState> {
         this.props.history.push('/')
     };
 
-    handleLogin=()=>{
-        var username=$("#usename").val();
-        var password=$("#password").val();
+    handleLogin = () => {
+        //登录逻辑还没写
     }
 
     render() {
@@ -46,10 +46,20 @@ export default class Login extends Component<IProps, IState> {
                         <div className="title">
                             <h1>登陆</h1>
                         </div>
-                        <div className='input-box'>
-                            <input id="username" type="text" placeholder="用户名" />
-                            <input id="password" type="text" placeholder="密码" />
-                        </div>
+                        <List className="input-box">
+                            <InputItem
+                                // {...getFieldProps('inputtitle2')}
+                                placeholder="用户名"
+                            >
+                                <div className="username-icon"/>
+                            </InputItem>
+                            <InputItem
+                                // {...getFieldProps('inputtitle2')}
+                                placeholder="密码"
+                            >
+                                <div className="password-icon"/>
+                            </InputItem>
+                        </List>
                         <div className="button-box">
                             <button className="button-login" onClick={this.handleLogin}>登 陆</button>
                             <button className="button-register" onClick={this.handleRegister}>注 册</button>
