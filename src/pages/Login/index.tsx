@@ -7,7 +7,7 @@ import { List, InputItem } from 'antd-mobile';
 import './index.less';
 
 interface IProps {
-
+    history: any
 }
 
 interface IState {
@@ -15,45 +15,59 @@ interface IState {
 }
 
 export default class Login extends Component<IProps, IState> {
-    constructor (props: IProps) {
+    constructor(props: IProps) {
         super(props);
     }
 
+    //跳转到注册页面
+    handleRegister = () => {
+        this.props.history.replace('/register')
+    };
 
-    render () {
+    //跳转到主页
+    handleEnter = () => {
+        this.props.history.push('/')
+    };
+
+    handleLogin=()=>{
+        var username=$("#usename").val();
+        var password=$("#password").val();
+    }
+
+    render() {
         return (
             <div className='login'>
                 <header className='login-header'>
                     <img src={logo} alt="logo" />
-                    <h1>十八里铺</h1>
+                    <h1 className="name">十八里铺</h1>
                 </header>
-                <section className='login-section'>
-                    <div className=''></div>
+                <section className='wrapper'>
+                    <div className="login-box">
+                        <div className="title">
+                            <h1>登陆</h1>
+                        </div>
+                        <div className='input-box'>
+                            <input id="username" type="text" placeholder="用户名" />
+                            <input id="password" type="text" placeholder="密码" />
+                        </div>
+                        <div className="button-box">
+                            <button className="button-login" onClick={this.handleLogin}>登 陆</button>
+                            <button className="button-register" onClick={this.handleRegister}>注 册</button>
+                        </div>
+                        <div className="message-box">
+                            <h5>其他方式</h5>
+                            <ul id="way-box">
+                                <li onClick={this.handleEnter}><img src={wechatLogo} alt="微信" />微信</li>
+                                <li onClick={this.handleEnter}><img src={messageLogo} alt="短信" />短信验证</li>
+                                <li onClick={this.handleEnter}><img src={touristLogo} alt="游客" />游客访问</li>
+                            </ul>
+                        </div>
+                    </div>
                 </section>
             </div>
         )
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

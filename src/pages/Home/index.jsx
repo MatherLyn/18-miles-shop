@@ -72,14 +72,14 @@ export default class Home extends Component {
                 <div id="wrapper">
                     <Categories />
                     <div id="sellWell">
-                        <h2>热卖TOP3</h2>
+                        <h2 className="sellWellTitle">热卖TOP3</h2>
                         <ShowSellWell topThree={true} />
                         <button onClick={this.buttonOnClick} id="moreButton">
                             更多
                         </button>
                     </div>
                     <div id="dailyRecommend">
-                        <h2>每日推荐</h2>
+                        <h2 className="recommendTitle">每日推荐</h2>
                         <ul id="recommendBox">
                             {renderRecommend}
                         </ul>

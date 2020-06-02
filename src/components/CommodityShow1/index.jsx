@@ -10,13 +10,6 @@ class CommodityShow1 extends Component {
     //将对应的商品加入购物车
     console.log("加入购物车")
   };
-  renderSpan = this.props.tag.map((content) => {
-    return (
-      <span className="spanBox">
-        {content}
-      </span>
-    );
-  });
 
   render() {
     return (
@@ -26,7 +19,15 @@ class CommodityShow1 extends Component {
           <div className="serialNumber">{this.props.index + 1}</div>
         </div>
         <div className="commodityDetail">
-          {this.renderSpan}
+          {
+            this.props.tag.map((content,index) => {
+              return (
+                <span className="spanBox" key={index}>
+                  {content}
+                </span>
+              );
+            })
+          }
           <h2 className="commodityName">{this.props.name}</h2>
           <div className="bottomBox">
             <h2 className="commodityPrice">{this.props.price}</h2>

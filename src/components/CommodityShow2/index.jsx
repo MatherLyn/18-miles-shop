@@ -11,25 +11,25 @@ class CommodityShow2 extends Component {
     console.log("显示操作详情");
   }
 
-  renderSpan = this.props.tag.map((content) => {
-    return (
-      <span className="spanBox">
-        {content}
-      </span>
-    );
-  });
-
   render() {
     return (
       <div className="commodityBox2">
         <img className="commodityImage" src={commodity1} alt="商品图片" />
         <div className="commodityDetails">
-          <h1>{this.props.name}</h1>
+          <h1 className="title">{this.props.name}</h1>
           <div className="tagBox">
-            {this.renderSpan}
+            {
+              this.props.tag.map((content,index) => {
+                return (
+                  <span className="spanBox" key={index}>
+                    {content}
+                  </span>
+                );
+              })
+            }
           </div>
           <div className="bottomBox">
-            <h1>{this.props.price}</h1>
+            <h1 className="price">{this.props.price}</h1>
             <img className="showDetail" onClick={this.handleDetail} src={details} alt="操作详情"></img>
           </div>
         </div>
