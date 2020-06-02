@@ -1,4 +1,5 @@
-### Software engineering group work
+# 18-miles-shop
+### Software engineering group work. Created by @create-react-app
 
 ### To quick start, please run:
 ``` shell
