@@ -26,7 +26,14 @@ export interface Good {
 }
 
 export interface UserInfo {
-    
+    id: number;
+    avatar: string;
+    username: string;
+    email: string;
+    birthday: string;
+    sex: number;
+    phone: number;
+    identify: number;
 }
 
 export interface CommodityAttributes {

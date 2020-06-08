@@ -50,6 +50,7 @@ class ITabBar extends Component<IProps, IState> {
             return;
         }
         this.setState({
+            selectedTab: route,
             hidden: this.show.indexOf(route) === -1 ? true : false
         })
     }

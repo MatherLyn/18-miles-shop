@@ -9,6 +9,7 @@ import Sort from '../pages/Sort';
 import ShoppingCart from '../pages/ShoppingCart';
 import Settlement from '../pages/Settlement';
 import Profile from '../pages/Profile';
+import Process from '../pages/Process';
 
 interface route {
     path: string;
@@ -57,6 +58,10 @@ const routes: Array<route> = [
     {
         path: '/commoditydetail',
         component: CommodityDetail
+    },
+    {
+        path: '/process',
+        component: Process
     }
 ]
 

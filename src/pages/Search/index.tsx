@@ -6,7 +6,7 @@ import discardIcon from './images/discard.svg';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 interface IProps extends RouteComponentProps {
-    
+
 }
 
 interface IState {
@@ -19,17 +19,17 @@ class Search extends Component<IProps, IState> {
 
     }
 
-    handleDiscard=()=>{
+    handleDiscard = () => {
         //清空最近搜索的内容
         console.log("清空最近搜索的内容");
     };
 
-    handleSearch=()=>{
+    handleSearch = () => {
         //获取输入框中的内容后进行发送查询请求
         console.log("查询");
     };
 
-    handleReturn=()=>{
+    handleReturn = () => {
         this.props.history.goBack();
     };
 
@@ -55,7 +55,7 @@ class Search extends Component<IProps, IState> {
                     <div className="return-icon" onClick={this.handleReturn}>
                         <div className="icon"></div>
                     </div>
-                    <input type="text" placeholder="想找点啥？"/>
+                    <input type="text" placeholder="想找点啥？" />
                     <div id="confirmSearch" onClick={this.handleSearch}>搜索</div>
                 </div>
                 <div id="displayBox">

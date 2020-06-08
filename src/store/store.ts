@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 
 class Store {
+    // 首页的八个分类
     @observable public categories: Array<Category> = [
         {
             iconUrl: require('../components/Categories/image/1.png'),
@@ -37,6 +38,7 @@ class Store {
             name: '饮品'
         },
     ];
+    // 首页的热卖
     @observable public topCommodities: Array<TopCommodity> = [
         {
             'tag': ['标签1', '标签', '标签'],
@@ -69,6 +71,7 @@ class Store {
             'price': 45
         }
     ];
+    // 分类页的分类
     @observable public tabs: Array<string> = [
         '新品推荐',
         '产品1',
@@ -88,6 +91,7 @@ class Store {
         '产品11',
         '产品12',
     ]
+    // 分类页的右边
     @observable public sortCommodities: Array<SortCommodity> = [
         {
             'img': '',
@@ -199,10 +203,18 @@ class Store {
 
         },
     ];
-    
+    // 用户信息
     @observable public userInfo: UserInfo = {
-
+        id: 123,
+        avatar: 'string',
+        username: 'string',
+        email: 'string',
+        birthday: 'string',
+        sex: 0,
+        phone: 13143351504,
+        identify: 0
     }
+    // 购物车内容
     @observable public cart: Array<Good> = [
         {
             "sku_pic": "",
@@ -223,7 +235,7 @@ class Store {
             "isChecked": false,
         },
     ]
-
+    // 商品详情缓存
     @observable public detailCache: Array<CommodityDetail> = [
         {
             spu_id: 1,
@@ -232,31 +244,31 @@ class Store {
             sku_pic: "http://kanolin.cn:9090/img1.jpg",
             des_pic: "http://kanolin.cn:9090/img1-1.jpg",
             attrs: [
-              {
-                id: 1,
-                name: "37码",
-                stock: 520
-              },
-              {
-                id: 2,
-                name: "38码",
-                stock: 521
-              }
+                {
+                    id: 1,
+                    name: "37码",
+                    stock: 520
+                },
+                {
+                    id: 2,
+                    name: "38码",
+                    stock: 521
+                }
             ],
             comments: [
-              {
-                star: 5,
-                comment: "好！物美价廉"
-              },
-              {
-                star: 1,
-                comment: "垃圾鞋子，一个星都不想给，穿一星期就烂了"
-              }
+                {
+                    star: 5,
+                    comment: "好！物美价廉"
+                },
+                {
+                    star: 1,
+                    comment: "垃圾鞋子，一个星都不想给，穿一星期就烂了"
+                }
             ]
-          }
+        }
     ];
 
-    @computed get totalPrice () {
+    @computed get totalPrice() {
         let result: number = 0;
         for (let i: number = 0; i < this.cart.length; i++) {
             if (this.cart[i].isChecked) {
