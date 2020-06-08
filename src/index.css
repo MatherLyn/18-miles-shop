@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 ul {
@@ -15,4 +16,20 @@ body {
 .am-checkbox.am-checkbox-checked .am-checkbox-inner {
     background-color: #f64b00 !important;
     border-color: #f64b00 !important;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
 }

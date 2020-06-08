@@ -9,6 +9,10 @@ import './index.less';
 
 class Profile extends Component {
 
+    removeToSetting=()=>{
+        this.props.history.push('/setting');
+    };
+
     render() {
         return (
             <div id="me">

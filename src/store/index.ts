@@ -9,6 +9,16 @@ export interface SortCommodity{
     img: string;
     name: string;
 }
+export interface AddressInfo{
+    default:boolean,
+    province:string,
+    city:string,
+    county:string,
+    postal_code:number,
+    address:string,
+    recipient:string,
+    phone:number,
+}
 
 export interface Category {
     iconUrl: string;
@@ -48,6 +58,7 @@ export interface CommodityDetail {
     des_pic: string;
     attrs: Array<CommodityAttributes>;
     comments: Array<CommodityComments>;
-  }
+}
+
 
 export const store: Store = new Store();

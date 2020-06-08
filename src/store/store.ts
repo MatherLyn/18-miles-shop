@@ -1,6 +1,7 @@
-import { TopCommodity, Category, Good, SortCommodity, UserInfo, CommodityDetail } from './index';
+import { TopCommodity, Category, Good, SortCommodity, AddressInfo,UserInfo, CommodityDetail } from './index';
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
+
 
 class Store {
     @observable public categories: Array<Category> = [
@@ -266,8 +267,61 @@ class Store {
         return result;
     }
 
-
+    @observable public addresses:Array<AddressInfo>=[
+        {
+            default:false,
+            province:'广东省',
+            city:'广州市',
+            county:'番禺区',
+            postal_code:510006,
+            address:'华南理工大学(大学城校区)',
+            recipient:'林浩2',
+            phone:12345678900,
+        },
+        {
+            default:false,
+            province:'广东省',
+            city:'广州市',
+            county:'番禺区',
+            postal_code:510006,
+            address:'华南理工大学(大学城校区)',
+            recipient:'林浩2',
+            phone:12345678900,
+        },
+        {
+            default:false,
+            province:'广东省',
+            city:'广州市',
+            county:'番禺区',
+            postal_code:510006,
+            address:'华南理工大学(大学城校区)',
+            recipient:'林浩2',
+            phone:12345678900,
+        },
+        {
+            default:false,
+            province:'广东省',
+            city:'广州市',
+            county:'番禺区',
+            postal_code:510006,
+            address:'华南理工大学(大学城校区)',
+            recipient:'林浩2',
+            phone:12345678900,
+        },
+        {
+            default:false,
+            province:'广东省',
+            city:'广州市',
+            county:'番禺区',
+            postal_code:510006,
+            address:'华南理工大学(大学城校区)',
+            recipient:'林浩2',
+            phone:12345678900,
+        },
+    ]
     constructor() {
+
+
     }
 }
 

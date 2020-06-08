@@ -20,7 +20,8 @@ class ISearchBar extends Component {
                 <div className="name" onClick={this.backHome}>十八里铺</div>
                 <Button
                     className="searchBox" onClick={this.jumpTo}
-                    icon={<img src={searchIcon} alt="" />}></Button>
+                    icon={<img src={searchIcon} alt="" />}>
+                </Button>
             </div>
         );
     }

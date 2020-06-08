@@ -9,6 +9,9 @@ import Sort from '../pages/Sort';
 import ShoppingCart from '../pages/ShoppingCart';
 import Settlement from '../pages/Settlement';
 import Profile from '../pages/Profile';
+import AddAddress from '../pages/AddAddress';
+import Address from '../pages/Address';
+import Setting from '../pages/Setting';
 
 interface route {
     path: string;
@@ -57,7 +60,19 @@ const routes: Array<route> = [
     {
         path: '/commoditydetail',
         component: CommodityDetail
-    }
+    },
+    {
+        path: '/setting',
+        component: Setting
+    },
+    {
+        path: '/addaddress',
+        component: AddAddress
+    },
+    {
+        path: '/address',
+        component: Address
+    },
 ]
 
 export default routes;
