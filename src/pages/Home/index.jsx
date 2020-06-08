@@ -75,7 +75,7 @@ export default class Home extends Component {
                         </button>
                     </div>
                     <div id="dailyRecommend">
-                        <h2>每日推荐</h2>
+                        <h2 className="recommendTitle">每日推荐</h2>
                         <ul id="recommendBox">
                             {renderRecommend}
                         </ul>

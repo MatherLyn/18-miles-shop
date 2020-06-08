@@ -1,12 +1,10 @@
 export interface LoginConfig {
-    username: string;
+    email: string;
     password: string;
 }
 
 export interface RegisterConfig {
-    username: string,
-    nickname: string,
-    phone: string,
+    email: string,
     password: string,
     code: string
 }

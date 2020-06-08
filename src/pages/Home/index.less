@@ -1,14 +1,22 @@
-#home{
+#home {
     margin-top: 47px;
     margin-bottom: 50px;
-    #wrapper{
+
+    #wrapper {
         padding: 6px;
-        #sellWell{
+
+        #sellWell {
             border-radius: 8px;
             margin-top: 16px;
             padding: 8px;
             padding-top: 16px;
-            #moreButton{
+
+            .sellWellTitle {
+                font-size: 22px;
+                margin-bottom: 8px;
+            }
+
+            #moreButton {
                 width: 100%;
                 border: none;
                 text-align: center;
@@ -16,39 +24,53 @@
                 margin: 10px 0 6px;
             }
         }
-        #dailyRecommend{
+
+        #dailyRecommend {
             margin-top: 24px;
-            h2{
+
+            h2 {
                 font-size: 18px;
                 font-weight: 500;
                 margin-bottom: 8px;
                 color: #333;
                 padding-left: 12px;
+                margin-top: 15px;
+
+                // .recommendTitle {
+                //     font-size: 22px;
+                //     margin-bottom: 8px;
+                //     padding-left: 20px;
+                //     font: bold;
+                // }
+
+
             }
-            #recommendBox{
+            #recommendBox {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
-                .recommendItem{
+
+                .recommendItem {
                     width: 49%;
                 }
             }
         }
-        #bottomBox{
+        #bottomBox {
             text-align: center;
             margin: 8px 0;
+
             h2 {
                 font-size: 14px;
                 font-weight: normal;
             }
         }
     }
-}
 
-.sell-well-title {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: #333;
-    padding-left: 8px;
+    .sell-well-title {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 8px;
+        color: #333;
+        padding-left: 8px;
+    }
 }

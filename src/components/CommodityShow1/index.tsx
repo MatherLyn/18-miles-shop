@@ -45,7 +45,7 @@ class CommodityShow1 extends Component<IProps, IState> {
                     <div className="span-box-container">{this.renderSpan}</div>
                     <h2 className="commodityName">{this.props.name}</h2>
                     <div className="bottomBox">
-                        <h2 className="commodityPrice">{`¥ ${this.props.price}`}</h2>
+                        <div className="commodityPrice">{`¥ ${this.props.price}`}</div>
                         <div className="commodityCollect" onClick={this.handleAddToCart}><img src={shoppingCart} alt="收藏"></img></div>
                     </div>
                 </div>
