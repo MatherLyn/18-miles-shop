@@ -37,8 +37,8 @@
             }
             .input-box{
                 margin-bottom: 20px;
-                .username-icon{
-                    background: url('./images/user.png') no-repeat center center/cover;
+                .email-icon{
+                    background: url('./images/email.png') no-repeat center center/cover;
                     height: 22px;
                     width: 22px;
                 }
@@ -53,6 +53,9 @@
                 .am-list-item.am-input-item {
                     padding-right: 15px;
                 }
+                // InputItem:active{
+                //     box-shadow:0 0 1px rgb(51, 163, 255) inset;
+                // }
             }
             .button-box{
                 display: flex;
@@ -66,9 +69,13 @@
                     font-size: 12px;
                     font-weight: 500;
                 }
-                .button-login{
-                }
-                .button-register{
+                .tips{
+                    color: rgb(87, 87, 87);
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 5px;
+                    font-size: 12px;
+                    display: none;
                 }
             }
             .message-box{
@@ -130,6 +137,9 @@
                     .button-login{
                         margin-top: 10px;
                         margin-bottom: 10px;
+                    }
+                    .tips{
+                        display: block;
                     }
                 }
                 .message-box{
