@@ -1,4 +1,23 @@
 .categoryBox{
     margin-top: 10px;
-    border: #C0C0C0 solid;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    .category-item {
+        width: 25%;
+        padding: 8px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 8px;
+        }
+        .category-name {
+            color: #333;
+            font-weight: 400;
+        }
+    }
 }

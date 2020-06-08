@@ -8,10 +8,6 @@ import ShowSellWell from '../../components/ShowSellWell'
 
 export default class Home extends Component {
 
-    handleJumpToSearch = () => {
-        this.props.history.push('/search');
-    };
-
     buttonOnClick = () => {
         this.props.history.push('/sellwell');
     };
@@ -20,62 +16,62 @@ export default class Home extends Component {
         const commodities2 = [{
             'tag': ['标签1', '标签1', '标签1'],
             'name': '商品名称1',
-            'price': '￥30'
+            'price': 30
         },
         {
             'tag': ['标签2', '标签2'],
             'name': '商品名称2',
-            'price': '￥33'
+            'price': 33
         },
         {
             'tag': ['标签3', '标签3', '标签3'],
             'name': '商品名称3',
-            'price': '￥45'
+            'price': 45
         },
         {
             'tag': ['标签3', '标签3'],
             'name': '商品名称3',
-            'price': '￥45'
+            'price': 45
         },
         {
             'tag': ['标签3', '标签3', '标签3'],
             'name': '商品名称3',
-            'price': '￥45'
+            'price': 45
         },
         {
             'tag': ['标签3', '标签3', '标签3'],
             'name': '商品名称3',
-            'price': '￥45'
+            'price': 45
         },
         {
             'tag': ['标签3', '标签3'],
             'name': '商品名称3',
-            'price': '￥45'
+            'price': 45
         },
         {
             'tag': ['标签3'],
             'name': '商品名称3',
-            'price': '￥45'
+            'price': 45
         }];
         const renderRecommend = commodities2.map((content, index) => {
             return (
                 <li key={index} className="recommendItem">
-                    <CommodityShow2 tag={content.tag} name={content.name} price={content.price} />
+                    <CommodityShow2 index={index} tag={content.tag} name={content.name} price={content.price} />
                 </li>
             );
         });
 
         return (
             <div id="home">
-                <ISearchBar jumpTo={this.handleJumpToSearch} />
+                <ISearchBar />
                 <ICarousel />
                 <div id="wrapper">
                     <Categories />
                     <div id="sellWell">
-                        <h2>热卖TOP3</h2>
+                        <h2 className="sell-well-title">热卖TOP3</h2>
                         <ShowSellWell topThree={true} />
                         <button onClick={this.buttonOnClick} id="moreButton">
-                            更多
+                            更多...
                         </button>
                     </div>
                     <div id="dailyRecommend">
@@ -85,7 +81,7 @@ export default class Home extends Component {
                         </ul>
                     </div>
                     <div id="bottomBox">
-                        <h2>木有更多拉</h2>
+                        <h2>木有更多啦</h2>
                     </div>
                 </div>
             </div>

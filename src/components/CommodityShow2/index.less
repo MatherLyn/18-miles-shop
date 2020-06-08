@@ -1,34 +1,48 @@
 .commodityBox2{
     padding: 0;
     margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     .commodityImage{
         height: 170px;
         width: 100%;
     }
     .commodityDetails{
-        padding: 5px;
-        border: #C0C0C0 solid;
+        padding: 8px;
         border-top: none;
-        border-width: 1px; 
+        border-width: 1px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
         h1{
-            font-size: 18px;
+            font-size: 14px;
+            font-weight: normal;
             margin: 3px 0 3px 0;
         }
-        .spanBox{
-            border: #C0C0C0 solid;
-            border-radius: 5px;
-            padding: 1px 5px 1px 5px;
-            margin-right: 3px;
-            font-size: 11px;
+        .tagBox {
+            margin: 4px 0;
+            line-height: 24px;
+            .spanBox{
+                border: 1px #C0C0C0 solid;
+                border-radius: 5px;
+                padding: 1px 5px 1px 5px;
+                margin-right: 3px;
+                font-size: 12px;
+            }
         }
         .bottomBox{
             display: flex;
             position: relative;
             align-items: center;
+            .commodity-price {
+                color: #C65624;
+                flex: 1;
+            }
             .showDetail{
-                height: 20px;
-                width: 20px;
-                position: absolute;
+                height: 14px;
+                width: 14px;
                 right: 0;
                 padding: 0;
             }

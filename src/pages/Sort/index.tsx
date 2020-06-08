@@ -30,31 +30,33 @@ class Sort extends Component {
         return (
             <div id="sort">
                 <SearchBar />
-                <Menu focusIndex={this.state.focusIndex} handleClick={this.handleClick} />
-                <div id="wrapper">
-                    <div className="imgBox">
-                        <img src={image1} alt="商品展示1" />
-                    </div>
-                    <div id="caption">
-                        {'--' + store.tabs[this.state.focusIndex] + '--'}
-                    </div>
-                    <div id="displayBox">
-                        {
-                            store.sortCommodities.map((content, index) => (
-                                index >= this.state.focusIndex * 9 && index < (this.state.focusIndex + 1) * 9 ?
-                                    (
-                                        <div className="box">
-                                            <img src={content.img} alt="商品图片" />
-                                            <h1>{content.name}</h1>
-                                        </div>
-                                    ) : (
-                                        ''
-                                    )
-                            ))
-                        }
-                    </div>
-                    <div className="imgBox">
-                        <img src={image2} alt="商品展示2" />
+                <div className="container">
+                    <Menu focusIndex={this.state.focusIndex} handleClick={this.handleClick} />
+                    <div id="wrapper">
+                        <div className="imgBox">
+                            <img src={image1} alt="商品展示1" />
+                        </div>
+                        <div id="caption">
+                            {'-- ' + store.tabs[this.state.focusIndex] + ' --'}
+                        </div>
+                        <div id="displayBox">
+                            {
+                                store.sortCommodities.map((content, index) => (
+                                    index >= this.state.focusIndex * 9 && index < (this.state.focusIndex + 1) * 9 ?
+                                        (
+                                            <div className="box" key={index}>
+                                                <img src={content.img} alt="商品图片" />
+                                                <h1>{content.name}</h1>
+                                            </div>
+                                        ) : (
+                                            ''
+                                        )
+                                ))
+                            }
+                        </div>
+                        <div className="imgBox">
+                            <img src={image2} alt="商品展示2" />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -16,11 +16,10 @@ class Profile extends Component {
                     <div id="topBox">
                         <img id="settingIcon" src={setting} alt="设置"  onClick={this.removeToSetting}/>
                         <div id="user">
-                            <div id="userInfo">
-                                <img id="avatar" src={avatar} alt="用户头像"/>
-                                <div id="name">
-                                    <h1>用户昵称</h1>
-                                    <h1>用户ID</h1>
+                            <img id="avatar" src={avatar} alt="用户头像"/>
+                            <div id="name">
+                                <div className="user-info">
+                                    <div className="user-content">{`林大妈，你好`}</div>
                                 </div>
                             </div>
                             <div id="links">
@@ -33,18 +32,20 @@ class Profile extends Component {
                             </div>
                         </div>
                     </div>
-                    <div id="orderBox">
-                        <div id="caption">
-                            <h1>我的订单</h1>
-                            <span onClick={this.showOrder}>查看全部订单</span>
-                        </div>
-                        <div id="stages">
-                            <ul>
-                                <li onClick={this.showOrder1}><img className="stagesIcon" src={notPay} alt="待付款" />待付款</li>
-                                <li onClick={this.showOrder2}><img className="stagesIcon" src={notShip} alt="待发货" />待发货</li>
-                                <li onClick={this.showOrder3}><img className="stagesIcon" src={notReceive} alt="待收获" />待收获</li>
-                                <li onClick={this.showOrder4}><img className="stagesIcon" src={notComment} alt="待评价" />待评价</li>
-                            </ul>
+                    <div className="inner-wrapper">
+                        <div id="orderBox">
+                            <div id="caption">
+                                <h1>我的订单</h1>
+                                <span onClick={this.showOrder}>查看全部订单</span>
+                            </div>
+                            <div id="stages">
+                                <ul>
+                                    <li onClick={this.showOrder1}><img className="stagesIcon" src={notPay} alt="待付款" />待付款</li>
+                                    <li onClick={this.showOrder2}><img className="stagesIcon" src={notShip} alt="待发货" />待发货</li>
+                                    <li onClick={this.showOrder3}><img className="stagesIcon" src={notReceive} alt="待收获" />待收获</li>
+                                    <li onClick={this.showOrder4}><img className="stagesIcon" src={notComment} alt="待评价" />待评价</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

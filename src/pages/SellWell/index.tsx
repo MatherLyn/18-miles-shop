@@ -11,7 +11,7 @@ class SellWell extends Component {
                     <h1>十八里铺热卖榜</h1>
                     <ShowSellWell topThree={false} />
                     <div id="bottomBox">
-                        <h2>木有更多了</h2>
+                        <h2>木有更多啦</h2>
                     </div>
                 </div>
             </div>

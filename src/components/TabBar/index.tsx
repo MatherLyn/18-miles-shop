@@ -13,24 +13,45 @@ import { getRoute } from '../../util';
 import './index.css'
 
 
-interface IMapProps extends RouteComponentProps {
-    history: any;
+interface IProps extends RouteComponentProps {
+    
 }
 
-interface IMapState {
+interface IState {
     selectedTab: string;
     hidden: boolean;
 }
 
-class ITabBar extends Component<IMapProps, IMapState> {
+class ITabBar extends Component<IProps, IState> {
     private show: Array<string> = ['home', 'sort', 'shoppingCart', 'profile'];
-    constructor(props: IMapProps) {
+    constructor(props: IProps) {
         super(props);
         const route: string = getRoute();
+        if (!route) {
+            this.state = {
+                selectedTab: route,
+                hidden: true
+            }
+            return;
+        }
         this.state = {
             selectedTab: route,
             hidden: this.show.indexOf(route) === -1 ? true : false,
         };
+    }
+
+    componentWillReceiveProps(nextProps: any) {
+        const route: string = getRoute();
+        if (!route) {
+            this.setState({
+                selectedTab: route,
+                hidden: true
+            });
+            return;
+        }
+        this.setState({
+            hidden: this.show.indexOf(route) === -1 ? true : false
+        })
     }
 
     renderTab = (route: string) => {

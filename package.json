@@ -153,5 +153,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-config": "^5.0.1",
+    "react-router-config": "^5.1.1"
   }
 }

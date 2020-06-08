@@ -1,6 +1,5 @@
 #me{
     margin-bottom: 50px;
-    background-color: #FFFFFF;
     height: 100%;
     #wrapper{
         #topBox{
@@ -8,15 +7,17 @@
             height: 200px;
             position: relative;
             #settingIcon{
-                height: 30px;
-                width: 30px;
+                height: 20px;
+                width: 20px;
                 position: absolute;
                 top:15px;
                 right: 20px;
             }
             #user{
                 position: absolute;
+                box-sizing: border-box;
                 width: 90%;
+                padding: 8px;
                 height: 160px;
                 top: 70px;
                 left:5%;
@@ -24,28 +25,32 @@
                 border-radius: 15px;
                 border-color: #aaaaaa;
                 box-shadow:0px -1px 3px #aaaaaa;
-                #userInfo{
+                #avatar{
+                    height: 64px;
+                    width: 64px;
+                    position: absolute;
+                    top: -20px;
+                    left: 10px;
+                    border-radius: 90px;
+                }
+                #name{
+                    margin-left: 80px;
                     display: flex;
-                    #avatar{
-                        height: 90px;
-                        width: 90px;
-                        flex:1;
-                        position: absolute;
-                        top: -30px;
-                        left: 10px;
-                        border-radius: 90px;
-                    }
-                    #name{
-                        flex: 5;
-                        position: absolute;
-                        left: 120px;
-                        h1{
-                            font-size: 15px;
+                    align-items: center;
+                    height: 36px;
+                    .user-info {
+                        height: 26px;
+                        display: flex;
+                        line-height: 26px;
+                        .user-content {
+                            font-size: 24px;
+                            font-weight: 500;
+                            color: #333;
                         }
                     }
                 }
                 #links{
-                    margin-top: 100px;
+                    margin-top: 16px;
                     ul{
                         display: flex;
                         width: 100%;
@@ -56,46 +61,59 @@
                             color: rgb(179, 179, 179);
                         }
                         li:nth-child(-n+3){
-                            border-right: solid rgba(179, 179, 179,0.3);
+                            // border-right: solid rgba(179, 179, 179,0.3);
                         }
                     }
                 }
             }
         }
-        #orderBox{
-            margin-top: 60px;
+        .inner-wrapper {
+            box-sizing: border-box;
             width: 100%;
-            padding: 0 20px;
-            #caption{
-                display: flex;
-                justify-content: space-between;
-                font-size: 15px;
-                align-items: center;
-                border-bottom: solid rgba(179, 179, 179,0.2);
-                h1{
-                    font-size: 15px;
-                    font-weight: 600;
-                    color: #000;
-                }
-                span{
-                    color: rgb(179, 179, 179);
-                }
-            }
-            #stages{
-                margin-top: 15px;
-                ul{
+            padding: 10px;
+            #orderBox{
+                box-sizing: border-box;
+                margin-top: 34px;
+                width: 100%;
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 10px;
+                #caption{
                     display: flex;
-                    justify-content: space-around;
-                    li{
-                        width: 20%;
+                    justify-content: space-between;
+                    height: 30px;
+                    line-height: 30px;
+                    font-size: 14px;
+                    align-items: center;
+                    border-bottom: 1px solid rgba(179, 179, 179,0.2);
+                    padding: 0 4px;
+                    h1{
+                        margin: 0;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #000;
+                    }
+                    span{
+                        color: rgb(179, 179, 179);
+                    }
+                }
+                #stages{
+                    margin: 12px 0px 4px;
+                    ul{
                         display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        font-size: 13px;
-                        .stagesIcon{
-                            height: 25px;
-                            width: 25px;
+                        justify-content: space-around;
+                        li{
+                            width: 20%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 13px;
+                            .stagesIcon{
+                                height: 25px;
+                                width: 25px;
+                                margin-bottom: 4px;
+                            }
                         }
                     }
                 }

@@ -1,23 +1,19 @@
-#menuBox{
-    position: relative;
+#menuBox {
+    width: 90px;
+    background-color: #fff;
+    overflow-y: auto;
     #menu{
-        position: fixed;
-        width: 90px;
-        height: calc(100% - 6px - 47px - 50px);
-        border: solid rgba(179, 179, 179,0.6);
-        border-width: 2px 2px 2px 0;
-        background-color: #fff;
-        overflow-y: auto;
         .tab{
             display: inline-block;
             width: 100%;
-            height: 23px;
-            margin:12px 0;
+            height: 20px;
+            line-height: 20px;
+            margin: 12px 0;
             text-align: center;
+            box-sizing: border-box;
         }
         .tabFocus{
-            border-left: solid rgba(198, 86, 36, 0.4);
-            border-width: 8px;
+            border-left: 8px solid rgba(198, 86, 36, 0.4);
         }
     }
     #menu::-webkit-scrollbar {

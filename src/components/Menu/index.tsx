@@ -13,6 +13,7 @@ interface IMapState {
 
 @observer
 class Menu extends Component<IMapProps, IMapState> {
+    
 
     render() {
         return (
