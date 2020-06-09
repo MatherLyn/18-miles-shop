@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, MessageBox } from 'element-react'
+import { Switch, MessageBox,Input } from 'element-react'
 import './index.less';
 import { AddressInfo } from '../../store';
 import { collectAnchor } from '../../util';
@@ -9,29 +9,34 @@ interface IProps {
 
 };
 interface IState {
-
+    address: AddressInfo;
 };
 
 class AddAddress extends Component<IProps, IState> {
-    private address: AddressInfo = {
-        default: false,
-        province: '',
-        city: '',
-        county: '',
-        postal_code: 510000,
-        address: '',
-        recipient: '',
-        phone: 10000000000,
-    };
-
     constructor(props: IProps) {
         super(props);
         const paramMap: Map<string, string> = collectAnchor(window.location.href);
-        this.address = this.convertParamToAddressInfo(paramMap);
+        this.state = {
+            address: {
+                default: false,
+                province: '',
+                city: '',
+                county: '',
+                postal_code: '',
+                address: '',
+                recipient: '',
+                phone: '',
+            }
+        }
+        if (paramMap.size !== 0) {
+            this.state = {
+                address: this.convertParamToAddressInfo(paramMap)
+            }
+        }
     };
 
     convertParamToAddressInfo = (map: Map<string, string>): AddressInfo => {
-        const keys: Array<string> = Reflect.ownKeys(this.address) as Array<string>;
+        const keys: Array<string> = Reflect.ownKeys(this.state.address) as Array<string>;
         const result: any = {} as AddressInfo;
         try {
             for (let i: number = 0; i < keys.length; i++) {
@@ -39,9 +44,6 @@ class AddAddress extends Component<IProps, IState> {
                     continue;
                 }
                 let value: string | number | boolean = map.get(keys[i]) as string;
-                if (keys[i] === 'postal_code' || keys[i] === 'phone') {
-                    value = parseInt(value);
-                }
                 if (keys[i] === 'default') {
                     value = value === 'true' ? true : false;
                 }
@@ -54,15 +56,15 @@ class AddAddress extends Component<IProps, IState> {
     }
 
     handleAdd = () => {
-        if (this.address.recipient === undefined) {
+        if (this.state.address.recipient === '') {
             MessageBox.alert('收货人不能为空噢！', '');
             return;
         }
-        if (this.address.phone === undefined) {
+        if (this.state.address.phone === '') {
             MessageBox.alert('收货人手机号码不能为空噢！', '');
             return;
         }
-        if (this.address.province === undefined || this.address.city === undefined || this.address.county === '' || this.address.address === '') {
+        if (this.state.address.province === '' || this.state.address.city === '' || this.state.address.county === '' || this.state.address.address === '') {
             MessageBox.alert('收货地址输入有误！', '');
             return;
         }
@@ -70,12 +72,22 @@ class AddAddress extends Component<IProps, IState> {
 
     };
 
+    handleInputChange = (type: string, value: any) => {
+        debugger
+        this.setState({
+            address: {
+                ...this.state.address,
+                [type]: value
+            }
+        })
+    }
+
     handleReturn = () => {
-        this.props.history.push('/address');
+        this.props.history.goBack();
     };
 
     handleSwitchOnChange = (e: any) => {
-        this.address.default = e;
+        this.state.address.default = e;
     };
     render() {
         return (
@@ -88,9 +100,14 @@ class AddAddress extends Component<IProps, IState> {
                     <div className="add-address" onClick={this.handleAdd}>保存</div>
                 </div>
                 <div className="add-address-main-box">
-                    <input className="input" placeholder="收货人" value={this.address.recipient}></input>
-                    <input className="input" placeholder="手机号码" value={this.address.phone}></input>
-                    <input className="input" placeholder="详细地址" ></input>
+                    <Input className="input" placeholder="收货人" value={this.state.address.recipient} onChange={value => this.handleInputChange('recipient', value)}></Input>
+                    <Input className="input" placeholder="手机号码" value={this.state.address.phone} onChange={value => this.handleInputChange('phone', value)}></Input>
+                    <div className="concret-address">
+                        <Input className="province" placeholder="例：广东" value={this.state.address.province} onChange={value => this.handleInputChange('province', value)}></Input><div className="tips">省</div>
+                        <Input className="city" placeholder="例：广州" value={this.state.address.city} onChange={value => this.handleInputChange('city', value)}></Input><div className="tips">市</div>
+                        <Input className="county" placeholder="例：天河" value={this.state.address.county} onChange={value => this.handleInputChange('county', value)}></Input><div className="tips">区</div>
+                    </div>
+                    <Input className="input" placeholder="详细地址" value={this.state.address.address} onChange={value => this.handleInputChange('address', value)}></Input>
                     <div className="a-box">
                         <h1 className="label">设为默认地址</h1>
                         <Switch

@@ -33,7 +33,12 @@ class Profile extends Component<IProps, IState> {
                     <div id="topBox">
                         <img id="settingIcon" src={setting} alt="设置"  onClick={this.removeToSetting}/>
                         <div id="user">
-                            <img id="avatar" src={avatar} alt="用户头像"/>
+                            <div
+                                id="avatar"
+                                style={{
+                                    backgroundImage: `url(${avatar})`
+                                }}
+                            />
                             <div id="name">
                                 <div className="user-info">
                                     <div className="user-content">{`林大妈，你好`}</div>
@@ -41,10 +46,22 @@ class Profile extends Component<IProps, IState> {
                             </div>
                             <div id="links">
                                 <ul>
-                                    <li onClick={e => this.routeTo('/collection')}>收藏</li>
-                                    <li onClick={e => this.routeTo('/discount')}>优惠</li>
-                                    <li onClick={e => this.routeTo('/history')}>足迹</li>
-                                    <li onClick={e => this.routeTo('/bill')}>账单</li>
+                                    <li onClick={e => this.routeTo('/collection')}>
+                                        <div className="link-icon collection"></div>
+                                        <div className="link-title">收藏</div>
+                                    </li>
+                                    <li onClick={e => this.routeTo('/discount')}>
+                                        <div className="link-icon discount"></div>
+                                        <div className="link-title">优惠</div>
+                                    </li>
+                                    <li onClick={e => this.routeTo('/history')}>
+                                        <div className="link-icon history"></div>
+                                        <div className="link-title">足迹</div>
+                                    </li>
+                                    <li onClick={e => this.routeTo('/bill')}>
+                                        <div className="link-icon bill"></div>
+                                        <div className="link-title">账单</div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

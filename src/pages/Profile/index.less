@@ -1,108 +1,156 @@
-#me{
+#me {
     margin-bottom: 50px;
     height: 100%;
-    #wrapper{
-        #topBox{
-            background-color:rgb(198, 86, 36);
-            height: 200px;
+
+    #wrapper {
+        #topBox {
+            background-color: rgb(198, 86, 36);
+            height: 170px;
             position: relative;
-            #settingIcon{
+
+            #settingIcon {
                 height: 20px;
                 width: 20px;
                 position: absolute;
-                top:15px;
+                top: 15px;
                 right: 20px;
             }
-            #user{
+
+            #user {
                 position: absolute;
                 box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
                 width: 90%;
-                padding: 8px;
-                height: 160px;
+                padding: 16px;
                 top: 70px;
-                left:5%;
+                left: 5%;
                 background-color: #FFFFFF;
                 border-radius: 15px;
                 border-color: #aaaaaa;
-                box-shadow:0px -1px 3px #aaaaaa;
-                #avatar{
+                box-shadow: 0px -1px 3px #aaaaaa;
+
+                #avatar {
                     height: 64px;
                     width: 64px;
                     position: absolute;
                     top: -20px;
                     left: 10px;
                     border-radius: 90px;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
                 }
-                #name{
+
+                #name {
                     margin-left: 80px;
                     display: flex;
                     align-items: center;
-                    height: 36px;
+
                     .user-info {
                         height: 26px;
                         display: flex;
                         line-height: 26px;
+
                         .user-content {
-                            font-size: 24px;
-                            font-weight: 500;
+                            font-size: 20px;
+                            font-weight: 400;
                             color: #333;
                         }
                     }
                 }
-                #links{
-                    margin-top: 16px;
-                    ul{
+
+                #links {
+                    padding-top: 16px;
+
+                    ul {
                         display: flex;
                         width: 100%;
-                        li{
-                            display: inline-block;
+
+                        li {
                             width: 25%;
-                            text-align: center;
-                            color: rgb(179, 179, 179);
-                        }
-                        li:nth-child(-n+3){
-                            // border-right: solid rgba(179, 179, 179,0.3);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+
+                            .link-icon {
+                                width: 32px;
+                                height: 32px;
+                                background-image: url('../../assets/icon-sprite.jpg');
+                                background-size: 224px 192px;
+                                margin-bottom: 4px;
+                            }
+
+                            .collection {
+                                background-position: -126px -160px;
+                            }
+
+                            .discount {
+                                background-position: -158px -160px;
+                            }
+
+                            .history {
+                                background-position: -192px 0px;
+                            }
+
+                            .bill {
+                                background-position: -94px -160px;
+                            }
+
+                            .link-title {
+                                width: 100%;
+                                text-align: center;
+                                color: rgb(179, 179, 179);
+                            }
                         }
                     }
                 }
             }
         }
+
         .inner-wrapper {
             box-sizing: border-box;
             width: 100%;
             padding: 10px;
-            #orderBox{
+
+            #orderBox {
                 box-sizing: border-box;
                 margin-top: 34px;
                 width: 100%;
                 background-color: #fff;
                 border-radius: 8px;
                 padding: 10px;
-                #caption{
+
+                #caption {
                     display: flex;
                     justify-content: space-between;
                     height: 30px;
                     line-height: 30px;
                     font-size: 12px;
                     align-items: center;
-                    border-bottom: 1px solid rgba(179, 179, 179,0.2);
+                    border-bottom: 1px solid rgba(179, 179, 179, 0.2);
                     padding: 0 4px;
-                    h1{
+
+                    h1 {
                         margin: 0;
-                        font-size: 16px;
-                        font-weight: 500;
+                        font-size: 14px;
+                        font-weight: 400;
                         color: #333;
                     }
-                    span{
+
+                    span {
                         color: rgb(179, 179, 179);
                     }
                 }
-                #stages{
+
+                #stages {
                     margin: 12px 0px 4px;
-                    ul{
+
+                    ul {
                         display: flex;
                         justify-content: space-around;
-                        li{
+
+                        li {
                             width: 20%;
                             display: flex;
                             flex-direction: column;
@@ -110,7 +158,8 @@
                             align-items: center;
                             font-size: 14px;
                             font-weight: 300;
-                            .stagesIcon{
+
+                            .stagesIcon {
                                 height: 24px;
                                 width: 24px;
                                 margin-bottom: 8px;

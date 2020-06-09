@@ -1,4 +1,4 @@
-import { TopCommodity, Category, Good, SortCommodity, AddressInfo, UserInfo, CommodityDetail } from './index';
+import { TopCommodity, Category, Good, SortCommodity, AddressInfo, UserInfo, CommodityDetail, OrderDetail } from './index';
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 
@@ -72,8 +72,8 @@ class Store {
             'price': 45
         }
     ];
-    //首页的推荐
-    @observable public recommendCommodities:Array<TopCommodity>=[
+    // 首页的推荐
+    @observable public recommendCommodities: Array<TopCommodity> = [
         {
             'tag': ['标签1', '标签1', '标签1'],
             'name': '商品名称1',
@@ -318,52 +318,109 @@ class Store {
             province: '广东省',
             city: '广州市',
             county: '番禺区',
-            postal_code: 510006,
+            postal_code: '510006',
             address: '华南理工大学(大学城校区)',
             recipient: '林浩2',
-            phone: 12345678900,
+            phone: '12345678900',
         },
         {
             default: false,
             province: '广东省',
             city: '广州市',
             county: '番禺区',
-            postal_code: 510006,
+            postal_code: '510006',
             address: '华南理工大学(大学城校区)',
             recipient: '林浩2',
-            phone: 12345678900,
+            phone: '12345678900',
         },
         {
             default: false,
             province: '广东省',
             city: '广州市',
             county: '番禺区',
-            postal_code: 510006,
+            postal_code: '510006',
             address: '华南理工大学(大学城校区)',
             recipient: '林浩2',
-            phone: 12345678900,
+            phone: '12345678900',
         },
         {
             default: false,
             province: '广东省',
             city: '广州市',
             county: '番禺区',
-            postal_code: 510006,
+            postal_code: '510006',
             address: '华南理工大学(大学城校区)',
             recipient: '林浩2',
-            phone: 12345678900,
+            phone: '12345678900',
         },
         {
             default: false,
             province: '广东省',
             city: '广州市',
             county: '番禺区',
-            postal_code: 510006,
+            postal_code: '510006',
             address: '华南理工大学(大学城校区)',
             recipient: '林浩2',
-            phone: 12345678900,
+            phone: '12345678900',
         },
     ];
+    // 订单内容
+    @observable public order: Array<OrderDetail> = [
+        {
+            spu_id: 0,
+            id: 1,
+            name: 'string',
+            sku_img: 'string',
+            price: 555,
+            num: 13,
+            status: 0,
+        },
+        {
+            spu_id: 0,
+            id: 12,
+            name: 'string',
+            sku_img: 'string',
+            price: 1234,
+            num: 3,
+            status: 2,
+        },
+        {
+            spu_id: 0,
+            id: 33,
+            name: 'string',
+            sku_img: 'string',
+            price: 4312,
+            num: 123,
+            status: 1,
+        },
+        {
+            spu_id: 0,
+            id: 123,
+            name: 'string',
+            sku_img: 'string',
+            price: 4562,
+            num: 3,
+            status: 3,
+        },
+        {
+            spu_id: 0,
+            id: 44,
+            name: 'string',
+            sku_img: 'string',
+            price: 2345,
+            num: 12,
+            status: 2,
+        },
+        {
+            spu_id: 0,
+            id: 11,
+            name: 'string',
+            sku_img: 'string',
+            price: 767,
+            num: 1,
+            status: 0,
+        },
+    ]
 
     @computed get totalPrice() {
         let result: number = 0;

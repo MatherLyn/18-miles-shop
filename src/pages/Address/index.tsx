@@ -20,7 +20,7 @@ class Address extends Component<IProps, IState> {
         this.props.history.push('/addaddress');
     };
     handleReturn=()=>{
-        this.props.history.push('/profile');
+        this.props.history.push('/setting');
     };
     render() {
         return (
