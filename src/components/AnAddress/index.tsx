@@ -27,7 +27,7 @@ class AnAddress extends Component<IProps, IState> {
                         <span className="name">{this.props.name}</span>
                         <span className="number">{this.props.number}</span>
                     </div>
-                    <div className="box2"><span style={{display:this.props.default?'inline':'none'}}>默认</span>{this.props.address}</div>
+                    <div className="box2"><span style={{display:this.props.default?'inline':'none'}} className="default-span">默认</span>{this.props.address}</div>
                 </div>
                 <div className="edit" onClick={this.handleEdit}>编辑</div>
             </div>
