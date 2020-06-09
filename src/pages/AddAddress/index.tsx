@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Switch, MessageBox } from 'element-react'
 import returnIcon from './images/return.png'
 import './index.less';
+import { AddressInfo } from '../../store';
+import { collectAnchor } from '../../util';
 
 interface IProps {
     history: any,
@@ -12,19 +14,46 @@ interface IState {
 };
 
 class AddAddress extends Component<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
-    };
-    address = {
+    private address: AddressInfo = {
         default: false,
         province: '',
         city: '',
         county: '',
-        postal_code: 0,
+        postal_code: 510000,
         address: '',
         recipient: '',
-        phone: 0,
+        phone: 10000000000,
     };
+
+    constructor(props: IProps) {
+        super(props);
+        const paramMap: Map<string, string> = collectAnchor(window.location.href);
+        this.address = this.convertParamToAddressInfo(paramMap);
+    };
+
+    convertParamToAddressInfo = (map: Map<string, string>): AddressInfo => {
+        const keys: Array<string> = Reflect.ownKeys(this.address) as Array<string>;
+        const result: any = {} as AddressInfo;
+        try {
+            for (let i: number = 0; i < keys.length; i++) {
+                if (keys[i] === 'index') {
+                    continue;
+                }
+                let value: string | number | boolean = map.get(keys[i]) as string;
+                if (keys[i] === 'postal_code' || keys[i] === 'phone') {
+                    value = parseInt(value);
+                }
+                if (keys[i] === 'default') {
+                    value = value === 'true' ? true : false;
+                }
+                result[keys[i]] = value;
+            }
+        } catch (e) {
+            MessageBox.alert('获取用户地址失败，请重新尝试……')
+        }
+        return result;
+    }
+
     handleAdd = () => {
         if (this.address.recipient === '') {
             MessageBox.alert('收货人不能为空噢！', '');
@@ -41,9 +70,11 @@ class AddAddress extends Component<IProps, IState> {
         //检查完成后发请求..
         
     };
+
     handleReturn = () => {
-        this.props.history.goBack();
+        this.props.history.push('/address');
     };
+
     handleSwitchOnChange = (e: any) => {
         this.address.default = e;
     };
@@ -52,7 +83,7 @@ class AddAddress extends Component<IProps, IState> {
             <div className="add-address">
                 <div className="add-address-head">
                     <img src={returnIcon} alt="" onClick={this.handleReturn} />
-                    <h1>添加收货地址</h1>
+                    <h1>新的收货地址</h1>
                     <div className="add-address" onClick={this.handleAdd}>保存</div>
                 </div>
                 <div className="add-address-main-box">

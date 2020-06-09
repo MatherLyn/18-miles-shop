@@ -20,7 +20,7 @@ class Address extends Component<IProps, IState> {
         this.props.history.push('/addaddress');
     };
     handleReturn=()=>{
-        this.props.history.goBack();
+        this.props.history.push('/profile');
     };
     render() {
         return (
@@ -33,7 +33,7 @@ class Address extends Component<IProps, IState> {
                 <div className="address-main-box">
                     {
                         store.addresses.map((content:AddressInfo, index:number) => {
-                            return (<AddAddress key={index} name={content.recipient} number={content.phone} address={content.province+''+content.city+''+content.county+''+content.address} default={content.default}/>);
+                            return (<AddAddress key={index} index={index} />);
                         })
                     }
                 </div>
