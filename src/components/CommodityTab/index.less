@@ -1,54 +1,72 @@
-.commodity-tab{
-        background-color: #FFF;
-        border-radius: 10px;
-        padding: 20px;
-        margin-top: 10px;
-    .head-box{
+.commodity-tab {
+    background-color: #FFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+
+    .head-box {
         display: flex;
         justify-content: space-between;
-        .commodity-image{
+        margin-bottom: 16px;
+
+        .commodity-image {
             padding-top: 0;
             width: 80px;
             height: 80px;
-            // border: 1px solid black;
             margin-right: 10px;
-            border-radius:5px;
+            border-radius: 5px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
-        .commodity-info{
+
+        .commodity-info {
             flex: 1;
-            .commodity-name{
-                font-size: 15px;
+
+            .commodity-name {
+                font-size: 16px;
                 margin-bottom: 10px;
             }
-            .commodity-detail{
-                font-size: 15px;
+
+            .commodity-detail {
+                font-size: 14px;
             }
         }
-        .order-info{
-            width: 35px;
+
+        .order-info {
             margin-left: 10px;
-            .commodity-price{
-                font-size: 15px;
-            }
-            .commodity-number{
-                font-size: 15px;
+
+            div {
+                font-size: 14px;
+                text-align: right;
             }
         }
     }
-    .bottom-box{
+
+    .bottom-box {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        .price-sum{
-            margin-bottom: 10px;
+
+        .price-sum {
+            width: 100%;
+            margin-bottom: 16px;
+            text-align: right;
         }
-        .buttons-container{
-            .comment{
+
+        .buttons-container {
+            display: flex;
+            .comment {
+                width: fit-content;
+                height: 32px;
+                padding: 8px 36px;
+                line-height: 14px;
+                font-size: 14px;
                 border: 1px rgb(255, 88, 0) solid;
-                padding: 5px 18px;
-                border-radius: 15px;
+                color: rgb(255, 88, 0);
+                border-radius: 16px;
             }
         }
     }
-    
+
 }

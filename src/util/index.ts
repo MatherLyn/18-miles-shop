@@ -1,3 +1,6 @@
+import { getCommodityList } from '../api/index';
+import { store, Commodity } from '../store';
+
 export function getRoute () {
     const url: string = window.location.href;
     // TODO 隐患
@@ -44,4 +47,19 @@ export function collectAnchor (pathname: string) {
         }
     }
     return result;
+}
+
+export async function doSearch (param: any) {
+    // const res = await getCommodityList(param);
+    // const list = res.data as Array<Commodity>;
+    // store.searchResult.concat(list);
+    if (!param.keyword) {
+        return;
+    }
+    const length: number = store.recentSearch.length;
+    if (length > 15) {
+        store.recentSearch.unshift();
+    }
+    store.recentSearch.push(param.keyword);
+    window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
 }

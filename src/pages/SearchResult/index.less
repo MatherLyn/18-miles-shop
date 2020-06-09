@@ -1,6 +1,4 @@
-.search-result{
-        background-color: #FFF;
-
+.search-result {
     .search-box {
         display: flex;
         padding: 8px;
@@ -47,7 +45,21 @@
             color: #666;
         }
     }
-    .wrapper{
-        padding: 10px 10px 0 10px;
+
+    .wrapper {
+        box-sizing: border-box;
+        width: 100vw;
+        height: calc(100vh - 46px);
+        padding: 10px;
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .item {
+                width: 49%;
+            }
+        }
     }
 }

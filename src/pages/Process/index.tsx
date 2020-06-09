@@ -4,6 +4,7 @@ import { Tabs } from 'element-react';
 import { store } from '../../store';
 import './index.less';
 import CommodityTab from '../../components/CommodityTab';
+import { doSearch, addAnchor } from '../../util';
 
 interface IProps extends RouteComponentProps {
 
@@ -15,6 +16,7 @@ interface IState {
 
 class Process extends Component<IProps, IState> {
     private curDisplay: string = '1';
+    private inputRef: React.RefObject<HTMLInputElement> = React.createRef();
 
     constructor(props: IProps) {
         super(props);
@@ -29,9 +31,15 @@ class Process extends Component<IProps, IState> {
         this.props.history.push('/profile');
     };
 
-    handleSearch = () => {
-        //获取输入框中的内容后进行发送查询请求
-        console.log("查询");
+    handleSearch = async () => {
+        const ref = this.inputRef.current;
+        const param = {
+            keyword: ref?.value,
+            page: 1,
+            page_num: 4
+        }
+        await doSearch(param);
+        this.props.history.push(addAnchor('/searchResult', param));
     };
 
     render() {
@@ -41,7 +49,7 @@ class Process extends Component<IProps, IState> {
                     <div className="return-icon" onClick={this.handleReturn}>
                         <div className="icon"></div>
                     </div>
-                    <input type="text" placeholder="想找点啥？" />
+                    <input type="text" placeholder="想找点啥？" ref={this.inputRef} />
                     <div id="confirmSearch" onClick={this.handleSearch}>搜索</div>
                 </div>
             </div>

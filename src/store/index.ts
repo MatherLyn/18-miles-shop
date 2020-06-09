@@ -59,6 +59,14 @@ export interface CommodityComments {
     avatar:string,
 }
 
+export interface Commodity {
+    spu_id: number;
+    name: string;
+    price: number;
+    spu_pic: string;
+    category: string;
+}
+
 export interface CommodityDetail {
     spu_id: number;
     name: string;

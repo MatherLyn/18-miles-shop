@@ -85,7 +85,7 @@ const routes: Array<route> = [
         component: Comment
     },
     {
-        path: '/searchresult',
+        path: '/searchResult',
         component: SearchResult
     },
 ]

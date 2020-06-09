@@ -1,9 +1,12 @@
-import { TopCommodity, Category, Good, SortCommodity, AddressInfo, UserInfo, CommodityDetail, OrderDetail } from './index';
+import { TopCommodity, Category, Good, SortCommodity, AddressInfo, UserInfo, CommodityDetail, OrderDetail, Commodity } from './index';
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 
 
 class Store {
+    /**
+     * 以下这些都是mock的数据，从后台返回
+     */
     // 首页的八个分类
     @observable public categories: Array<Category> = [
         {
@@ -40,79 +43,121 @@ class Store {
         },
     ];
     // 首页的热卖
-    @observable public topCommodities: Array<TopCommodity> = [
+    @observable public topCommodities: Array<Commodity> = [
         {
-            'tag': ['标签1', '标签', '标签'],
-            'name': '标签',
-            'price': 30
+            spu_id: 123,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签'],
-            'name': '标签',
-            'price': 33
+            spu_id: 324,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 4235,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 2563,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 3524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
+        },
+        {
+            spu_id: 5234,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
+        },
+        {
+            spu_id: 523,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         }
     ];
     // 首页的推荐
-    @observable public recommendCommodities: Array<TopCommodity> = [
+    @observable public recommendCommodities: Array<Commodity> = [
         {
-            'tag': ['标签1', '标签1', '标签1'],
-            'name': '商品名称1',
-            'price': 30
+            spu_id: 123,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签2', '标签2'],
-            'name': '商品名称2',
-            'price': 33
+            spu_id: 324,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签3', '标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
+            spu_id: 4235,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
+            spu_id: 524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签3', '标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
+            spu_id: 2563,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签3', '标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
+            spu_id: 3524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
+            spu_id: 5234,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签3'],
-            'name': '商品名称3',
-            'price': 45
+            spu_id: 523,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         }
     ];
     // 分类页的分类
@@ -303,14 +348,14 @@ class Store {
                 {
                     star: 5,
                     comment: "好！物美价廉",
-                    username:"林大妈",
-                    avatar:"123",
+                    username: "林大妈",
+                    avatar: "123",
                 },
                 {
                     star: 1,
                     comment: "垃圾鞋子，一个星都不想给，穿一星期就烂了",
-                    username:"林大妈",
-                    avatar:"123",
+                    username: "林大妈",
+                    avatar: "123",
                 }
             ]
         }
@@ -437,29 +482,46 @@ class Store {
             v: ['37码', '白色']
         },
     ];
+    // 最近搜索
+    @observable public recentSearch: Array<string> = [];
     // 搜索结果
-    @observable public searchResult: Array<TopCommodity> = [
+    @observable public searchResult: Array<Commodity> = [
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 123,
+            name: 'string',
+            price: 34,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 23,
+            name: 'string',
+            price: 34,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 132,
+            name: 'string',
+            price: 34,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'tag': ['标签', '标签', '标签'],
-            'name': '标签',
-            'price': 45
+            spu_id: 312,
+            name: 'string',
+            price: 34,
+            spu_pic: 'string',
+            category: 'string',
         },
     ];
+
+    constructor() {
+        const r: string | null = window.localStorage.getItem('recentSearch');
+        if (typeof r === 'string') {
+            this.recentSearch = JSON.parse(r);
+        }
+    }
 
     @computed get totalPrice() {
         let result: number = 0;
@@ -470,12 +532,6 @@ class Store {
         }
         return result;
     };
-
-
-    constructor() {
-
-
-    }
 }
 
 export default Store;

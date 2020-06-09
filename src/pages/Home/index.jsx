@@ -34,8 +34,8 @@ export default class Home extends Component {
                             {
                                 store.recommendCommodities.map((content, index) => {
                                     return (
-                                        <li key={index} className="recommendItem">
-                                            <CommodityShow2 index={index} tag={content.tag} name={content.name} price={content.price} />
+                                        <li key={content.spu_id} className="recommendItem">
+                                            <CommodityShow2 spuId={content.spu_id} spuPic={content.spu_pic} name={content.name} price={content.price} category={content.category} />
                                         </li>
                                     );
                                 })
