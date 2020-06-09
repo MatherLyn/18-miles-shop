@@ -26,7 +26,9 @@ class Address extends Component<IProps, IState> {
         return (
             <div className="address">
                 <div className="address-head">
-                    <img src={returnIcon} alt="" onClick={this.handleReturn}/>
+                <div className="return-icon" onClick={this.handleReturn}>
+                        <div className="r-icon"></div>
+                    </div>
                     <h1>我的收货地址</h1>
                     <div className="add-address" onClick={this.handleAddAddress}>添加新地址</div>
                 </div>

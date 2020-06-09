@@ -49,3 +49,14 @@ h6 {
 .el-message-box .el-button {
   padding: 10px 10px;
 }
+.el-message-box__content {
+  padding: 20px 10px;
+}
+
+.el-button--text {
+  color: #C65624;
+}
+.el-button--primary {
+  background-color: #C65624;
+  border-color: #C65624;
+}

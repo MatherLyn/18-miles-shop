@@ -13,6 +13,7 @@ import AddAddress from '../pages/AddAddress';
 import Address from '../pages/Address';
 import Setting from '../pages/Setting';
 import Process from '../pages/Process';
+import Comment from '../pages/Comment';
 
 interface route {
     path: string;
@@ -77,6 +78,10 @@ const routes: Array<route> = [
     {
         path: '/process',
         component: Process
+    },
+    {
+        path: '/comment',
+        component: Comment
     },
 ]
 

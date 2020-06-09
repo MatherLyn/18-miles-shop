@@ -18,7 +18,7 @@
 	"Print to console": {
 		"prefix": "i",
 		"body": [
-			"import React, { Component } from 'react'\nimport './index.less';\n\nclass $0 extends Component {\n\n\trender() {\n\t\treturn(\n\t\t)\n\t}\n\t}\n\nexport default ;"
+			"import React, { Component } from 'react';\nimport './index.less';\n\nclass $0 extends Component {\n\n\trender() {\n\t\treturn(\n\t\t)\n\t}\n\t}\n\nexport default ;"
 		],
 		"description": "Log output to console"
 	}

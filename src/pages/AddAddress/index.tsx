@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Switch, MessageBox } from 'element-react'
-import returnIcon from './images/return.png'
 import './index.less';
 import { AddressInfo } from '../../store';
 import { collectAnchor } from '../../util';
@@ -55,20 +54,20 @@ class AddAddress extends Component<IProps, IState> {
     }
 
     handleAdd = () => {
-        if (this.address.recipient === '') {
+        if (this.address.recipient === undefined) {
             MessageBox.alert('收货人不能为空噢！', '');
             return;
         }
-        if (this.address.phone === 0) {
+        if (this.address.phone === undefined) {
             MessageBox.alert('收货人手机号码不能为空噢！', '');
             return;
         }
-        if (this.address.province === ''||this.address.city === ''||this.address.county === ''||this.address.address === '') {
+        if (this.address.province === undefined || this.address.city === undefined || this.address.county === '' || this.address.address === '') {
             MessageBox.alert('收货地址输入有误！', '');
             return;
         }
         //检查完成后发请求..
-        
+
     };
 
     handleReturn = () => {
@@ -82,8 +81,10 @@ class AddAddress extends Component<IProps, IState> {
         return (
             <div className="add-address">
                 <div className="add-address-head">
-                    <img src={returnIcon} alt="" onClick={this.handleReturn} />
-                    <h1>新的收货地址</h1>
+                    <div className="return-icon" onClick={this.handleReturn}>
+                        <div className="r-icon"></div>
+                    </div>
+                    <h1>添加收货地址</h1>
                     <div className="add-address" onClick={this.handleAdd}>保存</div>
                 </div>
                 <div className="add-address-main-box">
