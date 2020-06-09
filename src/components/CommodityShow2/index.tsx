@@ -45,7 +45,7 @@ class CommodityShow2 extends Component<IProps, IState> {
                         {this.renderSpan}
                     </div>
                     <div className="bottomBox">
-                        <h1 className="commodity-price">{this.props.price}</h1>
+                        <h1 className="commodity-price">¥ {this.props.price}</h1>
                         <img className="showDetail" onClick={this.handleDetail} src={details} alt="操作详情"></img>
                     </div>
                 </div>

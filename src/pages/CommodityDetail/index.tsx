@@ -41,7 +41,7 @@ class CommodityDetail extends Component<IMapProps, IMapState> {
                 backgroundImage: ``
             }}></div>
             <div className="commodity-info">
-                <div className="commodity-price">{`¥ ${item.price}`}</div>
+                <div className="commodity-price">¥ {item.price}</div>
                 <div className="commodity-name">{item.name}</div>
             </div>
             <div className="commodity-attribute">
