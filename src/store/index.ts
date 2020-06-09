@@ -71,8 +71,10 @@ export interface OrderDetail {
     spu_id: number;
     id: number;
     name: string;
-    sku_img: string;
     price: number;
+    sku_img: string;
+    attrs:Array<string>;
+    v:Array<string>;
     num: number;
     status: number;
 }
