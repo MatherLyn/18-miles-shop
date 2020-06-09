@@ -1,6 +1,6 @@
-.add-address{
+.add-address {
 
-    .add-address-head{
+    .add-address-head {
         height: 50px;
         width: 100%;
         background-color: rgb(243, 243, 243);
@@ -9,37 +9,68 @@
         top: 0;
         align-items: center;
         margin-top: 0;
-        img{
+
+        img {
             width: 10%;
         }
-        h1{
+
+        h1 {
             width: 80%;
             font-size: 20px;
             text-align: center;
         }
-        .add-address{
+
+        .add-save {
             width: 10%;
             color: red;
         }
     }
-    .add-address-main-box{
+
+    .add-address-main-box {
         margin-top: 50px;
-        .input{
+
+        .input {
             width: 100%;
-            height: 50px;
             padding: 10px;
-            border: none;
-            border-bottom: rgba(104, 102, 102, 0.6) solid;
-            border-width: 0.5px;
+            border-bottom: 1px solid #eee;
+            background: #fff;
+
+            .el-input__inner {
+                border: none;
+            }
         }
-        .a-box{
+
+        .concret-address {
+            display: flex;
+            box-sizing: border-box;
+            height: 56px;
+            padding: 10px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            .el-input {
+                width: 84px;
+                .el-input__inner {
+                    line-height: 36px;
+                    border: none;
+                    border-radius: 0;
+                }
+            }
+            .tips {
+                line-height: 36px;
+                text-align: center;
+                flex: 1;
+            }
+        }
+
+        .a-box {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 10px;
-            height: 50px;
+            height: 56px;
             background-color: #FFF;
         }
+
     }
 
 }

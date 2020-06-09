@@ -62,3 +62,15 @@ h6 {
     background-color: rgb(198, 86, 36);
     border-color: rgb(198, 86, 36);
 }
+
+.el-input__inner::-webkit-input-placeholder {
+    color: #bfbfbf;
+}
+
+.el-input__inner {
+    outline-color: rgb(198, 86, 36);
+}
+
+.el-input__inner:hover {
+    border-color: rgba(198, 86, 36, .6);
+}
