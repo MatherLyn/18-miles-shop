@@ -41,10 +41,22 @@ class Profile extends Component<IProps, IState> {
                             </div>
                             <div id="links">
                                 <ul>
-                                    <li onClick={e => this.routeTo('/collection')}>收藏</li>
-                                    <li onClick={e => this.routeTo('/discount')}>优惠</li>
-                                    <li onClick={e => this.routeTo('/history')}>足迹</li>
-                                    <li onClick={e => this.routeTo('/bill')}>账单</li>
+                                    <li onClick={e => this.routeTo('/collection')}>
+                                        <div className="link-icon collection"></div>
+                                        <div className="link-title">收藏</div>
+                                    </li>
+                                    <li onClick={e => this.routeTo('/discount')}>
+                                        <div className="link-icon discount"></div>
+                                        <div className="link-title">优惠</div>
+                                    </li>
+                                    <li onClick={e => this.routeTo('/history')}>
+                                        <div className="link-icon history"></div>
+                                        <div className="link-title">足迹</div>
+                                    </li>
+                                    <li onClick={e => this.routeTo('/bill')}>
+                                        <div className="link-icon bill"></div>
+                                        <div className="link-title">账单</div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

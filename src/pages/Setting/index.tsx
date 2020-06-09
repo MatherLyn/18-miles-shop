@@ -42,9 +42,9 @@ class Setting extends Component<IProps, IState> {
                         </div>
                         <div className="edit" onClick={this.handleEdit}>编辑</div>
                     </div>
-                    <div className="a-box">
-                        <h1>我的收获地址</h1>
-                        <img src={gotoIcon} alt="" onClick={this.handleGoToAddress}/>
+                    <div className="a-box" onClick={this.handleGoToAddress}>
+                        <h1>我的收货地址</h1>
+                        <img src={gotoIcon} alt=""/>
                     </div>
                     <div className="a-box">
                         <h1>支付设置</h1>

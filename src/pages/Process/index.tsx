@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { Tabs } from 'element-react';
+import { store } from '../../store';
 import './index.less';
+import CommodityTab from '../../components/CommodityTab';
 
 interface IProps extends RouteComponentProps {
 
@@ -45,10 +47,18 @@ class Process extends Component<IProps, IState> {
             </div>
             <div className="process-body">
                 <Tabs activeName={this.curDisplay} onTabClick={(tab: any) => this.changeTab(tab.props.name)}>
-                    <Tabs.Pane label="待付款" name="1">待付款</Tabs.Pane>
-                    <Tabs.Pane label="待发货" name="2">待发货</Tabs.Pane>
-                    <Tabs.Pane label="待收货" name="3">待收货</Tabs.Pane>
-                    <Tabs.Pane label="待评价" name="4">待评价</Tabs.Pane>
+                    <Tabs.Pane label="待付款" name="1">
+                        {store.order.filter(item => item.status === 0).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
+                    </Tabs.Pane>
+                    <Tabs.Pane label="待发货" name="2">
+                        {store.order.filter(item => item.status === 1).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
+                    </Tabs.Pane>
+                    <Tabs.Pane label="待收货" name="3">
+                        {store.order.filter(item => item.status === 2).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
+                    </Tabs.Pane>
+                    <Tabs.Pane label="待评价" name="4">
+                        {store.order.filter(item => item.status === 3).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
+                    </Tabs.Pane>
                 </Tabs>
             </div>
 

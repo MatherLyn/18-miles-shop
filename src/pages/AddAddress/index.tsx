@@ -19,16 +19,20 @@ class AddAddress extends Component<IProps, IState> {
         province: '',
         city: '',
         county: '',
-        postal_code: 510000,
+        postal_code: '',
         address: '',
         recipient: '',
-        phone: 10000000000,
+        phone: '',
     };
 
     constructor(props: IProps) {
         super(props);
         const paramMap: Map<string, string> = collectAnchor(window.location.href);
-        this.address = this.convertParamToAddressInfo(paramMap);
+        if (paramMap.size === 0) {
+            
+        } else {
+            this.address = this.convertParamToAddressInfo(paramMap);
+        }
     };
 
     convertParamToAddressInfo = (map: Map<string, string>): AddressInfo => {
@@ -40,9 +44,6 @@ class AddAddress extends Component<IProps, IState> {
                     continue;
                 }
                 let value: string | number | boolean = map.get(keys[i]) as string;
-                if (keys[i] === 'postal_code' || keys[i] === 'phone') {
-                    value = parseInt(value);
-                }
                 if (keys[i] === 'default') {
                     value = value === 'true' ? true : false;
                 }
@@ -59,7 +60,7 @@ class AddAddress extends Component<IProps, IState> {
             MessageBox.alert('收货人不能为空噢！', '');
             return;
         }
-        if (this.address.phone === 0) {
+        if (this.address.phone === '') {
             MessageBox.alert('收货人手机号码不能为空噢！', '');
             return;
         }
@@ -72,7 +73,7 @@ class AddAddress extends Component<IProps, IState> {
     };
 
     handleReturn = () => {
-        this.props.history.push('/address');
+        this.props.history.goBack();
     };
 
     handleSwitchOnChange = (e: any) => {

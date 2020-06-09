@@ -5,19 +5,19 @@ export interface TopCommodity {
     name: string;
     price: number;
 }
-export interface SortCommodity{
+export interface SortCommodity {
     img: string;
     name: string;
 }
-export interface AddressInfo{
-    default:boolean,
-    province:string,
-    city:string,
-    county:string,
-    postal_code:number,
-    address:string,
-    recipient:string,
-    phone:number,
+export interface AddressInfo {
+    default: boolean,
+    province: string,
+    city: string,
+    county: string,
+    postal_code: string,
+    address: string,
+    recipient: string,
+    phone: string,
 }
 
 export interface Category {
@@ -67,5 +67,14 @@ export interface CommodityDetail {
     comments: Array<CommodityComments>;
 }
 
+export interface OrderDetail {
+    spu_id: number;
+    id: number;
+    name: string;
+    sku_img: string;
+    price: number;
+    num: number;
+    status: number;
+}
 
 export const store: Store = new Store();

@@ -20,8 +20,8 @@ body {
 
 img,
 video {
-  height: auto;
-  max-width: 100%;
+    height: auto;
+    max-width: 100%;
 }
 
 h1,
@@ -30,22 +30,35 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 100%;
-  font-weight: normal;
+    font-size: 100%;
+    font-weight: normal;
 }
 
 .el-message-box {
-  text-align: center;
-  width: 220px;
-  height: 120px;
-  border-radius: 3px;
+    text-align: center;
+    width: 220px;
+    height: 120px;
+    border-radius: 3px;
 }
+
 .el-message-box__header {
-  display: none;
+    display: none;
 }
+
 .el-message-box__content {
-  padding: 20px 20px;
+    padding: 20px 20px;
 }
+
 .el-message-box .el-button {
-  padding: 10px 10px;
+    padding: 10px 10px;
+}
+
+.el-switch__core {
+    background-color: rgb(224, 178, 156);
+    border-color: rgb(224, 178, 156);
+}
+
+.el-switch.is-checked .el-switch__core {
+    background-color: rgb(198, 86, 36);
+    border-color: rgb(198, 86, 36);
 }
