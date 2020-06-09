@@ -14,6 +14,7 @@ import Address from '../pages/Address';
 import Setting from '../pages/Setting';
 import Process from '../pages/Process';
 import Comment from '../pages/Comment';
+import SearchResult from '../pages/SearchResult';
 
 interface route {
     path: string;
@@ -82,6 +83,10 @@ const routes: Array<route> = [
     {
         path: '/comment',
         component: Comment
+    },
+    {
+        path: '/searchresult',
+        component: SearchResult
     },
 ]
 

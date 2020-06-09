@@ -45,7 +45,7 @@ export default class  Register extends Component<IProps, IState> {
             Message.error('请输入验证码！');
             return;
         }
-        if(this.password!=this.repeatPassword)
+        if(this.password!==this.repeatPassword)
         {
             Message.error('两次输入的密码不一致，请重新输入！');
             return;

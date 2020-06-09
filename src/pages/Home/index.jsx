@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import ISearchBar from '../../components/SearchBar'
 import ICarousel from '../../components/Carousel'
 import Categories from '../../components/Categories'
-import CommodityShow2 from '../../components/CommodityShow2'
-import ShowSellWell from '../../components/ShowSellWell'
+import CommodityShow2 from '../../components/CommodityShow2';
+import ShowSellWell from '../../components/ShowSellWell';
 import { store } from '../../store';
-import './index.less'
+import './index.less';
 
 export default class Home extends Component {
 

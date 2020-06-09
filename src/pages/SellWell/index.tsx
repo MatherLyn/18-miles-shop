@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './index.less';
 import ShowSellWell from '../../components/ShowSellWell';
 

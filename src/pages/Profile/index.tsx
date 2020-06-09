@@ -70,14 +70,14 @@ class Profile extends Component<IProps, IState> {
                         <div id="orderBox">
                             <div id="caption">
                                 <h1>我的订单</h1>
-                                <span onClick={e => this.routeTo('/order')}>查看全部订单</span>
+                                <span onClick={e => this.routeTo('/process', '1')}>查看全部订单</span>
                             </div>
                             <div id="stages">
                                 <ul>
-                                    <li onClick={e => this.routeTo('/process', '1')}><img className="stagesIcon" src={notPay} alt="待付款" />待付款</li>
-                                    <li onClick={e => this.routeTo('/process', '2')}><img className="stagesIcon" src={notShip} alt="待发货" />待发货</li>
-                                    <li onClick={e => this.routeTo('/process', '3')}><img className="stagesIcon" src={notReceive} alt="待收货" />待收货</li>
-                                    <li onClick={e => this.routeTo('/process', '4')}><img className="stagesIcon" src={notComment} alt="待评价" />待评价</li>
+                                    <li onClick={e => this.routeTo('/process', '2')}><img className="stagesIcon" src={notPay} alt="待付款" />待付款</li>
+                                    <li onClick={e => this.routeTo('/process', '3')}><img className="stagesIcon" src={notShip} alt="待发货" />待发货</li>
+                                    <li onClick={e => this.routeTo('/process', '4')}><img className="stagesIcon" src={notReceive} alt="待收货" />待收货</li>
+                                    <li onClick={e => this.routeTo('/process', '5')}><img className="stagesIcon" src={notComment} alt="待评价" />待评价</li>
                                 </ul>
                             </div>
                         </div>

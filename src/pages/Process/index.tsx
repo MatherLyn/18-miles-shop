@@ -47,22 +47,27 @@ class Process extends Component<IProps, IState> {
             </div>
             <div className="process-body">
                 <Tabs activeName={this.curDisplay} onTabClick={(tab: any) => this.changeTab(tab.props.name)}>
-                    <Tabs.Pane label="待付款" name="1">
+                    <Tabs.Pane label="全部" name="1">
+                        <div className="wrapper">
+                            {store.order.map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
+                        </div>
+                    </Tabs.Pane>
+                    <Tabs.Pane label="待付款" name="2">
                         <div className="wrapper">
                             {store.order.filter(item => item.status === 0).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
                         </div>
                     </Tabs.Pane>
-                    <Tabs.Pane label="待发货" name="2">
+                    <Tabs.Pane label="待发货" name="3">
                         <div className="wrapper">
                             {store.order.filter(item => item.status === 1).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
                         </div>
                     </Tabs.Pane>
-                    <Tabs.Pane label="待收货" name="3">
+                    <Tabs.Pane label="待收货" name="4">
                         <div className="wrapper">
                             {store.order.filter(item => item.status === 2).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
                         </div>
                     </Tabs.Pane>
-                    <Tabs.Pane label="待评价" name="4">
+                    <Tabs.Pane label="待评价" name="5">
                         <div className="wrapper">
                             {store.order.filter(item => item.status === 3).map((item, index) => <CommodityTab key={item.id} {...item}></CommodityTab>)}
                         </div>

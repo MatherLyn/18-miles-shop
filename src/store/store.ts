@@ -374,8 +374,8 @@ class Store {
             sku_img: 'string',
             num: 13,
             status: 0,
-            attrs:['尺寸','颜色'],
-            v:['37码','白色']
+            attrs: ['尺寸', '颜色'],
+            v: ['37码', '白色']
         },
         {
             spu_id: 0,
@@ -385,8 +385,8 @@ class Store {
             price: 1234,
             num: 3,
             status: 2,
-            attrs:['尺寸','颜色'],
-            v:['37码','白色']
+            attrs: ['尺寸', '颜色'],
+            v: ['37码', '白色']
         },
         {
             spu_id: 0,
@@ -396,8 +396,8 @@ class Store {
             price: 4312,
             num: 123,
             status: 1,
-            attrs:['尺寸','颜色'],
-            v:['37码','白色']
+            attrs: ['尺寸', '颜色'],
+            v: ['37码', '白色']
         },
         {
             spu_id: 0,
@@ -407,8 +407,8 @@ class Store {
             price: 4562,
             num: 3,
             status: 3,
-            attrs:['尺寸','颜色'],
-            v:['37码','白色']
+            attrs: ['尺寸', '颜色'],
+            v: ['37码', '白色']
         },
         {
             spu_id: 0,
@@ -418,8 +418,8 @@ class Store {
             price: 2345,
             num: 12,
             status: 2,
-            attrs:['尺寸','颜色'],
-            v:['37码','白色']
+            attrs: ['尺寸', '颜色'],
+            v: ['37码', '白色']
         },
         {
             spu_id: 0,
@@ -429,10 +429,33 @@ class Store {
             price: 767,
             num: 1,
             status: 0,
-            attrs:['尺寸','颜色'],
-            v:['37码','白色']
+            attrs: ['尺寸', '颜色'],
+            v: ['37码', '白色']
         },
-    ]
+    ];
+    // 搜索结果
+    @observable public searchResult: Array<TopCommodity> = [
+        {
+            'tag': ['标签', '标签', '标签'],
+            'name': '标签',
+            'price': 45
+        },
+        {
+            'tag': ['标签', '标签', '标签'],
+            'name': '标签',
+            'price': 45
+        },
+        {
+            'tag': ['标签', '标签', '标签'],
+            'name': '标签',
+            'price': 45
+        },
+        {
+            'tag': ['标签', '标签', '标签'],
+            'name': '标签',
+            'price': 45
+        },
+    ];
 
     @computed get totalPrice() {
         let result: number = 0;
