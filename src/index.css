@@ -33,3 +33,19 @@ h6 {
   font-size: 100%;
   font-weight: normal;
 }
+
+.el-message-box {
+  text-align: center;
+  width: 220px;
+  height: 120px;
+  border-radius: 3px;
+}
+.el-message-box__header {
+  display: none;
+}
+.el-message-box__content {
+  padding: 20px 20px;
+}
+.el-message-box .el-button {
+  padding: 10px 10px;
+}

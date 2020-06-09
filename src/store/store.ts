@@ -1,4 +1,4 @@
-import { TopCommodity, Category, Good, SortCommodity, AddressInfo,UserInfo, CommodityDetail } from './index';
+import { TopCommodity, Category, Good, SortCommodity, AddressInfo, UserInfo, CommodityDetail } from './index';
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 
@@ -72,6 +72,49 @@ class Store {
             'price': 45
         }
     ];
+    //首页的推荐
+    @observable public recommendCommodities:Array<TopCommodity>=[
+        {
+            'tag': ['标签1', '标签1', '标签1'],
+            'name': '商品名称1',
+            'price': 30
+        },
+        {
+            'tag': ['标签2', '标签2'],
+            'name': '商品名称2',
+            'price': 33
+        },
+        {
+            'tag': ['标签3', '标签3', '标签3'],
+            'name': '商品名称3',
+            'price': 45
+        },
+        {
+            'tag': ['标签3', '标签3'],
+            'name': '商品名称3',
+            'price': 45
+        },
+        {
+            'tag': ['标签3', '标签3', '标签3'],
+            'name': '商品名称3',
+            'price': 45
+        },
+        {
+            'tag': ['标签3', '标签3', '标签3'],
+            'name': '商品名称3',
+            'price': 45
+        },
+        {
+            'tag': ['标签3', '标签3'],
+            'name': '商品名称3',
+            'price': 45
+        },
+        {
+            'tag': ['标签3'],
+            'name': '商品名称3',
+            'price': 45
+        }
+    ];
     // 分类页的分类
     @observable public tabs: Array<string> = [
         '新品推荐',
@@ -91,7 +134,7 @@ class Store {
         '产品10',
         '产品11',
         '产品12',
-    ]
+    ];
     // 分类页的右边
     @observable public sortCommodities: Array<SortCommodity> = [
         {
@@ -214,7 +257,7 @@ class Store {
         sex: 0,
         phone: 13143351504,
         identify: 0
-    }
+    };
     // 购物车内容
     @observable public cart: Array<Good> = [
         {
@@ -235,7 +278,7 @@ class Store {
             "stock": 100,
             "isChecked": false,
         },
-    ]
+    ];
     // 商品详情缓存
     @observable public detailCache: Array<CommodityDetail> = [
         {
@@ -268,6 +311,59 @@ class Store {
             ]
         }
     ];
+    // 收货地址
+    @observable public addresses: Array<AddressInfo> = [
+        {
+            default: true,
+            province: '广东省',
+            city: '广州市',
+            county: '番禺区',
+            postal_code: 510006,
+            address: '华南理工大学(大学城校区)',
+            recipient: '林浩2',
+            phone: 12345678900,
+        },
+        {
+            default: false,
+            province: '广东省',
+            city: '广州市',
+            county: '番禺区',
+            postal_code: 510006,
+            address: '华南理工大学(大学城校区)',
+            recipient: '林浩2',
+            phone: 12345678900,
+        },
+        {
+            default: false,
+            province: '广东省',
+            city: '广州市',
+            county: '番禺区',
+            postal_code: 510006,
+            address: '华南理工大学(大学城校区)',
+            recipient: '林浩2',
+            phone: 12345678900,
+        },
+        {
+            default: false,
+            province: '广东省',
+            city: '广州市',
+            county: '番禺区',
+            postal_code: 510006,
+            address: '华南理工大学(大学城校区)',
+            recipient: '林浩2',
+            phone: 12345678900,
+        },
+        {
+            default: false,
+            province: '广东省',
+            city: '广州市',
+            county: '番禺区',
+            postal_code: 510006,
+            address: '华南理工大学(大学城校区)',
+            recipient: '林浩2',
+            phone: 12345678900,
+        },
+    ];
 
     @computed get totalPrice() {
         let result: number = 0;
@@ -277,60 +373,9 @@ class Store {
             }
         }
         return result;
-    }
+    };
 
-    @observable public addresses:Array<AddressInfo>=[
-        {
-            default:false,
-            province:'广东省',
-            city:'广州市',
-            county:'番禺区',
-            postal_code:510006,
-            address:'华南理工大学(大学城校区)',
-            recipient:'林浩2',
-            phone:12345678900,
-        },
-        {
-            default:false,
-            province:'广东省',
-            city:'广州市',
-            county:'番禺区',
-            postal_code:510006,
-            address:'华南理工大学(大学城校区)',
-            recipient:'林浩2',
-            phone:12345678900,
-        },
-        {
-            default:false,
-            province:'广东省',
-            city:'广州市',
-            county:'番禺区',
-            postal_code:510006,
-            address:'华南理工大学(大学城校区)',
-            recipient:'林浩2',
-            phone:12345678900,
-        },
-        {
-            default:false,
-            province:'广东省',
-            city:'广州市',
-            county:'番禺区',
-            postal_code:510006,
-            address:'华南理工大学(大学城校区)',
-            recipient:'林浩2',
-            phone:12345678900,
-        },
-        {
-            default:false,
-            province:'广东省',
-            city:'广州市',
-            county:'番禺区',
-            postal_code:510006,
-            address:'华南理工大学(大学城校区)',
-            recipient:'林浩2',
-            phone:12345678900,
-        },
-    ]
+
     constructor() {
 
 

@@ -32,7 +32,7 @@ class Address extends Component<IProps, IState> {
                 </div>
                 <div className="address-main-box">
                     {
-                        store.addresses.map((content:AddressInfo, index) => {
+                        store.addresses.map((content:AddressInfo, index:number) => {
                             return (<AddAddress key={index} name={content.recipient} number={content.phone} address={content.province+''+content.city+''+content.county+''+content.address} default={content.default}/>);
                         })
                     }

@@ -77,7 +77,7 @@ const routes: Array<route> = [
     {
         path: '/process',
         component: Process
-    }
+    },
 ]
 
 export default routes;

@@ -31,7 +31,7 @@ class Profile extends Component<IProps, IState> {
             <div id="me">
                 <div id="wrapper">
                     <div id="topBox">
-                        <img id="settingIcon" src={setting} alt="设置"  onClick={e => this.routeTo('/settings')}/>
+                        <img id="settingIcon" src={setting} alt="设置"  onClick={this.removeToSetting}/>
                         <div id="user">
                             <img id="avatar" src={avatar} alt="用户头像"/>
                             <div id="name">

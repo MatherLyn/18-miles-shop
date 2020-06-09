@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import ISearchBar from '../../components/SearchBar'
 import ICarousel from '../../components/Carousel'
-import './index.less'
 import Categories from '../../components/Categories'
 import CommodityShow2 from '../../components/CommodityShow2'
 import ShowSellWell from '../../components/ShowSellWell'
+import { store } from '../../store';
+import './index.less'
 
 export default class Home extends Component {
 
@@ -13,53 +14,6 @@ export default class Home extends Component {
     };
 
     render() {
-        const commodities2 = [{
-            'tag': ['标签1', '标签1', '标签1'],
-            'name': '商品名称1',
-            'price': 30
-        },
-        {
-            'tag': ['标签2', '标签2'],
-            'name': '商品名称2',
-            'price': 33
-        },
-        {
-            'tag': ['标签3', '标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
-        },
-        {
-            'tag': ['标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
-        },
-        {
-            'tag': ['标签3', '标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
-        },
-        {
-            'tag': ['标签3', '标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
-        },
-        {
-            'tag': ['标签3', '标签3'],
-            'name': '商品名称3',
-            'price': 45
-        },
-        {
-            'tag': ['标签3'],
-            'name': '商品名称3',
-            'price': 45
-        }];
-        const renderRecommend = commodities2.map((content, index) => {
-            return (
-                <li key={index} className="recommendItem">
-                    <CommodityShow2 index={index} tag={content.tag} name={content.name} price={content.price} />
-                </li>
-            );
-        });
 
         return (
             <div id="home">
@@ -77,7 +31,15 @@ export default class Home extends Component {
                     <div id="dailyRecommend">
                         <h2 className="recommendTitle">每日推荐</h2>
                         <ul id="recommendBox">
-                            {renderRecommend}
+                            {
+                                store.recommendCommodities.map((content, index) => {
+                                    return (
+                                        <li key={index} className="recommendItem">
+                                            <CommodityShow2 index={index} tag={content.tag} name={content.name} price={content.price} />
+                                        </li>
+                                    );
+                                })
+                            }
                         </ul>
                     </div>
                     <div id="bottomBox">
