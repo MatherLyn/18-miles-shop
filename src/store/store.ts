@@ -73,7 +73,7 @@ class Store {
         }
     ];
     // 首页的推荐
-    @observable public recommendCommodities:Array<TopCommodity>=[
+    @observable public recommendCommodities: Array<TopCommodity> = [
         {
             'tag': ['标签1', '标签1', '标签1'],
             'name': '商品名称1',
