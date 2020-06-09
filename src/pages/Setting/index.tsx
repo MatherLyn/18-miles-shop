@@ -24,7 +24,7 @@ class Setting extends Component<IProps, IState> {
         this.props.history.push('/address');
     };
     handelReturn=()=>{
-        this.props.history.goBack();
+        this.props.history.push('/profile');
     };
     render() {
         return (

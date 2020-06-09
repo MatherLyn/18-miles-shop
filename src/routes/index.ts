@@ -9,13 +9,10 @@ import Sort from '../pages/Sort';
 import ShoppingCart from '../pages/ShoppingCart';
 import Settlement from '../pages/Settlement';
 import Profile from '../pages/Profile';
-<<<<<<< HEAD
 import AddAddress from '../pages/AddAddress';
 import Address from '../pages/Address';
 import Setting from '../pages/Setting';
-=======
 import Process from '../pages/Process';
->>>>>>> 7bea4149e5a5c0ee37d403eea46b748b41d7ab6c
 
 interface route {
     path: string;
@@ -66,7 +63,6 @@ const routes: Array<route> = [
         component: CommodityDetail
     },
     {
-<<<<<<< HEAD
         path: '/setting',
         component: Setting
     },
@@ -78,11 +74,10 @@ const routes: Array<route> = [
         path: '/address',
         component: Address
     },
-=======
+    {
         path: '/process',
         component: Process
     }
->>>>>>> 7bea4149e5a5c0ee37d403eea46b748b41d7ab6c
 ]
 
 export default routes;
