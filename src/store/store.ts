@@ -302,11 +302,15 @@ class Store {
             comments: [
                 {
                     star: 5,
-                    comment: "好！物美价廉"
+                    comment: "好！物美价廉",
+                    username:"林大妈",
+                    avatar:"123",
                 },
                 {
                     star: 1,
-                    comment: "垃圾鞋子，一个星都不想给，穿一星期就烂了"
+                    comment: "垃圾鞋子，一个星都不想给，穿一星期就烂了",
+                    username:"林大妈",
+                    avatar:"123",
                 }
             ]
         }

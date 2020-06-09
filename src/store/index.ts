@@ -54,7 +54,9 @@ export interface CommodityAttributes {
 
 export interface CommodityComments {
     star: number;
-    comment: string
+    comment: string,
+    username:string,
+    avatar:string,
 }
 
 export interface CommodityDetail {
