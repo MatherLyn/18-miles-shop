@@ -48,7 +48,7 @@ class CommodityTab extends Component<IProps, IState> {
                     <div className="commodity-detail">{this.showAttrs()}</div>
                 </div>
                 <div className="order-info">
-                    <div className="commodity-price">￥{this.props.price}</div>
+                    <div className="commodity-price">￥ {this.props.price}</div>
                     <div className="commodity-number">×{this.props.num}</div>
                 </div>
             </div>
