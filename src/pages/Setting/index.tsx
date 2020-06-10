@@ -31,7 +31,7 @@ class Setting extends Component<IProps, IState> {
                     <div className="return-icon" onClick={this.handleReturn}>
                         <div className="r-icon"></div>
                     </div>
-                    <h1>我的设置</h1>
+                    <h1>设置</h1>
                 </div>
                 <div className="main-box">
                     <div className="userinfo">
@@ -41,21 +41,21 @@ class Setting extends Component<IProps, IState> {
                         </div>
                         <div className="edit" onClick={this.handleEdit}>编辑</div>
                     </div>
-                    <div className="a-box">
+                    <div className="a-box" onClick={this.handleGoToAddress}>
                         <h1>我的收货地址</h1>
-                        <div className="goto-icon" onClick={this.handleGoToAddress}>
+                        <div className="goto-icon">
                             <div className="g-icon"></div>
                         </div>
                     </div>
-                    <div className="a-box">
+                    <div className="a-box" onClick={this.handleGoToAddress}>
                         <h1>支付设置</h1>
-                        <div className="goto-icon" onClick={this.handleGoToAddress}>
+                        <div className="goto-icon">
                             <div className="g-icon"></div>
                         </div>
                     </div>
-                    <div className="a-box">
+                    <div className="a-box" onClick={this.handleGoToAddress}>
                         <h1>修改密码</h1>
-                        <div className="goto-icon" onClick={this.handleGoToAddress}>
+                        <div className="goto-icon">
                             <div className="g-icon"></div>
                         </div>
                     </div>

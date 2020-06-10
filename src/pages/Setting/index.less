@@ -2,56 +2,55 @@
     .head{
         height: 50px;
         width: 100%;
-        background-color: #FFF;
         position: fixed;
         display: flex;
         top: 0;
         align-items: center;
         margin-top: 0;
         .return-icon{
-            margin-left: 10px;
-            width: 8%;
+            position: absolute;
+            left: 24px;
             display: flex;
             justify-content: center;
             align-items: center;
             .r-icon{
-                width: 12px;
-                height: 12px;
-                border: #bfbfbf solid;
+                width: 10px;
+                height: 10px;
+                border: 1px #333 solid;
                 border-top: none;
                 border-right: none;
                 transform: rotate(45deg);
             }
         }
         h1{
-            width: 80%;
+            width: 100%;
             font-size: 18px;
             text-align: center;
-            margin-right: 10%;
         }
     }
     .main-box{
         margin-top: 50px;
-        padding: 20px 10px 0 10px;
+        padding-bottom: 20px;
         .userinfo{
-            height: 100px;
-            border-radius: 10px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             justify-content: space-around;
             background-color: #FFF;
             .avatar{
-                height: 85px;
-                width: 85px;
-                border-radius: 85px;
+                height: 64px;
+                width: 64px;
+                border-radius: 32px;
+                margin-right: 16px;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
             }
             .text-box{
-                width: 45%;
+                flex: 1;
                 h1{
-                    font-size: 22px;
+                    font-size: 20px;
+                    font-weight: 400;
                     margin: 0 0 10px 0;
                 }
                 h2{
@@ -59,20 +58,28 @@
                 }
             }
             .edit{
-                width: 12%;
+                box-sizing: content-box;
+                width: 36px;
+                height: 16px;
+                line-height: 16px;
+                font-size: 12px;
+                text-align: center;
+                padding: 4px 8px;
+                border: 1px solid #ff4b00;
+                border-radius: 4px;
+                color: #ff4b00;
             }
         }
         .a-box{
             height: 45px;
-            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             background-color: #FFF;
-            margin-top: 20px;
+            margin-top: 16px;
             padding: 10px 20px;
             h1{
-                font-size: 16px;
+                font-size: 15px;
             }
             .goto-icon{
                 height: 30px;
@@ -81,9 +88,9 @@
                 justify-content: center;
                 align-items: center;
                 .g-icon{
-                    width: 12px;
-                    height: 12px;
-                    border: #bfbfbf solid;
+                    width: 8px;
+                    height: 8px;
+                    border: 1px #333 solid;
                     border-top: none;
                     border-left: none;
                     transform: rotate(-45deg);
@@ -94,10 +101,10 @@
             width: 100%;
             height: 42px;
             background-color: #FFF;
-            font-size: 16px;
+            font-size: 15px;
             margin-top: 20px;
             text-align: center;
-            line-height: 45px;
+            line-height: 42px;
         }
         .bottom-box1{
             margin-top: 140px;
