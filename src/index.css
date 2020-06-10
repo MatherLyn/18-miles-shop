@@ -96,3 +96,7 @@ h6 {
 .el-input__inner:hover {
     border-color: rgba(198, 86, 36, .6);
 }
+
+.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+    box-shadow: -1px 0 0 0 #C65624;
+}

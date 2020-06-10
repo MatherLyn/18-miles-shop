@@ -36,6 +36,7 @@ class ModifyInfo extends Component<IProps, IState> {
     modifyProfile = async () => {
         await modifyUserProfile(this.state);
         Message.success('修改成功！');
+        
         this.props.history.goBack();
     }
 
@@ -70,25 +71,33 @@ class ModifyInfo extends Component<IProps, IState> {
                         
                     </div>
                 </div>
-                <div className="input-box">
-                    <div className="input-wrapper">
+                <div className="input-boxes">
+                    <div className="input-box">
                         <div className="title-head">用户名</div>
-                        <Input placeholder="请输入内容" value={this.state.username} onChange={value => this.handleChange('username', value)}/>
+                        <div className="input-wrapper">
+                            <Input className="input" placeholder="请输入内容" value={this.state.username} onChange={value => this.handleChange('username', value)}/>
+                        </div>
                     </div>
-                    <div className="input-wrapper">
+                    <div className="input-box">
                         <div className="title-head">电话号码</div>
-                        <Input placeholder="请输入内容" value={this.state.phone} onChange={value => this.handleChange('phone', value)}/>
+                        <div className="input-wrapper">
+                            <Input className="input" placeholder="请输入内容" value={this.state.phone} onChange={value => this.handleChange('phone', value)}/>
+                        </div>
                     </div>
-                    <div className="input-wrapper">
+                    <div className="input-box">
                         <div className="title-head">出生日期</div>
-                        <Input placeholder="请输入内容" value={this.state.birthday} onChange={value => this.handleChange('birthday', value)}/>
+                        <div className="input-wrapper">
+                            <Input className="input" placeholder="请输入内容" value={this.state.birthday} onChange={value => this.handleChange('birthday', value)}/>
+                        </div>
                     </div>
-                    <div className="input-wrapper">
+                    <div className="input-box">
                         <div className="title-head">性别</div>
-                        <Radio.Group value={`${this.state.sex ? `女` : `男`}`} onChange={e => this.onChange(e)}>
-                            <Radio.Button value="男" />
-                            <Radio.Button value="女" />
-                        </Radio.Group>
+                        <div className="input-wrapper">
+                            <Radio.Group value={`${this.state.sex ? `女` : `男`}`} onChange={e => this.onChange(e) } fill="#C65624">
+                                <Radio.Button value="男" />
+                                <Radio.Button value="女" />
+                            </Radio.Group>
+                        </div>
                     </div>
                 </div>
             </div>

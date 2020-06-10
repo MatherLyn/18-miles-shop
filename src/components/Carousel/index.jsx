@@ -1,47 +1,27 @@
 import React, { Component } from 'react';
-import { Carousel } from 'antd-mobile';
+import { Carousel } from 'element-react';
+import pic2 from './images/pic3.jpeg';
+import pic3 from './images/pic2.jpg';
+import pic1 from './images/pic1.jpg';
 
 class ICarousel extends Component {
-    state = {
-        data: ['1', '2', '3'],
-        imgHeight: 176,
-    }
-    componentDidMount() {
-        // simulate img loading
-        setTimeout(() => {
-            this.setState({
-                data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
-            });
-        }, 100);
-    }
-    render() {
-        return (
-            <Carousel
-                autoplay={false}
-                infinite
-                beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                afterChange={index => console.log('slide to', index)}
-            >
-                {this.state.data.map(val => (
-                    <a
-                        key={val}
-                        href="http://www.alipay.com"
-                        style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                    >
-                        <img
-                            src={`http://kanolin.cn/market18/app/public/pic/pic.png`}
-                            style={{ width: '100%', verticalAlign: 'top' }}
-                            onLoad={() => {
-                                // fire window resize event to change height向window派发resize事件
-                                window.dispatchEvent(new Event('resize'));
-                                this.setState({ imgHeight: 'auto' });
-                            }}
-                        />
-                    </a>
-                ))}
-            </Carousel>
-        );
-    }
+  pic = [pic1, pic2, pic3];
+  render() {
+    return (
+      <Carousel height="200px">
+        {
+          [1, 2, 3].map((item, index) => {
+            return (
+              <Carousel.Item key={index}>
+                <img src={this.pic[index]} alt="" />
+                {/* <img src={`http://kanolin.cn/market18/app/public/pic/pic.png`} alt="" /> */}
+              </Carousel.Item>
+            )
+          })
+        }
+      </Carousel>
+    );
+  }
 }
 
 export default ICarousel;
