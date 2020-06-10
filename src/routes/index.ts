@@ -15,6 +15,7 @@ import Setting from '../pages/Setting';
 import Process from '../pages/Process';
 import Comment from '../pages/Comment';
 import SearchResult from '../pages/SearchResult';
+import ModifyInfo from '../pages/ModifyInfo';
 
 interface route {
     path: string;
@@ -87,6 +88,10 @@ const routes: Array<route> = [
     {
         path: '/searchResult',
         component: SearchResult
+    },
+    {
+        path: '/modifyinfo',
+        component: ModifyInfo
     },
 ]
 
