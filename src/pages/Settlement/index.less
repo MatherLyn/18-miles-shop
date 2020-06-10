@@ -1,0 +1,150 @@
+.settlement-page{
+    .head{
+        height: 50px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: rgb(242, 242, 242);
+        .return-icon{
+            margin-left: 10px;
+            width: 8%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .r-icon{
+                width: 12px;
+                height: 12px;
+                border: #bfbfbf solid;
+                border-top: none;
+                border-right: none;
+                transform: rotate(45deg);
+            }
+        }
+        .title{
+            font-size: 16px;
+        }
+    }
+    .wrapper{
+        margin-top: 50px;
+        margin-bottom: 60px;
+        padding: 20px 15px 0 15px;
+        .user-addr{
+            background-color: #FFF;
+            border-radius: 15px;
+            padding: 20px 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            .icon{
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+                background: url('./images/address1.png') center center/cover;
+            }
+
+            .recipient-info{
+                flex: 1;
+                .top-box{
+                    font-size: 16px;
+                    display: flex;
+                    margin-bottom: 10px;
+                    align-items: flex-end;
+                    .recipient{
+                        margin-right: 10px;
+                    }
+                    .phone{
+                        font-size: 14px;
+                        color: rgb(110, 110, 110);
+                    }
+                }
+                .address-info{
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+
+            .go-to-address-page{
+                width: 30px;
+                .go-icon{
+                    margin-left: 10px;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .g-icon{
+                        width: 12px;
+                        height: 12px;
+                        border: #bfbfbf solid;
+                        border-top: none;
+                        border-left: none;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+            
+        }
+        .commodities{
+            .commodity{
+                background-color: #FFF;
+                border-radius: 15px;
+                padding: 20px 15px;
+                margin-bottom: 20px;
+                .top-wrapper{
+                    display: flex;
+                    .commodity-image{
+                        height: 80px;
+                        width: 80px;
+                        margin-right: 10px;
+                    }
+                    .middle-box{
+                        flex: 1;
+                    }
+                    .right-box{
+                        width: 50px;
+                        margin-left: 10px;
+                    }
+                }
+                .bottom-wrapper{
+                    display: flex;
+                    justify-content: flex-end;
+                    .highlight-text{
+                        color: #ff4b00;
+                    }
+                }
+            }
+
+        }
+
+    }
+    .submit{
+        position: fixed;
+        bottom: 0;
+        height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: #FFF;
+        .summary{
+            font-size: 14px;
+            color: rgb(110, 110, 110);
+        }
+        .total-price{
+            font-size: 16px;
+            .highlight-text-bottom{
+                color: #ff4b00;
+            }
+        }
+        .submit-button{
+            padding: 10px 26px;
+            font-size: 16px;
+            border-radius: 50px;
+            background-color: rgb(255, 108, 0);
+            color: #FFF;
+            margin:6px 10px;
+        }
+    }
+}

@@ -180,7 +180,7 @@ class Store {
         '产品11',
         '产品12',
     ];
-    // 分类页的右边
+    // 分类页的右边的商品展示
     @observable public sortCommodities: Array<SortCommodity> = [
         {
             'img': '',
