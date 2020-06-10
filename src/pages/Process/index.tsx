@@ -38,6 +38,9 @@ class Process extends Component<IProps, IState> {
             page: 1,
             page_num: 4
         }
+        if (!param.keyword) {
+            return;
+        }
         await doSearch(param);
         this.props.history.push(addAnchor('/searchResult', param));
     };

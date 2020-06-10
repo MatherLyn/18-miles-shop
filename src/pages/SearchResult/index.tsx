@@ -33,6 +33,9 @@ class SearchResult extends Component<IProps, IState> {
             page: 1,
             page_num: 4,
         }
+        if (!param.keyword) {
+            return;
+        }
         await doSearch(param);
         this.props.history.push(addAnchor('/searchResult', param));
         this.setState({
@@ -45,6 +48,9 @@ class SearchResult extends Component<IProps, IState> {
             keyword: this.map.get('keyword'),
             page: this.state.page + 1,
             page_num: 4,
+        }
+        if (!param.keyword) {
+            return;
         }
         await doSearch(param);
         this.setState({

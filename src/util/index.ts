@@ -53,13 +53,16 @@ export async function doSearch (param: any) {
     // const res = await getCommodityList(param);
     // const list = res.data as Array<Commodity>;
     // store.searchResult.concat(list);
-    if (!param.keyword) {
-        return;
-    }
     const length: number = store.recentSearch.length;
-    if (length > 15) {
-        store.recentSearch.unshift();
+    for (let i: number = 0; i < store.recentSearch.length; i++) {
+        if (store.recentSearch[i] === param.keyword) {
+            store.recentSearch.splice(i, 1);
+            break;
+        }
     }
-    store.recentSearch.push(param.keyword);
+    if (length > 15) {
+        store.recentSearch.pop();
+    }
+    store.recentSearch.unshift(param.keyword);
     window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
 }

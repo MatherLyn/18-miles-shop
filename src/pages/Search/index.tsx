@@ -32,10 +32,12 @@ class Search extends Component<IProps, IState> {
         window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
     };
 
-    handleSearch = async () => {
-        const ref = this.inputRef.current;
+    handleSearch = async (value?: string) => {
+        if (!value) {
+            return;
+        }
         const param = {
-            keyword: ref?.value,
+            keyword: value,
             page: 1,
             page_num: 4
         }
@@ -48,11 +50,9 @@ class Search extends Component<IProps, IState> {
     };
 
     render() {
-        const renderHistorySpan = store.recentSearch.map((content, index) => {
-            return (
-                <span className="tagBox" key={index}>{content}</span>
-            );
-        });
+        const renderHistorySpan = store.recentSearch.map((content, index) => 
+            <span className="tagBox" key={index} onClick={e => this.handleSearch(content)}>{content}</span>
+        );
 
         // const arr2 = ['铺子三周年人气热销榜', '电动牙刷', '阿阿阿阿阿阿', '沐浴露', '笔记本电脑', '鼠标', '家用电器', '抽油烟机', '推荐9', '推荐10'];
         // const renderRecommendSpan = arr2.map((content, index) => {
@@ -68,7 +68,7 @@ class Search extends Component<IProps, IState> {
                         <div className="icon"></div>
                     </div>
                     <input type="text" placeholder="想找点啥？" ref={this.inputRef}/>
-                    <div id="confirmSearch" onClick={this.handleSearch}>搜索</div>
+                    <div id="confirmSearch" onClick={e => this.handleSearch(this.inputRef.current?.value)}>搜索</div>
                 </div>
                 <div id="displayBox">
                     <div id="recentlySearch">
