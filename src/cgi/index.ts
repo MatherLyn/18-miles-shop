@@ -25,7 +25,11 @@ export async function getUserProfile() {
 
 export async function modifyUserProfile(config: any) {
     if (store.isLogin) {
-        return axios.put(MODITY_PROFILE_URL, config);
+        return axios.put(MODITY_PROFILE_URL, config, {
+            headers: {
+                Authorization: store.loginAuthorization
+            }
+        });
     }
 }
 
