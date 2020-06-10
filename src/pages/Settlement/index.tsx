@@ -18,6 +18,10 @@ class Settlement extends Component<IMapProps, IMapState> {
     }
 
     handleReturn = () => {
+        this.props.history.goBack();
+    };
+
+    handleGoToAddress=()=>{
         this.props.history.push('/address');
     };
     render() {
@@ -45,7 +49,7 @@ class Settlement extends Component<IMapProps, IMapState> {
                             ))
                         }
                         <div className="go-to-address-page">
-                            <div className="go-icon" onClick={this.handleReturn}>
+                            <div className="go-icon" onClick={this.handleGoToAddress}>
                                 <div className="g-icon"></div>
                             </div>
                         </div>
