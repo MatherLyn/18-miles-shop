@@ -7,17 +7,18 @@ import { store } from '../../store';
 import { observer } from 'mobx-react';
 import './index.less';
 import { doSearch } from '../../util'
+import { withRouter, RouteComponentProps } from 'react-router-dom'
 
-interface IProps {
+interface IProps extends RouteComponentProps {
 }
 
-interface IMapState {
+interface IState {
     focusIndex: number
 }
 
 @observer
-class Sort extends Component {
-    public state: IMapState = {
+class Sort extends Component<IProps, IState> {
+    public state: IState = {
         focusIndex: 0
     }
 
@@ -69,4 +70,4 @@ class Sort extends Component {
     }
 }
 
-export default Sort;
+export default withRouter(Sort);

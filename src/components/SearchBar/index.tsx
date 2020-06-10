@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { Button } from 'antd-mobile';
-import searchIcon from './images/search.svg'
+import searchIcon from './images/search.svg';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import "./index.less";
 
-import "./index.less"
-import { withRouter } from 'react-router-dom';
+interface IProps extends RouteComponentProps {
 
-class ISearchBar extends Component {
+}
+
+interface IState {
+    selectedTab: string;
+    hidden: boolean;
+}
+
+
+class ISearchBar extends Component<IProps, IState> {
     backHome = () => {
         return this.props.history.push('/');
     }

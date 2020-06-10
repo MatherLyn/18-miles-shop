@@ -11,9 +11,6 @@ interface IState {
 };
 
 class Comment extends Component<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
-    }
     handleReturn = () => {
         // this.props.history.replace("/process");
     };

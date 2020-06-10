@@ -14,10 +14,6 @@ interface IState {
 class AnAddress extends Component<IProps, IState> {
     private address: AddressInfo = store.addresses[this.props.index];
 
-    constructor(props: IProps) {
-        super(props);
-    };
-
     handleEdit = () => {
         const route: string = addAnchor('/addAddress', {
             index: this.props.index,
@@ -27,14 +23,6 @@ class AnAddress extends Component<IProps, IState> {
     };
 
     render() {
-        // default: true,
-        // province: '广东省',
-        // city: '广州市',
-        // county: '番禺区',
-        // postal_code: 510006,
-        // address: '华南理工大学(大学城校区)',
-        // recipient: '林浩2',
-        // phone: 12345678900,
         return (
             <div className="an-address">
                 <div className="avatar">{this.address.recipient[0]}</div>

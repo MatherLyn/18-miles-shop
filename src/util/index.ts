@@ -8,12 +8,21 @@ export function getRoute () {
     // localhost:3000/sort
     // localhost:3000/sort/abc
     // localhost:3000/sort?abc=1
-    const reg: RegExp = /\/\w+(?=(\/|\?|\#|$))/;
-    const res: RegExpExecArray | null = reg.exec(url);
-    if (res !== null) {
-        return res[0].slice(1, res[0].length);
+    // const reg: RegExp = /\//g;
+    // const res: RegExpExecArray | null = reg.exec(url);
+    // if (res !== null) {
+    //     return res[res.length - 1].slice(1, res[res.length - 1].length) || 'home';
+    // }
+
+    const index: number = url.lastIndexOf('/');
+    let res: string = '';
+    for (let i: number = index + 1; i < url.length; i++) {
+        if (/\?|#/.test(url[i])) {
+            break;
+        }
+        res += url[i];
     }
-    return 'home';
+    return res || 'home';
 }
 
 export function addAnchor (pathname: string, param: any) {
