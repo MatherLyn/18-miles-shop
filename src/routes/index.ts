@@ -26,11 +26,11 @@ const routes: Array<route> = [
     {
         path: '/',
         exact: true,
-        component: Home
+        component: Home,
     },
     {
         path: '/login',
-        component: Login
+        component: Login,
     },
     {
         path: '/register',
@@ -58,7 +58,7 @@ const routes: Array<route> = [
     },
     {
         path: '/profile',
-        component: Profile
+        component: Profile,
     },
     {
         path: '/commoditydetail',

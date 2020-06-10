@@ -9,21 +9,16 @@ import image1 from './images/commodity1.png';
 import image2 from './images/commodity2.png';
 import './index.less';
 
-interface IProps extends RouteComponentProps  {
-    history:any,
+interface IProps extends RouteComponentProps {
 }
 
-interface IMapState {
+interface IState {
     focusIndex: number
 }
 
 @observer
-class Sort extends Component<IProps,IMapState> {
-    constructor(props: IProps) {
-        super(props);
-    }
-
-    public state: IMapState = {
+class Sort extends Component<IProps, IState> {
+    public state: IState = {
         focusIndex: 0
     }
 

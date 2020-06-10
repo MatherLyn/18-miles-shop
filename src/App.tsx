@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, withRouter, RouteComponentProps } from 'react-router-dom';
 
 import TabBar from './components/TabBar';
 import { Provider } from 'mobx-react';
@@ -13,27 +13,16 @@ interface IProps {
 }
 
 interface IState {
-    selectedTab: string;
-    fullScreen: boolean;
+
 }
 
 class App extends Component<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
-        this.state = {
-            selectedTab: 'redTab',
-            fullScreen: false,
-        };
-    }
-
     render() {
         return (
-            <Provider store={store}>
-                <BrowserRouter>
-                    {renderRoutes(routes)}
-                    <TabBar />
-                </BrowserRouter>
-            </Provider>
+            <BrowserRouter basename="18-miles-shop-bundle/build/">
+                {renderRoutes(routes)}
+                <TabBar />
+            </BrowserRouter>
         )
     }
 }

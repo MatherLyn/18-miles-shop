@@ -11,9 +11,6 @@ interface IState {
 };
 
 class Setting extends Component<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
-    };
     handleEdit = () => {
         //进入编辑页面
 

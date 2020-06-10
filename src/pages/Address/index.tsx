@@ -13,9 +13,6 @@ interface IState {
 };
 
 class Address extends Component<IProps, IState> {
-    constructor(props: IProps) {
-        super(props);
-    };
     handleAddAddress = () => {
         this.props.history.push('/addaddress');
     };
