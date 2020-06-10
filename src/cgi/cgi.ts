@@ -1,4 +1,4 @@
-export const DEFAULT_URL = 'http://127.0.0.1:7001/';
+export const DEFAULT_URL = 'http://kanolin.cn:7001/';
 
 export const MOCK_URL = 'http://www.kanolin.cn:9090/mock/11/';
 

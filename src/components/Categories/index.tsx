@@ -28,7 +28,8 @@ class Categories extends Component<IProps, IState> {
     
     private handleClick = async (categoryId: number) => {
         const param = {
-            category_id: categoryId
+            category_id: categoryId,
+            page_num: 8
         }
         await doSearch(param);
         this.props.history.push(addAnchor('/searchResult', param));
