@@ -6,6 +6,7 @@ import image2 from './images/commodity2.png'
 import { store } from '../../store';
 import { observer } from 'mobx-react';
 import './index.less';
+import { doSearch } from '../../util'
 
 interface IMapProps {
 }
@@ -20,10 +21,14 @@ class Sort extends Component {
         focusIndex: 0
     }
 
-    public handleClick = (id: number) => {
+    public handleClick = (id: number, categoryId: number) => {
+        const param = {
+            category_id: categoryId
+        }
+        doSearch(param);
         this.setState({
             focusIndex: id
-        })
+        });
     };
 
     render() {
@@ -37,7 +42,7 @@ class Sort extends Component {
                             <img src={image1} alt="商品展示1" />
                         </div>
                         <div id="caption">
-                            {'-- ' + store.tabs[this.state.focusIndex] + ' --'}
+                            {'-- ' + store.tabs[this.state.focusIndex].name + ' --'}
                         </div>
                         <div id="displayBox">
                             {

@@ -97,7 +97,7 @@ class AddAddress extends Component<IProps, IState> {
                         <div className="r-icon"></div>
                     </div>
                     <h1>添加收货地址</h1>
-                    <div className="add-address" onClick={this.handleAdd}>保存</div>
+                    <div className="add-save" onClick={this.handleAdd}>保存</div>
                 </div>
                 <div className="add-address-main-box">
                     <Input className="input" placeholder="收货人" value={this.state.address.recipient} onChange={value => this.handleInputChange('recipient', value)}></Input>
