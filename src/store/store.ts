@@ -7,41 +7,6 @@ class Store {
     /**
      * 以下这些都是mock的数据，从后台返回
      */
-    // 首页的八个分类
-    @observable public categories: Array<Category> = [
-        {
-            iconUrl: require('../components/Categories/image/1.png'),
-            name: '美妆'
-        },
-        {
-            iconUrl: require('../components/Categories/image/2.png'),
-            name: '衣物'
-        },
-        {
-            iconUrl: require('../components/Categories/image/3.png'),
-            name: '数码'
-        },
-        {
-            iconUrl: require('../components/Categories/image/4.png'),
-            name: '母婴'
-        },
-        {
-            iconUrl: require('../components/Categories/image/5.png'),
-            name: '电器'
-        },
-        {
-            iconUrl: require('../components/Categories/image/6.png'),
-            name: '家具'
-        },
-        {
-            iconUrl: require('../components/Categories/image/7.png'),
-            name: '学生'
-        },
-        {
-            iconUrl: require('../components/Categories/image/8.png'),
-            name: '饮品'
-        },
-    ];
     // 首页的热卖
     @observable public topCommodities: Array<Commodity> = [
         {
@@ -161,24 +126,97 @@ class Store {
         }
     ];
     // 分类页的分类
-    @observable public tabs: Array<string> = [
-        '新品推荐',
-        '产品1',
-        '产品2',
-        '产品3',
-        '产品4',
-        '产品5',
-        '产品6',
-        '产品7',
-        '产品8',
-        '产品9',
-        '产品10',
-        '产品11',
-        '产品12',
-        '产品9',
-        '产品10',
-        '产品11',
-        '产品12',
+    @observable public tabs: Array<Category> = [
+        {
+            id: 1,
+            name: '美妆',
+            sons: [
+                {
+                    id: 1,
+                    name: '美妆'
+                }
+            ]
+        },
+        {
+            id: 2,
+            name: '衣物',
+            sons: [
+                {
+                    id: 1,
+                    name: '衣物'
+                }
+            ]
+        },
+        {
+            id: 3,
+            name: '数码',
+            sons: [
+                {
+                    id: 1,
+                    name: '数码'
+                }
+            ]
+        },
+        {
+            id: 4,
+            name: '母婴',
+            sons: [
+                {
+                    id: 1,
+                    name: '母婴'
+                }
+            ]
+        },
+        {
+            id: 5,
+            name: '电器',
+            sons: [
+                {
+                    id: 1,
+                    name: '电器'
+                }
+            ]
+        },
+        {
+            id: 6,
+            name: '家具',
+            sons: [
+                {
+                    id: 1,
+                    name: '家具'
+                }
+            ]
+        },
+        {
+            id: 7,
+            name: '学生',
+            sons: [
+                {
+                    id: 1,
+                    name: '学生'
+                }
+            ]
+        },
+        {
+            id: 8,
+            name: '饮品',
+            sons: [
+                {
+                    id: 1,
+                    name: '饮品'
+                }
+            ]
+        },
+        {
+            id: 9,
+            name: '服装',
+            sons: [
+                {
+                    id: 1,
+                    name: '服装'
+                }
+            ]
+        },
     ];
     // 分类页的右边
     @observable public sortCommodities: Array<SortCommodity> = [

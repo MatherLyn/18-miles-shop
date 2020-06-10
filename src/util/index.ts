@@ -49,7 +49,7 @@ export function collectAnchor (pathname: string) {
     return result;
 }
 
-export async function doSearch (param: any) {
+export async function doSearch (param: any, arrInStore?: Array<any>) {
     // const res = await getCommodityList(param);
     // const list = res.data as Array<Commodity>;
     // store.searchResult.concat(list);
@@ -63,6 +63,6 @@ export async function doSearch (param: any) {
     if (length > 15) {
         store.recentSearch.pop();
     }
-    store.recentSearch.unshift(param.keyword);
+    const keyword = param.keyword ? store.recentSearch.unshift(param.keyword) : null;
     window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
 }

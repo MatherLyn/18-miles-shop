@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import avatar from './images/avatar.jpeg'
+import React, { Component } from 'react';
+import avatar from './images/avatar.jpeg';
 import './index.less';
 
 interface IProps {
@@ -35,7 +35,7 @@ class Setting extends Component<IProps, IState> {
                 </div>
                 <div className="main-box">
                     <div className="userinfo">
-                        <img className="avatar" src={avatar} alt="" />
+                        <div className="avatar" style={{ backgroundImage: `url(${avatar})` }}/>
                         <div className="text-box">
                             <h1>用户名</h1>
                         </div>

@@ -20,11 +20,6 @@ export interface AddressInfo {
     phone: string,
 }
 
-export interface Category {
-    iconUrl: string;
-    name: string;
-}
-
 export interface Good {
     sku_pic: string,
     name: string,
@@ -87,6 +82,14 @@ export interface OrderDetail {
     v:Array<string>;
     num: number;
     status: number;
+}
+
+export interface Category {
+    id: number;
+    name: string;
+    sons: Array<{
+        id: number, name: string
+    }>;
 }
 
 export const store: Store = new Store();
