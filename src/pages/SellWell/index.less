@@ -1,12 +1,36 @@
 #sellWell{
     background-color: #FFFFFF;
+    .head{
+        display: flex;
+        align-items: center;
+        padding: 10px 10px 0 10px;
+        .return-icon {
+            width: 20px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            .icon {
+                box-sizing: border-box;
+                width: 8px;
+                height: 8px;
+                border: 1px solid #333;
+                border-top: none;
+                border-right: none;
+                transform: rotate(45deg);
+            }
+        }
+        .title{
+            flex: 1;
+            font-size: 17px;
+            font-weight: 500;
+            margin: 0;
+            color: rgb(198, 86, 36);
+        }
+    }
     #wrapper{
         padding: 10px 20px 10px 20px;
-        h1{
-            text-align: center;
-            margin-top: 0px;
-            margin-bottom: 10px;
-        }
         #bottomBox{
             text-align: center;
             h2 {

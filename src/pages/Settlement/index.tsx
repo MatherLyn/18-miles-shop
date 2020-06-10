@@ -4,7 +4,7 @@ import './index.less'
 import { item } from '../../cgi';
 
 interface IProps {
-    history:any,
+    history: any,
 
 }
 
@@ -15,15 +15,24 @@ interface IState {
 class Settlement extends Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
+        for (let i: number = 0; i < store.cart.length; i++) {
+            if (store.cart[i].isChecked) {
+                this.totalPrice += store.cart[i].price * store.cart[i].num;
+                this.totalPieces += store.cart[i].num;
+            }
+        }
     }
 
+    totalPieces = 0;
+    totalPrice = 0;
     handleReturn = () => {
         this.props.history.goBack();
     };
 
-    handleGoToAddress=()=>{
+    handleGoToAddress = () => {
         this.props.history.push('/address');
     };
+
     render() {
         return (
             <div className="settlement-page">
@@ -56,25 +65,24 @@ class Settlement extends Component<IProps, IState> {
                     </div>
                     <div className="commodities">
                         {
-                            (
-                                //根据传到这个页面的具体商品，一件商品返回对应的一个commodity标签
-                                <div className="commodity">
+                            store.cart.filter(item => item.isChecked === true).map((content, index) => (
+                                <div className="commodity" key={index}>
                                     <div className="top-wrapper">
-                                        <div className="commodity-image">这里是图片</div>
+                                        <div className="commodity-image">{content.sku_pic}</div>
                                         <div className="middle-box">
-                                            <div className="commodity-name">这里是商品名称</div>
-                                            <div className="commodity-attrs">这里是商品属性</div>
+                                            <div className="commodity-name">{content.name}</div>
+                                            <div className="commodity-attrs">{content.attr_name}</div>
                                         </div>
                                         <div className="right-box">
-                                            <div className="commodity-price">￥价格</div>
-                                            <div className="commodity-num">×数量</div>
+                                            <div className="commodity-price">￥{content.price}</div>
+                                            <div className="commodity-num">×{content.num}</div>
                                         </div>
                                     </div>
                                     <div className="bottom-wrapper">
-                                        <div className="subtotal">小计：<span className="highlight-text">￥单价*数量</span></div>
+                                        <div className="subtotal">小计：<span className="highlight-text">￥{content.price * content.num}</span></div>
                                     </div>
                                 </div>
-                            )
+                            ))
                         }
 
 
@@ -82,8 +90,8 @@ class Settlement extends Component<IProps, IState> {
                 </div>
 
                 <div className="submit">
-                    <div className="summary">{`共${'aaa'}件，`}</div>
-                    <div className="total-price">合计：<span className="highlight-text-bottom">{`${'aaa'}`}</span></div>
+                    <div className="summary">{`共 ${this.totalPieces} 件，`}</div>
+                    <div className="total-price">合计：<span className="highlight-text-bottom">{`${this.totalPrice}`}</span></div>
                     <div className="submit-button">提交订单</div>
                 </div>
             </div>);

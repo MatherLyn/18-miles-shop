@@ -1,4 +1,4 @@
-import { TopCommodity, Category, Good, SortCommodity, AddressInfo, UserInfo, CommodityDetail, OrderDetail, Commodity } from './index';
+import { TopCommodity, Category, Good, AddressInfo, UserInfo, CommodityDetail, OrderDetail, Commodity } from './index';
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 import { getUserProfile } from '../cgi';
@@ -220,116 +220,134 @@ class Store {
         },
     ];
     // 分类页的右边的商品展示
-    @observable public sortCommodities: Array<SortCommodity> = [
+    @observable public sortCommodities: Array<Commodity> = [
         {
-            'img': '',
-            'name': '新品推荐1'
+            spu_id: 123,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐2'
+            spu_id: 324,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐3'
+            spu_id: 4235,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐4'
+            spu_id: 524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐5'
+            spu_id: 2563,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐6'
+            spu_id: 3524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐7'
+            spu_id: 5234,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐8'
+            spu_id: 523,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '新品推荐9'
+            spu_id: 123,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 324,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 4235,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 2563,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 3524,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 5234,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 523,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 123,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
         {
-            'img': '',
-            'name': '产品1'
+            spu_id: 324,
+            name: 'string',
+            price: 123,
+            spu_pic: 'string',
+            category: 'string',
         },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
-        },
-        {
-            'img': '',
-            'name': '产品2'
 
-        },
     ];
     // 用户信息
     @observable public userInfo: UserInfo = {

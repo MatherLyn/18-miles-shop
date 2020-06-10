@@ -100,6 +100,7 @@ class ShoppingCart extends Component<IProps, IState> {
                 }
             }
         } else {
+            if(this.selected)
             return this.props.history.push('/settlement');
         }
     }

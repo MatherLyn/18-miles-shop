@@ -5,10 +5,10 @@ export interface TopCommodity {
     name: string;
     price: number;
 }
-export interface SortCommodity {
-    img: string;
-    name: string;
-}
+// export interface SortCommodity {
+//     img: string;
+//     name: string;
+// }
 export interface AddressInfo {
     default: boolean,
     province: string,

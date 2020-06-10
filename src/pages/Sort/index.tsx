@@ -1,14 +1,16 @@
-import React, { Component } from 'react'
-import SearchBar from '../../components/SearchBar'
-import Menu from '../../components/Menu'
-import image1 from './images/commodity1.png'
-import image2 from './images/commodity2.png'
+import React, { Component } from 'react';
+import SearchBar from '../../components/SearchBar';
+import Menu from '../../components/Menu';
 import { store } from '../../store';
 import { observer } from 'mobx-react';
+import { withRouter,RouteComponentProps } from 'react-router-dom';
+import { doSearch } from '../../util';
+import image1 from './images/commodity1.png';
+import image2 from './images/commodity2.png';
 import './index.less';
-import { doSearch } from '../../util'
 
-interface IProps {
+interface IProps extends RouteComponentProps  {
+    history:any,
 }
 
 interface IMapState {
@@ -16,7 +18,11 @@ interface IMapState {
 }
 
 @observer
-class Sort extends Component {
+class Sort extends Component<IProps,IMapState> {
+    constructor(props: IProps) {
+        super(props);
+    }
+
     public state: IMapState = {
         focusIndex: 0
     }
@@ -29,6 +35,10 @@ class Sort extends Component {
         this.setState({
             focusIndex: id
         });
+    };
+
+    public handleRedirectToDetail=(skuId:number)=>{
+        this.props.history.push(`/commoditydetail/${skuId}`);
     };
 
     render() {
@@ -49,8 +59,8 @@ class Sort extends Component {
                                 store.sortCommodities.map((content, index) => (
                                     index >= this.state.focusIndex * 9 && index < (this.state.focusIndex + 1) * 9 ?
                                         (
-                                            <div className="box" key={index}>
-                                                <img src={content.img} alt="商品图片" />
+                                            <div className="box" key={index} onClick={()=>this.handleRedirectToDetail(content.spu_id)}>
+                                                <img src={content.spu_pic} alt="商品图片" />
                                                 <h1>{content.name}</h1>
                                             </div>
                                         ) : (
@@ -69,4 +79,4 @@ class Sort extends Component {
     }
 }
 
-export default Sort;
+export default withRouter(Sort);
