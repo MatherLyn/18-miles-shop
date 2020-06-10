@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../store';
-import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, ITEM_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL, MODITY_PROFILE_URL } from './cgi';
+import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, ITEM_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL, MODITY_PROFILE_URL, UPLOAD_IMAGE } from './cgi';
 import { LoginConfig, RegisterConfig, SendCodeConfig } from './types';
 
 axios.defaults.baseURL = DEFAULT_URL;

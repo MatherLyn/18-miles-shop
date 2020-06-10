@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import avatar from '../../assets/avatar.png';
 import './index.less';
 import { store } from '../../store';
+import { observer } from 'mobx-react';
+import { getUserProfile } from '../../cgi';
 
 interface IProps {
     history: any
@@ -11,7 +13,16 @@ interface IState {
 
 };
 
+@observer
 class Setting extends Component<IProps, IState> {
+    async componentDidMount () {
+        if (store.loginAuthorization) {
+            const userInfo = await getUserProfile();
+            if (userInfo?.data.errcode === 0) {
+                store.userInfo = userInfo.data.data;
+            }
+        }
+    }
 
     handleEdit = () => {
         //进入编辑页面

@@ -37,7 +37,7 @@ export interface UserInfo {
     email: string;
     birthday: string;
     sex: number;
-    phone: number;
+    phone: string;
     identify: number;
 }
 

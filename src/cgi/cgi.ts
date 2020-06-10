@@ -15,3 +15,5 @@ export const ITEM_URL = '/item/';
 export const COMMODITY_LIST = '/search';
 
 export const SEND_CODE_URL = '/user/send_captcha';
+
+export const UPLOAD_IMAGE = '/attachment/upload';

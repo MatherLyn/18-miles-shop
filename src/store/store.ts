@@ -2,6 +2,7 @@ import { TopCommodity, Category, Good, AddressInfo, UserInfo, CommodityDetail, O
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 import { getUserProfile } from '../cgi';
+import avatar from '../assets/avatar.png';
 
 
 class Store {
@@ -352,12 +353,12 @@ class Store {
     // 用户信息
     @observable public userInfo: UserInfo = {
         id: 123,
-        avatar: 'string',
+        avatar: avatar,
         username: 'string',
         email: 'string',
         birthday: 'string',
         sex: 0,
-        phone: 13143351504,
+        phone: '13143351504',
         identify: 0
     };
     // 购物车内容
