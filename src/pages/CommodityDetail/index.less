@@ -1,108 +1,129 @@
-.commodity-detail{
+.commodity-detail {
+    border-top: 1px solid transparent;
     .header {
         background-color: rgb(250, 250, 250);
         position: fixed;
         width: 100%;
-            .searchBox {
+
+        .searchBox {
+            display: flex;
+            padding: 8px;
+            justify-content: space-around;
+            align-items: center;
+
+            .return-icon {
+                width: 20px;
+                height: 30px;
                 display: flex;
-                padding: 8px;
-                justify-content: space-around;
+                justify-content: center;
                 align-items: center;
-        
-                .return-icon {
-                    width: 20px;
-                    height: 30px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-        
-                    .icon {
-                        box-sizing: border-box;
-                        width: 8px;
-                        height: 8px;
-                        border: 1px solid #333;
-                        border-top: none;
-                        border-right: none;
-                        transform: rotate(45deg);
-                    }
-                }
-        
-                input {
+
+                .icon {
                     box-sizing: border-box;
-                    flex: 1;
-                    height: 30px;
-                    line-height: 22px;
-                    border: 1px solid #ff4b00;
-                    border-radius: 15px;
-                    padding: 4px 12px;
-                    font-size: 14px;
-                    color: #666;
-                }
-        
-                .confirmSearch {
-                    box-sizing: border-box;
-                    width: 40px;
-                    height: 30px;
-                    line-height: 30px;
-                    text-align: center;
-                    color: #666;
+                    width: 8px;
+                    height: 8px;
+                    border: 1px solid #333;
+                    border-top: none;
+                    border-right: none;
+                    transform: rotate(45deg);
                 }
             }
+
+            input {
+                box-sizing: border-box;
+                flex: 1;
+                height: 30px;
+                line-height: 22px;
+                border: 1px solid #ff4b00;
+                border-radius: 15px;
+                padding: 4px 12px;
+                font-size: 14px;
+                color: #666;
+            }
+
+            .confirmSearch {
+                box-sizing: border-box;
+                width: 40px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                color: #666;
+            }
+        }
     }
-    .wrapper{
+
+    .wrapper {
         background-color: #FFF;
         margin-bottom: 10px;
+
         .commodity-image {
             padding-top: 100%;
         }
-        .commodity-info{
+
+        .commodity-info {
             padding: 15px 20px;
-            .commodity-price{
+
+            .commodity-price {
                 font-size: 25px;
                 color: rgb(255, 65, 7);
             }
-            .commodity-name{
+
+            .commodity-name {
                 margin-top: 10px;
                 font-size: 20px;
                 font-weight: 700;
             }
         }
-        .commodity-comment{
+
+        .commodity-comment {
             padding: 15px;
             display: flex;
             justify-content: space-between;
             font-size: 15px;
-            .commodity-comment-title{
-            }
-            .commodity-comment-show-all{
-                color:rgb(255, 65, 0);
+
+            .commodity-comment-title {}
+
+            .commodity-comment-show-all {
+                color: rgb(255, 65, 0);
             }
         }
-        .commodity-description-image{
+
+        .commodity-description-image {
             padding-top: 100%;
         }
     }
-    .comments{
+
+    .wrapper:nth-of-type(2) {
+        margin-top: 46px;
+    }
+
+    .comments {
         position: fixed;
+        z-index: 3;
         transition-duration: .25s;
-        .comments-show{
+
+        .comments-show {
             background-color: #FFF;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-            padding: 20px 20px 5px 20px;
-            .comment-item{
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 28px 20px 4px;
+
+            .comment-item {
                 display: flex;
                 margin-bottom: 20px;
-                .avatar{
+
+                .avatar {
                     width: 40px;
                     height: 40px;
                     border-radius: 40px;
                     border: solid;
                     margin-right: 10px;
                 }
-                .right-box{
+
+                .right-box {
                     flex: 1;
-                    .right-top-box{
+
+                    .right-top-box {
                         display: flex;
                         justify-content: space-between;
                         align-items: center;
@@ -114,20 +135,34 @@
             }
         }
 
-        .add-comment{
+        .add-comment {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding:10px 20px;
-            .make-comment-input{
+            padding: 8px;
+            background-color: #eee;
+
+            .make-comment-input {
                 flex: 1;
             }
-            .confirm{
+
+            .confirm {
                 width: 70px;
-                padding: 0 10px;
+                padding-left: 10px;
+                padding-right: 2px;
                 text-align: center;
             }
         }
-    }   
+    }
 
+    .mask {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background-color: rgba(33, 33, 33, 0.15);
+        width: 100vw;
+        height: 100vh;
+        transition-duration: .25s;
+    }
 }

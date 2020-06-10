@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import avatar from './images/avatar.jpeg';
+import avatar from '../../assets/avatar.png';
 import './index.less';
 
 interface IProps {

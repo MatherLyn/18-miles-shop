@@ -36,7 +36,7 @@ class Process extends Component<IProps, IState> {
         const param = {
             keyword: ref?.value,
             page: 1,
-            page_num: 4
+            page_num: 8
         }
         if (!param.keyword) {
             return;

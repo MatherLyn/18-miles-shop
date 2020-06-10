@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { store } from '../../store';
 import { Input, Rate } from 'element-react';
 import './index.less';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface IMapProps {
+interface IMapProps extends RouteComponentProps {
 
 }
 
@@ -32,7 +33,7 @@ class CommodityDetail extends Component<IMapProps, IMapState> {
     }
 
     handleReturn = () => {
-
+        this.props.history.goBack();
     };
 
     handleSearch = () => {
@@ -115,9 +116,18 @@ class CommodityDetail extends Component<IMapProps, IMapState> {
                         <div className="confirm">发布</div>
                     </div>
                 </div>
+                
+                <div
+                    className="mask"
+                    style={{
+                        visibility: this.state.showComments ? 'visible' : 'hidden'
+                    }}
+                    onClick={this.toggleComments}
+                >    
+                </div>
             </div>
         );
     }
 }
 
-export default CommodityDetail;
+export default withRouter(CommodityDetail);

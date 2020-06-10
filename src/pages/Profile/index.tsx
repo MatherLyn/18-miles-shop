@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import notPay from './images/notPay.svg'
-import notComment from './images/notComment.svg'
-import notShip from './images/notShip.svg'
-import notReceive from './images/notReceive.svg'
-import setting from './images/setting.svg'
-import avatar from './images/avatar.jpeg'
+import React, { Component } from 'react';
+import notPay from './images/notPay.svg';
+import notComment from './images/notComment.svg';
+import notShip from './images/notShip.svg';
+import notReceive from './images/notReceive.svg';
+import setting from './images/setting.svg';
+import avatar from '../../assets/avatar.png';
 import './index.less';
-import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { store } from '../../store';
 
 interface IProps extends RouteComponentProps {
 
@@ -19,11 +20,22 @@ interface IState {
 class Profile extends Component<IProps, IState> {
 
     private routeTo = (target: string, tab?: string) => {
-        this.props.history.push(`${target}${tab ? `#${tab}` : ''}`);
+        const route: string = `${target}${tab ? `#${tab}` : ''}`
+        if (store.isLogin) {
+            this.props.history.push(route);
+        } else {
+            this.props.history.push(`/login#redirect_url=${encodeURIComponent(route)}`);
+        }
+    }
+
+    handleLogin = () => {
+        if (!store.isLogin) {
+            this.props.history.push(`/login#redirect_url=${encodeURIComponent('/profile')}`);
+        }
     }
 
     removeToSetting=()=>{
-        this.props.history.push('/setting');
+        store.isLogin ? this.props.history.push('/setting') : this.props.history.push(`/login#redirect_url=${encodeURIComponent('/setting')}`);
     };
 
     render() {
@@ -38,10 +50,11 @@ class Profile extends Component<IProps, IState> {
                                 style={{
                                     backgroundImage: `url(${avatar})`
                                 }}
+                                onClick={this.handleLogin}
                             />
                             <div id="name">
                                 <div className="user-info">
-                                    <div className="user-content">{`林大妈，你好`}</div>
+                                    <div className="user-content">{store.isLogin ? `${store.userInfo.username}，你好` : <div>你好，请先<a className="login-tips" onClick={this.handleLogin}>登录</a></div>}</div>
                                 </div>
                             </div>
                             <div id="links">

@@ -4,11 +4,13 @@ import { login } from '../../api';
 import { Message } from 'element-react'
 import 'element-theme-default';
 import logo from './images/logo.png';
-import wechatLogo from './images/wechat.svg' ;
+import wechatLogo from './images/wechat.svg';
 import messageLogo from './images/message.svg';
 import touristLogo from './images/tourist.svg';
 
 import './index.less';
+import { collectAnchor, addAnchor } from '../../util';
+import { store } from '../../store';
 
 interface IProps {
     history: any
@@ -18,8 +20,10 @@ interface IState {
 }
 
 export default class Login extends Component<IProps, IState> {
+    private redirectUrl: string;
     constructor(props: IProps) {
         super(props);
+        this.redirectUrl = collectAnchor(window.location.href).get('redirect_url') as string;
     }
 
     email = "";
@@ -27,33 +31,36 @@ export default class Login extends Component<IProps, IState> {
 
     //跳转到注册页面
     handleRegister = () => {
-        this.props.history.replace('/register')
+        this.props.history.replace(addAnchor('/register', { redirect_url: this.redirectUrl }));
     };
 
-    //跳转到主页
+    //跳转到回跳页面
     handleEnter = () => {
-        this.props.history.push('/')
+        this.props.history.push(decodeURIComponent(this.redirectUrl));
     };
 
-    handleChange1 = (e:any) => {
+    handleChange1 = (e: any) => {
         this.email = e;
     }
 
-    handleChange2 = (e:any) => {
+    handleChange2 = (e: any) => {
         this.password = e;
     }
 
     handleLogin = () => {
-        if(this.email===""||this.password==="")
-        {
+        if (this.email === "" || this.password === "") {
             Message.error('邮箱及密码均不能为空唷！');
             return;
         }
         login({
-            email:this.email,
-            password:this.password
-        }).then(response=>{
-            //还没完成
+            email: this.email,
+            password: this.password
+        }).then(response => {
+            if (response.data.errcode === 0) {
+                store.loginAuthorization = response.data.Authorization;
+                store.isLogin = true;
+                this.handleEnter();
+            }
         });
     }
 
@@ -93,11 +100,11 @@ export default class Login extends Component<IProps, IState> {
                             <button className="button-register" onClick={this.handleRegister}>注 册</button>
                         </div>
                         <div className="message-box">
-                            <h5>其他方式</h5> 
+                            <h5>其他方式</h5>
                             <ul id="way-box">
-                                <li onClick={this.handleEnter}><img src={wechatLogo} alt="微信" />微信</li>
-                                <li onClick={this.handleEnter}><img src={messageLogo} alt="短信" />短信验证</li>
-                                <li onClick={this.handleEnter}><img src={touristLogo} alt="游客" />游客访问</li>
+                                <li><img src={wechatLogo} alt="微信" />微信登录</li>
+                                <li><img src={messageLogo} alt="短信" />短信验证</li>
+                                <li><img src={touristLogo} alt="游客" />游客访问</li>
                             </ul>
                         </div>
                     </div>

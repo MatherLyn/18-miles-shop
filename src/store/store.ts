@@ -554,6 +554,10 @@ class Store {
         },
     ];
 
+    @observable public isLogin: boolean = false;
+
+    public loginAuthorization: string = '';
+
     constructor() {
         const r: string | null = window.localStorage.getItem('recentSearch');
         if (typeof r === 'string') {

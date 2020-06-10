@@ -66,3 +66,31 @@ export async function doSearch (param: any, arrInStore?: Array<any>) {
     const keyword = param.keyword ? store.recentSearch.unshift(param.keyword) : null;
     window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
 }
+
+export function throttle (func: Function, time: number) {
+    let timer: NodeJS.Timeout | null = null;
+    return function (...args: Array<any>) {
+        if (!timer) {
+            timer = setTimeout(() => {
+                func.apply(null, args);
+                clearTimeout(timer as NodeJS.Timeout);
+                timer = null;
+            }, time);
+        }
+    }
+}
+
+export function debounce (func: Function, time: number) {
+    let timer: NodeJS.Timeout | null = null;
+    return function (...args: Array<any>) {
+        if (timer) {
+            clearTimeout(timer as NodeJS.Timeout);
+            timer = null;
+        }
+        timer = setTimeout(() => {
+            func.apply(null, args);
+            clearTimeout(timer as NodeJS.Timeout);
+            timer = null;
+        }, time);
+    }
+}
