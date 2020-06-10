@@ -16,8 +16,10 @@ interface IState {
 
 @observer
 class ShoppingCart extends Component<IProps, IState> {
+
     private selected: number = 0;
 
+    private defaultAddress="";
     constructor(props: IProps) {
         super(props);
         for (let i: number = 0; i < store.cart.length; i++) {
@@ -28,6 +30,11 @@ class ShoppingCart extends Component<IProps, IState> {
         this.state = {
             managing: false,
             selectAll: this.selected === store.cart.length,
+        }
+        for (let i: number = 0; i < store.addresses.length; i++) {
+            if (store.addresses[i].default) {
+                this.defaultAddress=`${store.addresses[i].province}${store.addresses[i].city}${store.addresses[i].county}${store.addresses[i].address}`;
+            }
         }
     }
 
@@ -129,7 +136,7 @@ class ShoppingCart extends Component<IProps, IState> {
                         </div>
                         <div className="cart-info">
                             <div className="good-count">{`共${store.cart.length}件宝贝`}</div>
-                            <div className="user-address">{`收货地址：`}</div>
+                            <div className="user-address">{`收货地址：${this.defaultAddress}`}</div>
                         </div>
                     </div>
                     <div className="entry-wrapper">

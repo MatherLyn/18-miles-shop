@@ -111,7 +111,7 @@ class AddAddress extends Component<IProps, IState> {
                     <div className="a-box">
                         <h1 className="label">设为默认地址</h1>
                         <Switch
-                            value={false}
+                            value={this.state.address.default}
                             onText=""
                             offText=""
                             onChange={e => this.handleSwitchOnChange(e)}
