@@ -60,13 +60,19 @@ export function collectAnchor (pathname: string) {
 
 export async function doSearch (param: any, arrInStore?: string) {
     const res = await getCommodityList(param);
+    // 处理返回的list数据
     const list = res.data as Array<Commodity>;
     if (arrInStore) {
         // @ts-ignore
         store[arrInStore] = list;
     } else {
-        store.searchResult.concat(list);
+        if (param.page === 1) {
+            store.searchResult.concat(list);
+        } else {
+            store.searchResult = list;
+        }
     }
+    // 最近搜索
     const length: number = store.recentSearch.length;
     for (let i: number = 0; i < store.recentSearch.length; i++) {
         if (store.recentSearch[i] === param.keyword) {

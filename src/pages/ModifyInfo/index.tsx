@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Input, Radio, Message, Upload } from 'element-react';
 import { store } from '../../store';
-import './index.less';
 import { modifyUserProfile, getUserProfile } from '../../cgi';
 import { observer } from 'mobx-react';
 import avatar from '../../assets/avatar.png';
+import './index.less';
 
 interface IProps extends RouteComponentProps {
 
@@ -110,7 +110,6 @@ class ModifyInfo extends Component<IProps, IState> {
                 </div>
                 <div className="wrapper">
                     <div className="avatar-box" onClick={this.handleSubmitAvatar}>
-                        <div className="modify-avatar">修改头像</div>
                         <Upload
                             className="avatar-uploader"
                             action="http://kanolin.cn/api/attachment/upload"
@@ -124,16 +123,16 @@ class ModifyInfo extends Component<IProps, IState> {
                 </div>
                 <div className="input-box">
                     <div className="input-wrapper">
-                        <div className="title-head">用户名</div>
-                        <Input placeholder="请输入内容" value={this.state.username} onChange={value => this.handleChange('username', value)} />
+                        <div className="title-head">用户姓名</div>
+                        <Input className="input" placeholder="请输入内容" value={this.state.username} onChange={value => this.handleChange('username', value)} />
                     </div>
                     <div className="input-wrapper">
                         <div className="title-head">电话号码</div>
-                        <Input placeholder="请输入内容" value={this.state.phone} onChange={value => this.handleChange('phone', value)} />
+                        <Input className="input" placeholder="请输入内容" value={this.state.phone} onChange={value => this.handleChange('phone', value)} />
                     </div>
                     <div className="input-wrapper">
                         <div className="title-head">出生日期</div>
-                        <Input placeholder="请输入内容" value={this.state.birthday} onChange={value => this.handleChange('birthday', value)} />
+                        <Input className="input" placeholder="请输入内容" value={this.state.birthday} onChange={value => this.handleChange('birthday', value)} />
                     </div>
                     <div className="input-wrapper">
                         <div className="title-head">性别</div>
