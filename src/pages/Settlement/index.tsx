@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { store } from '../../store'
 import './index.less'
-import { item } from '../../api';
+import { item } from '../../cgi';
 
-interface IMapProps {
+interface IProps {
     history:any,
 
 }
 
-interface IMapState {
+interface IState {
 
 }
 
-class Settlement extends Component<IMapProps, IMapState> {
-    constructor(props: IMapProps) {
+class Settlement extends Component<IProps, IState> {
+    constructor(props: IProps) {
         super(props);
     }
 

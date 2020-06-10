@@ -8,3 +8,7 @@ export interface RegisterConfig {
     password: string,
     code: string
 }
+
+export interface SendCodeConfig {
+    email: string
+}

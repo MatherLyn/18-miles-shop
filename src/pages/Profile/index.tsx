@@ -8,6 +8,7 @@ import avatar from '../../assets/avatar.png';
 import './index.less';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { store } from '../../store';
+import { observer } from 'mobx-react';
 
 interface IProps extends RouteComponentProps {
 
@@ -17,6 +18,7 @@ interface IState {
 
 }
 
+@observer
 class Profile extends Component<IProps, IState> {
 
     private routeTo = (target: string, tab?: string) => {

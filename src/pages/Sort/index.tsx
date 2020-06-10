@@ -8,7 +8,7 @@ import { observer } from 'mobx-react';
 import './index.less';
 import { doSearch } from '../../util'
 
-interface IMapProps {
+interface IProps {
 }
 
 interface IMapState {

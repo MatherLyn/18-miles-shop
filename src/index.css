@@ -56,6 +56,16 @@ h6 {
   padding: 20px 10px;
 }
 
+.el-button:focus {
+    color: #C65624;
+    border-color: #C65624;
+}
+
+.el-button:hover {
+    color: #C65624;
+    border-color: #C65624;
+}
+
 .el-button--text {
   color: #C65624;
 }

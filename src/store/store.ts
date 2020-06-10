@@ -1,6 +1,7 @@
 import { TopCommodity, Category, Good, SortCommodity, AddressInfo, UserInfo, CommodityDetail, OrderDetail, Commodity } from './index';
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
+import { getUserProfile } from '../cgi';
 
 
 class Store {
@@ -563,6 +564,16 @@ class Store {
         if (typeof r === 'string') {
             this.recentSearch = JSON.parse(r);
         }
+        const a: string | null = window.localStorage.getItem('Authorization');
+        if (typeof a === 'string') {
+            this.isLogin = true;
+            this.loginAuthorization = a;
+        }
+    }
+
+    public setUserProfile = async () => {
+        const res = await getUserProfile();
+        this.userInfo = res?.data;
     }
 
     @computed get totalPrice() {

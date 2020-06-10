@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { store } from '../store';
-import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, ITEM_URL, COMMODITY_LIST } from './cgi';
-import { LoginConfig, RegisterConfig } from './types';
+import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, ITEM_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL } from './cgi';
+import { LoginConfig, RegisterConfig, SendCodeConfig } from './types';
 
 axios.defaults.baseURL = DEFAULT_URL;
 
@@ -15,6 +15,22 @@ export async function register(config: RegisterConfig) {
     return axios.post(REGISTER_URL, {}, {
         params: config
     })
+}
+
+export async function getUserProfile() {
+    if (store.isLogin) {
+        return axios.get(PROFILE_URL, {
+            headers: {
+                Authorization: store.loginAuthorization
+            }
+        })
+    }
+}
+
+export async function sendEmailCode(config: SendCodeConfig) {
+    return axios.post(SEND_CODE_URL, {}, {
+        params: config
+    });
 }
 
 export async function item(number: number) {

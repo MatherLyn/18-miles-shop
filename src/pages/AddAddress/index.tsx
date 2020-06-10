@@ -73,7 +73,6 @@ class AddAddress extends Component<IProps, IState> {
     };
 
     handleInputChange = (type: string, value: any) => {
-        debugger
         this.setState({
             address: {
                 ...this.state.address,
@@ -89,6 +88,7 @@ class AddAddress extends Component<IProps, IState> {
     handleSwitchOnChange = (e: any) => {
         this.state.address.default = e;
     };
+    
     render() {
         return (
             <div className="add-address">

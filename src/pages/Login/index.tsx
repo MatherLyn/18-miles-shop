@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { List, InputItem } from 'antd-mobile';
-import { login } from '../../api';
+import { login } from '../../cgi';
 import { Message } from 'element-react'
 import 'element-theme-default';
 import logo from './images/logo.png';
@@ -58,6 +58,7 @@ export default class Login extends Component<IProps, IState> {
         }).then(response => {
             if (response.data.errcode === 0) {
                 store.loginAuthorization = response.data.Authorization;
+                localStorage.setItem('Authorization', response.data.Authorization);
                 store.isLogin = true;
                 this.handleEnter();
             }
@@ -104,7 +105,7 @@ export default class Login extends Component<IProps, IState> {
                             <ul id="way-box">
                                 <li><img src={wechatLogo} alt="微信" />微信登录</li>
                                 <li><img src={messageLogo} alt="短信" />短信验证</li>
-                                <li><img src={touristLogo} alt="游客" />游客访问</li>
+                                <li><img src={touristLogo} alt="游客" onClick={e => this.props.history.push('/')} />游客访问</li>
                             </ul>
                         </div>
                     </div>

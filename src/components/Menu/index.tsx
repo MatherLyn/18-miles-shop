@@ -3,16 +3,16 @@ import { store } from '../../store';
 import { observer } from 'mobx-react';
 import './index.less';
 
-interface IMapProps {
+interface IProps {
     focusIndex: number
     handleClick: Function
 }
 
-interface IMapState {
+interface IState {
 }
 
 @observer
-class Menu extends Component<IMapProps, IMapState> {
+class Menu extends Component<IProps, IState> {
 
     render() {
         return (

@@ -1,4 +1,4 @@
-import { getCommodityList } from '../api/index';
+import { getCommodityList } from '../cgi/index';
 import { store, Commodity } from '../store';
 
 export function getRoute () {

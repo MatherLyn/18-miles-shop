@@ -4,16 +4,16 @@ import { Input, Rate } from 'element-react';
 import './index.less';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface IMapProps extends RouteComponentProps {
+interface IProps extends RouteComponentProps {
 
 }
 
-interface IMapState {
+interface IState {
     showComments: boolean;
 }
 
-class CommodityDetail extends Component<IMapProps, IMapState> {
-    constructor(props: IMapProps) {
+class CommodityDetail extends Component<IProps, IState> {
+    constructor(props: IProps) {
         super(props);
         this.state = {
             showComments: false
