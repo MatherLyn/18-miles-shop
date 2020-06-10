@@ -32,7 +32,7 @@ class CommodityShow2 extends Component<IProps, IState> {
             <div className="commodityBox2" onClick={e => this.handleRedirectToDetail(this.props.spuId)}>
                 <div className="commodityImage"
                     style={{
-                        backgroundImage: this.props.spuPic
+                        backgroundImage: `url(${this.props.spuPic})`
                     }}
                 />
                 <div className="commodityDetails">

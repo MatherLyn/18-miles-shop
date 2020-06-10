@@ -65,12 +65,14 @@ export default class Register extends Component<IProps, IState> {
             email: this.state.email,
             password: this.state.password,
             code: this.state.verifyCode
-        }).then(response => {debugger
+        }).then(response => {
             if (response.data.errcode === 0) {
                 Message.success('注册成功！');
                 setTimeout(() => {
                     this.props.history.push('/login');
                 }, 1000);
+            } else {
+                Message.error(response.data.errormsg);
             }
         }).catch(() => {
             Message.error('网络请求出错，请稍后再试。')

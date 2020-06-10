@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import avatar from '../../assets/avatar.png';
 import './index.less';
+import { store } from '../../store';
 
 interface IProps {
     history: any
@@ -11,16 +12,27 @@ interface IState {
 };
 
 class Setting extends Component<IProps, IState> {
+
     handleEdit = () => {
         //进入编辑页面
+        this.props.history.push('/modifyinfo');
+    }
 
-    };
     handleGoToAddress = () => {
         this.props.history.push('/address');
-    };
-    handleReturn=()=>{
+    }
+
+    handleReturn = () => {
         this.props.history.push('/profile');
-    };
+    }
+
+    handleLogout = () => {
+        store.isLogin = false;
+        // @ts-ignore
+        store.userInfo = null;
+        localStorage.removeItem('Authorization');
+        this.props.history.push('/login');
+    }
     render() {
         return (
             <div className="setting">
@@ -32,9 +44,9 @@ class Setting extends Component<IProps, IState> {
                 </div>
                 <div className="main-box">
                     <div className="userinfo">
-                        <div className="avatar" style={{ backgroundImage: `url(${avatar})` }}/>
+                        <div className="avatar" style={{ backgroundImage: `url(${avatar})` }} />
                         <div className="text-box">
-                            <h1>用户名</h1>
+                            <h1>{store.userInfo.username}</h1>
                         </div>
                         <div className="edit" onClick={this.handleEdit}>编辑</div>
                     </div>
@@ -59,7 +71,7 @@ class Setting extends Component<IProps, IState> {
                     <div className="bottom-box bottom-box1">
                         切换用户
                     </div>
-                    <div className="bottom-box">
+                    <div className="bottom-box" onClick={this.handleLogout}>
                         退出登录
                     </div>
                 </div>

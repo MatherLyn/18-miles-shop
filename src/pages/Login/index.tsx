@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { List, InputItem } from 'antd-mobile';
-import { login } from '../../cgi';
+import { login, getUserProfile } from '../../cgi';
 import { Message } from 'element-react'
 import 'element-theme-default';
 import logo from './images/logo.png';
@@ -36,7 +36,11 @@ export default class Login extends Component<IProps, IState> {
 
     //跳转到回跳页面
     handleEnter = () => {
-        this.props.history.push(decodeURIComponent(this.redirectUrl));
+        if (!this.redirectUrl) {
+            this.props.history.push('/');
+        } else {
+            this.props.history.push(decodeURIComponent(this.redirectUrl));
+        }
     };
 
     handleChange1 = (e: any) => {
@@ -47,22 +51,25 @@ export default class Login extends Component<IProps, IState> {
         this.password = e;
     }
 
-    handleLogin = () => {
+    handleLogin = async () => {
         if (this.email === "" || this.password === "") {
             Message.error('邮箱及密码均不能为空唷！');
             return;
         }
-        login({
+        const loginRes = await login({
             email: this.email,
             password: this.password
-        }).then(response => {
-            if (response.data.errcode === 0) {
-                store.loginAuthorization = response.data.Authorization;
-                localStorage.setItem('Authorization', response.data.Authorization);
-                store.isLogin = true;
-                this.handleEnter();
-            }
-        });
+        })
+        if (loginRes?.data.errcode === 0) {
+            store.loginAuthorization = loginRes.data.Authorization;
+            localStorage.setItem('Authorization', loginRes.data.Authorization);
+            store.isLogin = true;
+        }
+        const userInfo = await getUserProfile();
+        if (userInfo?.data.errcode === 0) {
+            store.userInfo = userInfo.data.data;
+            this.handleEnter();
+        }
     }
 
     render() {
@@ -91,6 +98,7 @@ export default class Login extends Component<IProps, IState> {
                                 placeholder="密码"
                                 onChange={e => this.handleChange2(e)}
                                 className="input-password"
+                                type="password"
                             >
                                 <div className="password-icon" />
                             </InputItem>

@@ -32,7 +32,7 @@ class Search extends Component<IProps, IState> {
         window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
     };
 
-    handleSearch = async (value?: string) => {
+    handleSearch = (value?: string) => {
         if (!value) {
             return;
         }
@@ -41,8 +41,8 @@ class Search extends Component<IProps, IState> {
             page: 1,
             page_num: 8
         }
-        await doSearch(param);
         this.props.history.push(addAnchor('/searchResult', param));
+        doSearch(param);
     };
 
     handleReturn = () => {

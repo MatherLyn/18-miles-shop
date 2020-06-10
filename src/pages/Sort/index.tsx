@@ -24,9 +24,11 @@ class Sort extends Component<IProps, IState> {
 
     public handleClick = (id: number, categoryId: number) => {
         const param = {
-            category_id: categoryId
+            category_id: categoryId,
+            page: 1,
+            page_num: 9,
         }
-        doSearch(param);
+        doSearch(param, 'sortCommodities');
         this.setState({
             focusIndex: id
         });
@@ -55,7 +57,11 @@ class Sort extends Component<IProps, IState> {
                                     index >= this.state.focusIndex * 9 && index < (this.state.focusIndex + 1) * 9 ?
                                         (
                                             <div className="box" key={index} onClick={()=>this.handleRedirectToDetail(content.spu_id)}>
-                                                <img src={content.spu_pic} alt="商品图片" />
+                                                <div
+                                                    style={{
+                                                        backgroundImage: `url(${content.spu_pic})`
+                                                    }}
+                                                />
                                                 <h1>{content.name}</h1>
                                             </div>
                                         ) : (

@@ -27,7 +27,7 @@ class ShowSellWell extends Component<IProps, IState> {
             const param = {
                 top: 10
             }
-            doSearch(param, store.topCommodities);
+            doSearch(param, 'topCommodities');
         }
     }
 

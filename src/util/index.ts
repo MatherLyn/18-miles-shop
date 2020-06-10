@@ -58,10 +58,15 @@ export function collectAnchor (pathname: string) {
     return result;
 }
 
-export async function doSearch (param: any, arrInStore?: Array<any>) {
-    // const res = await getCommodityList(param);
-    // const list = res.data as Array<Commodity>;
-    // store.searchResult.concat(list);
+export async function doSearch (param: any, arrInStore?: string) {
+    const res = await getCommodityList(param);
+    const list = res.data as Array<Commodity>;
+    if (arrInStore) {
+        // @ts-ignore
+        store[arrInStore] = list;
+    } else {
+        store.searchResult.concat(list);
+    }
     const length: number = store.recentSearch.length;
     for (let i: number = 0; i < store.recentSearch.length; i++) {
         if (store.recentSearch[i] === param.keyword) {

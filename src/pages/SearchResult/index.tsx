@@ -56,12 +56,12 @@ class SearchResult extends Component<IProps, IState> {
         this.setState({
             more: '搜索中'
         })
-        await doSearch(param);
         this.props.history.push(addAnchor('/searchResult', param));
         this.setState({
             more: '下滑查看更多',
             page: 1
         })
+        doSearch(param);
     };
 
     handleUpdate = async () => {
@@ -77,7 +77,7 @@ class SearchResult extends Component<IProps, IState> {
         this.setState({
             more: '搜索中'
         })
-        await doSearch(param);
+        doSearch(param);
         if (store.searchResult.length < prevLength + 8) {
             return this.setState({
                 more: '没有更多了'

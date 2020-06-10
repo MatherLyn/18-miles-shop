@@ -26,13 +26,13 @@ class Categories extends Component<IProps, IState> {
         icon1, icon2, icon3, icon4, icon5, icon6, icon7, icon8
     ]
     
-    private handleClick = async (categoryId: number) => {
+    private handleClick = (categoryId: number) => {
         const param = {
             category_id: categoryId,
             page_num: 8
         }
-        await doSearch(param);
         this.props.history.push(addAnchor('/searchResult', param));
+        doSearch(param);
     }
 
     render() {

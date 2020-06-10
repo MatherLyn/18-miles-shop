@@ -1,14 +1,12 @@
 import axios from 'axios';
 import { store } from '../store';
-import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, ITEM_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL } from './cgi';
+import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, ITEM_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL, MODITY_PROFILE_URL } from './cgi';
 import { LoginConfig, RegisterConfig, SendCodeConfig } from './types';
 
 axios.defaults.baseURL = DEFAULT_URL;
 
 export async function login(config: LoginConfig) {
-    return axios.post(LOGIN_URL, {}, {
-        params: config
-    });
+    return axios.post(LOGIN_URL, config);
 }
 
 export async function register(config: RegisterConfig) {
@@ -22,6 +20,12 @@ export async function getUserProfile() {
                 Authorization: store.loginAuthorization
             }
         });
+    }
+}
+
+export async function modifyUserProfile(config: any) {
+    if (store.isLogin) {
+        return axios.put(MODITY_PROFILE_URL, config);
     }
 }
 

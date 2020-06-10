@@ -9,6 +9,7 @@ import './index.less';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { store } from '../../store';
 import { observer } from 'mobx-react';
+import { getUserProfile } from '../../cgi';
 
 interface IProps extends RouteComponentProps {
 
@@ -20,6 +21,15 @@ interface IState {
 
 @observer
 class Profile extends Component<IProps, IState> {
+
+    async componentDidMount () {
+        if (store.loginAuthorization) {
+            const userInfo = await getUserProfile();
+            if (userInfo?.data.errcode === 0) {
+                store.userInfo = userInfo.data.data;
+            }
+        }
+    }
 
     private routeTo = (target: string, tab?: string) => {
         const route: string = `${target}${tab ? `#${tab}` : ''}`
