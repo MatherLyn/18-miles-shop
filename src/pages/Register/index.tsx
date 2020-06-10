@@ -65,8 +65,15 @@ export default class Register extends Component<IProps, IState> {
             email: this.state.email,
             password: this.state.password,
             code: this.state.verifyCode
-        }).then(response => {
-            //还没完成
+        }).then(response => {debugger
+            if (response.data.errcode === 0) {
+                Message.success('注册成功！');
+                setTimeout(() => {
+                    this.props.history.push('/login');
+                }, 1000);
+            }
+        }).catch(() => {
+            Message.error('网络请求出错，请稍后再试。')
         });
     }
 
@@ -74,15 +81,14 @@ export default class Register extends Component<IProps, IState> {
         if (this.state.time !== 0) {
             return;
         } else {
-            // sendEmailCode({
-            //     email: this.state.email
-            // });
+            sendEmailCode({
+                email: this.state.email
+            });
             this.setState({
                 time: 30
             });
             let interval: NodeJS.Timeout | null = setInterval(() => {
                 if (this.state.time > 0) {
-                    console.log(this.state.time);
                     this.setState({
                         time : this.state.time - 1
                     })
@@ -128,6 +134,7 @@ export default class Register extends Component<IProps, IState> {
                                     className="a-input"
                                     placeholder="请输入密码"
                                     value={this.state.password}
+                                    type="password"
                                     // @ts-ignore
                                     onChange={value => this.setState({password: value})}
                                 >
@@ -139,6 +146,7 @@ export default class Register extends Component<IProps, IState> {
                                     className="a-input"
                                     placeholder="请再次输入密码"
                                     value={this.state.repeatPassword}
+                                    type="password"
                                     // @ts-ignore
                                     onChange={value => this.setState({repeatPassword: value})}
                                 ></Input>

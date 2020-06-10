@@ -1,10 +1,10 @@
-export const DEFAULT_URL = 'http://www.kanolin.cn';
+export const DEFAULT_URL = 'http://kanolin.cn:7001/';
 
 export const MOCK_URL = 'http://www.kanolin.cn:9090/mock/11/';
 
-export const LOGIN_URL = '/login';
+export const LOGIN_URL = '/user/login';
 
-export const REGISTER_URL = '/register';
+export const REGISTER_URL = '/user/register';
 
 export const PROFILE_URL = '/user/profile';
 

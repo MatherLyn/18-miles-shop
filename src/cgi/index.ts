@@ -8,13 +8,11 @@ axios.defaults.baseURL = DEFAULT_URL;
 export async function login(config: LoginConfig) {
     return axios.post(LOGIN_URL, {}, {
         params: config
-    })
+    });
 }
 
 export async function register(config: RegisterConfig) {
-    return axios.post(REGISTER_URL, {}, {
-        params: config
-    })
+    return axios.post(REGISTER_URL, config);
 }
 
 export async function getUserProfile() {
@@ -23,13 +21,13 @@ export async function getUserProfile() {
             headers: {
                 Authorization: store.loginAuthorization
             }
-        })
+        });
     }
 }
 
 export async function sendEmailCode(config: SendCodeConfig) {
-    return axios.post(SEND_CODE_URL, {}, {
-        params: config
+    return axios.post(SEND_CODE_URL, {
+        email: config.email
     });
 }
 
