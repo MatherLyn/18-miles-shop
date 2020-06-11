@@ -295,6 +295,10 @@ class CommodityDetail extends Component<IProps, IState> {
                                     return (
                                         <Carousel.Item key={index}>
                                             <img src={item.sku_pic} alt="" />
+<<<<<<< HEAD
+=======
+                                            {/* <div>{index}</div> */}
+>>>>>>> 550a4fadc11306ac237b3b5301ea3e592bde61fe
                                         </Carousel.Item>
                                     )
                                 })
