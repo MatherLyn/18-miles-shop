@@ -262,15 +262,68 @@
                     border-radius: 5px;
                     text-align: center;
                     margin-right: 10px;
-                    padding: 5px 10px;
+                    padding: 6px 10px;
                     font-size: 14px;
                 }
                 .commodity-box-attr-value-foucus{
+                    border: solid 1px rgb(255, 113, 0);
+                    color: rgb(255, 113, 0);
+                    background: rgb(255, 248, 246);
 
                 }
             }
         }
-        
+        .purchase-quantity{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            .purchase-quantity-title{
+                font-size: 15px;
+            }
+            .select-quantity{
+                display:flex;
+                font-size: 16px;
+                div {
+                    box-sizing: border-box;
+                    color: #666;
+                    background: rgb(245, 245, 245);
+                    height: 25px;
+                    line-height: 25px;
+                    text-align: center;
+                }
+                .count {
+                    padding: 0 8px;
+                    color: #333;
+                    margin: 0 1px;
+                }
+                .minus {
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                    width: 25px;
+                }
+                .plus {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                    width: 25px;
+                }
+            }
+        }
+        .confirm-box{
+            border-top: solid 1px rgb(245, 245, 245);
+            padding: 5px 10px;
+            .confirm-button{
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                width: 100%;
+                background-color: rgb(255, 113, 0);
+                border-radius: 20px;
+                color: #FFF;
+                font-weight: 600;
+                font-size: 16px;
+            }
+        }
     }
 
     .mask {
