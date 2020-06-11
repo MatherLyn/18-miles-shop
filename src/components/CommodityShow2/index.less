@@ -23,11 +23,16 @@
         display: flex;
         flex-direction: column;
 
-        h1 {
+        .commodity-name {
             font-size: 14px;
             font-weight: normal;
             margin: 3px 0 3px 0;
             border-width: 1px;
+            height: 33px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
 
         .title {

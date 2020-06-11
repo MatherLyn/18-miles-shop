@@ -20,7 +20,9 @@ class Menu extends Component<IProps, IState> {
                 <div id="menu">
                     {
                         store.tabs.map((content, index) => (
-                            <span key={content.id} className={`tab${this.props.focusIndex === index ? ' tabFocus' : ''}`} onClick={() => this.props.handleClick(index, content.id)}>
+                            <span key={content.id} className={`tab${this.props.focusIndex === index ? ' tabFocus' : ''}`}
+                            style={{color:this.props.focusIndex === index ? 'rgb(237, 71, 33)' : '#000'}}
+                             onClick={() => this.props.handleClick(index, content.id)}>
                                 {content.name}
                             </span>
                         ))

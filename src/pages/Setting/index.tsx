@@ -67,13 +67,13 @@ class Setting extends Component<IProps, IState> {
                             <div className="g-icon"></div>
                         </div>
                     </div>
-                    <div className="a-box" onClick={this.handleGoToAddress}>
+                    <div className="a-box">
                         <h1>支付设置</h1>
                         <div className="goto-icon">
                             <div className="g-icon"></div>
                         </div>
                     </div>
-                    <div className="a-box" onClick={this.handleGoToAddress}>
+                    <div className="a-box">
                         <h1>修改密码</h1>
                         <div className="goto-icon">
                             <div className="g-icon"></div>

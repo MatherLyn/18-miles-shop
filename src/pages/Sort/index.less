@@ -16,10 +16,11 @@
             flex-direction: column;
 
             .imgBox {
-                height: 140px;
+                height: 200px;
                 overflow: hidden;
                 img {
                     width: 100%;
+                    // object-fit: cover;
                 }
             }
 
@@ -27,6 +28,7 @@
                 width: 100%;
                 text-align: center;
                 margin: 10px 0px;
+                color:rgb(198, 86, 36);
             }
 
             #displayBox {
@@ -34,6 +36,8 @@
                 justify-content: space-between;
                 flex-wrap: wrap;
                 text-align: center;
+                background-color: #FFF;
+                padding: 15px 10px 5px 10px;
                 .box {
                     width: 30%;
 
@@ -44,9 +48,13 @@
                         background-size: cover;
                     }
 
-                    h1 {
+                    .commodity-name {
                         font-size: 13px;
                         margin-top: 0;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
                     }
                 }
             }

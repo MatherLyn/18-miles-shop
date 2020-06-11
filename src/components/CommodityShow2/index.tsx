@@ -32,7 +32,7 @@ class CommodityShow2 extends Component<IProps, IState> {
                     }}
                 />
                 <div className="commodityDetails">
-                    <h1>{this.props.name}</h1>
+                    <h1 className="commodity-name">{this.props.name}</h1>
                     <div className="tagBox">
                         <span className="spanBox">
                             {this.props.category}

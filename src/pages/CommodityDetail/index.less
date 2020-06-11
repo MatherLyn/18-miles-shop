@@ -210,6 +210,69 @@
         }
     }
 
+    .buy-add-to-cart{
+        position: fixed;
+        z-index: 3;
+        transition-duration: .25s;
+        width: 100%;
+        background-color: #fff;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        padding: 28px 20px 4px;
+        .commodity-top-box{
+            display: flex;
+            margin-bottom: 20px;
+            .commodity-img{
+                border: solid;
+                height: 100px;
+                width: 100px;
+                margin-right: 10px;
+            }
+            .middle-box{
+                flex: 1;
+                .commodity-price{
+                    font-size: 19px;
+                    color: rgb(255, 65, 0);
+                    font-weight: 600;
+                    margin-top: 20px;
+                    margin-bottom: 6px;
+                }
+                .commodity-stock{
+                    color: rgb(150, 150, 150);
+                }
+            }
+            .close-icon{
+                width: 30px;
+                border: solid;
+            }
+        }
+        .commodity-box-attr-item{
+            margin-bottom: 10px;
+            border-bottom: solid 1px rgb(245, 245, 245);
+            .commodity-box-attr-name{
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+            .commodity-box-attr-value-box{
+                display: flex;
+                margin-bottom: 15px;
+                .commodity-box-attr-value{
+                    background-color: rgb(245, 245, 245);
+                    min-width: 50px;
+                    border-radius: 5px;
+                    text-align: center;
+                    margin-right: 10px;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                }
+                .commodity-box-attr-value-foucus{
+
+                }
+            }
+        }
+        
+    }
+
     .mask {
         position: fixed;
         z-index: 2;
