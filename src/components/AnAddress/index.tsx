@@ -17,7 +17,7 @@ class AnAddress extends Component<IProps, IState> {
     handleEdit = () => {
         const route: string = addAnchor('/addAddress', {
             index: this.props.index,
-            ...this.address
+            ...this.address,
         });
         this.props.history.push(route);
     };

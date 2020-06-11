@@ -57,7 +57,7 @@ class Setting extends Component<IProps, IState> {
                     <div className="userinfo">
                         <div className="avatar" style={{ backgroundImage: `url(${avatar})` }} />
                         <div className="text-box">
-                            <h1>{store.userInfo.username}</h1>
+                            <h1>{store.userInfo?.username || ''}</h1>
                         </div>
                         <div className="edit" onClick={this.handleEdit}>编辑</div>
                     </div>

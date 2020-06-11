@@ -12,6 +12,7 @@ interface IProps extends RouteComponentProps {
 }
 
 interface IState {
+    skuId: number;
     showComments: boolean;
     comment: string;
 }
@@ -32,7 +33,7 @@ class CommodityDetail extends Component<IProps, IState> {
             {
                 id: 0,
                 name: '颜色',
-                value: [
+                values: [
                     {
                         id: 0,
                         name: '正红'
@@ -46,7 +47,7 @@ class CommodityDetail extends Component<IProps, IState> {
             {
                 id: 1,
                 name: '尺寸',
-                value: [
+                values: [
                     {
                         id: 0,
                         name: '大'
@@ -61,7 +62,7 @@ class CommodityDetail extends Component<IProps, IState> {
         skus: [
             {
                 id: 0,
-                spu_id:0,
+                sku_id: 0,
                 name: "一件衣服",
                 sku_pic: "string",
                 des_pic: "string",
@@ -70,20 +71,10 @@ class CommodityDetail extends Component<IProps, IState> {
                 sales: 0,
                 attrs: [],
                 v: [],
-                // id: number;
-                // spu_id: number;
-                // name: string;
-                // sku_pic: string;
-                // des_pic?: string;
-                // price: string;
-                // stock: number;
-                // sales: number;
-                // attrs: Array<any>;
-                // v: Array<any>;
             },
             {
                 id: 1,
-                spu_id:1,
+                sku_id: 1,
                 name: "一件衣服",
                 sku_pic: "string1",
                 des_pic: "string1",
@@ -95,7 +86,7 @@ class CommodityDetail extends Component<IProps, IState> {
             },
             {
                 id: 2,
-                spu_id:2,
+                sku_id: 2,
                 name: "一件衣服",
                 sku_pic: "string2",
                 des_pic: "string2",
@@ -107,7 +98,7 @@ class CommodityDetail extends Component<IProps, IState> {
             },
             {
                 id: 3,
-                spu_id:3,
+                sku_id: 3,
                 name: "一件衣服",
                 sku_pic: "string3",
                 des_pic: "string3",
@@ -123,6 +114,7 @@ class CommodityDetail extends Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
+            skuId: 0,
             showComments: false,
             comment: '',
         }
@@ -130,16 +122,13 @@ class CommodityDetail extends Component<IProps, IState> {
     }
 
     async componentDidMount() {
-        const tryCache = store.detailCache.filter(item => item.spu_id === this.spuId);
-        if (tryCache.length === 1) {
-            this.item = tryCache[0];
-        } else {
-            const cdRes = await getCommodityDetail(this.spuId);
-            if (cdRes.data.errcode === 0) {
-                this.item = cdRes.data.data;
-                store.detailCache.push(cdRes.data.data);
-                this.setState({})
-            }
+        const cdRes = await getCommodityDetail(this.spuId);
+        if (cdRes.data.errcode === 0) {
+            this.item = cdRes.data.data;
+            store.detailCache.push(cdRes.data.data);
+            this.setState({
+                skuId: this.item.skus[0].sku_id
+            })
         }
     }
 
@@ -172,6 +161,14 @@ class CommodityDetail extends Component<IProps, IState> {
             keyword: this.inputRef.current?.value
         }
         this.props.history.push(addAnchor('/searchResult', param));
+    }
+
+    addToCart = async () => {
+        
+    }
+
+    addToOrder = async () => {
+
     }
 
     render() {
@@ -222,8 +219,8 @@ class CommodityDetail extends Component<IProps, IState> {
                                     <div key={index} className="attr-item">
                                         <div className="attr-name">{`${item.name}`}</div>
                                         {
-                                            item.value.map((content, k) => (
-                                                <div className="attr-value" key={k}>{`${content.name}${k === item.value.length - 1 ? '' : '， '}`}</div>
+                                            item.values.map((content, k) => (
+                                                <div className="attr-value" key={k}>{`${content.name}${k === item.values.length - 1 ? '' : '， '}`}</div>
                                             ))
                                         }
                                     </div>
@@ -255,8 +252,8 @@ class CommodityDetail extends Component<IProps, IState> {
                 </div>
 
                 <div className="bottom-box">
-                    <div className="add-to-cart bottom-button">加入购物车</div>
-                    <div className="buy-now bottom-button">立即购买</div>
+                    <div className="add-to-cart bottom-button" onClick={this.addToCart}>加入购物车</div>
+                    <div className="buy-now bottom-button" onClick={this.addToOrder}>立即购买</div>
                 </div>
 
                 <div

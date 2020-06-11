@@ -66,7 +66,7 @@ class Profile extends Component<IProps, IState> {
                             />
                             <div id="name">
                                 <div className="user-info">
-                                    <div className="user-content">{store.isLogin ? `${store.userInfo.username}，你好` : <div>你好，请先<a className="login-tips" onClick={this.handleLogin}>登录</a></div>}</div>
+                                    <div className="user-content">{store.isLogin ? `${store.userInfo?.username}，你好` : <div>你好，请先<a className="login-tips" onClick={this.handleLogin}>登录</a></div>}</div>
                                 </div>
                             </div>
                             <div id="links">

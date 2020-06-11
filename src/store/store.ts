@@ -306,75 +306,13 @@ class Store {
 
     ];
     // 用户信息
-    @observable public userInfo: UserInfo = {
-        id: 123,
-        avatar: avatar,
-        username: 'string',
-        email: 'string',
-        birthday: 'string',
-        sex: 0,
-        phone: '13143351504',
-        identify: 0
-    };
+    @observable public userInfo: any = null;
     // 购物车内容
     @observable public cart: Array<Good> = [];
     // 商品详情缓存
-    @observable public detailCache: Array<ItemDetail> = [
-        
-    ];
+    @observable public detailCache: Array<ItemDetail> = [];
     // 收货地址
-    @observable public addresses: Array<AddressInfo> = [
-        {
-            default: true,
-            province: '广东省',
-            city: '广州市',
-            county: '番禺区',
-            postal_code: '510006',
-            address: '华南理工大学(大学城校区)',
-            recipient: '林浩2',
-            phone: '12345678900',
-        },
-        {
-            default: false,
-            province: '广东省',
-            city: '广州市',
-            county: '番禺区',
-            postal_code: '510006',
-            address: '华南理工大学(大学城校区)',
-            recipient: '林浩2',
-            phone: '12345678900',
-        },
-        {
-            default: false,
-            province: '广东省',
-            city: '广州市',
-            county: '番禺区',
-            postal_code: '510006',
-            address: '华南理工大学(大学城校区)',
-            recipient: '林浩2',
-            phone: '12345678900',
-        },
-        {
-            default: false,
-            province: '广东省',
-            city: '广州市',
-            county: '番禺区',
-            postal_code: '510006',
-            address: '华南理工大学(大学城校区)',
-            recipient: '林浩2',
-            phone: '12345678900',
-        },
-        {
-            default: false,
-            province: '广东省',
-            city: '广州市',
-            county: '番禺区',
-            postal_code: '510006',
-            address: '华南理工大学(大学城校区)',
-            recipient: '林浩2',
-            phone: '12345678900',
-        },
-    ];
+    @observable public addresses: Array<AddressInfo> = [];
     // 订单内容
     @observable public order: Array<OrderDetail> = [
         {

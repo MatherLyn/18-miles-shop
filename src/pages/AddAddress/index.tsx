@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Switch, MessageBox,Input } from 'element-react'
+import { Switch, MessageBox,Input, Message } from 'element-react'
 import './index.less';
 import { AddressInfo } from '../../store';
 import { collectAnchor } from '../../util';
+import { modifyAddress, addAddress, deleteAddress } from '../../cgi';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface IProps {
-    history: any,
+interface IProps extends RouteComponentProps{
 
 };
 interface IState {
@@ -13,16 +14,19 @@ interface IState {
 };
 
 class AddAddress extends Component<IProps, IState> {
+    private addressId: number;
+
     constructor(props: IProps) {
         super(props);
         const paramMap: Map<string, string> = collectAnchor(window.location.href);
+        this.addressId = parseInt(paramMap.get('addressId') as string);
         this.state = {
             address: {
                 default: false,
                 province: '',
                 city: '',
                 county: '',
-                postal_code: '',
+                postal_code: '123',
                 address: '',
                 recipient: '',
                 phone: '',
@@ -55,7 +59,7 @@ class AddAddress extends Component<IProps, IState> {
         return result;
     }
 
-    handleAdd = () => {
+    handleAdd = async () => {
         if (this.state.address.recipient === '') {
             MessageBox.alert('收货人不能为空噢！', '');
             return;
@@ -68,9 +72,28 @@ class AddAddress extends Component<IProps, IState> {
             MessageBox.alert('收货地址输入有误！', '');
             return;
         }
-        //检查完成后发请求..
-
+        // 检查完成后发请求..
+        // type为add时增加，type为modify时修改
+        let res;
+        if (this.addressId) {
+            res = await modifyAddress(this.state.address);
+        } else {
+            debugger
+            res = await addAddress(this.state.address);
+        }
+        if (res?.data.errcode === 0) {
+            Message.success('修改成功');
+            this.props.history.goBack();
+        }
     };
+
+    handleDelete = async () => {
+        const deleteRes = await deleteAddress(this.addressId);
+        if (deleteRes.data.errcode === 0) {
+            Message.success('修改成功');
+            this.props.history.goBack();
+        }
+    }
 
     handleInputChange = (type: string, value: any) => {
         this.setState({
@@ -124,4 +147,4 @@ class AddAddress extends Component<IProps, IState> {
     }
 }
 
-export default AddAddress;
+export default withRouter(AddAddress);

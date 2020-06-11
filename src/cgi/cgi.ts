@@ -23,3 +23,19 @@ export const COMMODITY_DETAIL_URL = '/item';
 export const RELEASE_COMMENT_URL = '/order/[spuId]/comment';
 
 export const CART_URL = '/cart';
+
+export const GET_ADDRESS_URL = '/address';
+
+export const MODIFY_ADDRESS_URL = '/address/modify';
+
+export const ADD_ADDRESS_URL = '/address/add';
+
+export const DELETE_ADDRESS_URL = '/address/delete';
+
+export const GET_ORDER_URL = '/order';
+
+export const ADD_ORDER_URL = '/order';
+
+export const ADD_ORDER_FROM_CART_URL = '/order/from_cart';
+
+export const CONFIRM_ORDER_URL = '/order/[orderId]/receipt';

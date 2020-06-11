@@ -3,22 +3,33 @@ import AddAddress from '../../components/AnAddress';
 import returnIcon from './images/return.png';
 import {store,AddressInfo} from '../../store';
 import './index.less';
+import { addAnchor } from '../../util';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { observer } from 'mobx-react';
+import { getAddressList } from '../../cgi';
 
-interface IProps {
-    history:any
+interface IProps extends RouteComponentProps {};
+interface IState {};
 
-};
-interface IState {
-
-};
-
+@observer
 class Address extends Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        getAddressList().then(res => {
+            if (res.data.errcode === 0) {
+                store.addresses = res.data.data;
+            }
+        })
+    }
+
     handleAddAddress = () => {
-        this.props.history.push('/addaddress');
+        this.props.history.push(addAnchor('/addaddress', {}));
     };
+
     handleReturn=()=>{
         this.props.history.goBack();
     };
+
     render() {
         return (
             <div className="address">
@@ -41,4 +52,4 @@ class Address extends Component<IProps, IState> {
     }
 }
 
-export default Address;
+export default withRouter(Address);

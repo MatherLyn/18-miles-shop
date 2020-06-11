@@ -10,14 +10,15 @@ export interface TopCommodity {
 //     name: string;
 // }
 export interface AddressInfo {
-    default: boolean,
-    province: string,
-    city: string,
-    county: string,
-    postal_code: string,
-    address: string,
-    recipient: string,
-    phone: string,
+    id?: number;
+    default: boolean;
+    province: string;
+    city: string;
+    county: string;
+    postal_code: string;
+    address: string;
+    recipient: string;
+    phone: string;
 }
 
 export interface Good {
@@ -46,7 +47,7 @@ export interface UserInfo {
 export interface CommodityAttributes {
     id: number;
     name: string;
-    value: Array<CommodityAttributeValue>;
+    values: Array<CommodityAttributeValue>;
 }
 
 export interface CommodityAttributeValue {
@@ -71,7 +72,7 @@ export interface Commodity {
 
 export interface ConcretCommodity {
     id: number;
-    spu_id: number;
+    sku_id: number;
     name: string;
     sku_pic: string;
     des_pic?: string;
