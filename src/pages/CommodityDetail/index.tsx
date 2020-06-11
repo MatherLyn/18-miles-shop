@@ -325,7 +325,7 @@ class CommodityDetail extends Component<IProps, IState> {
                         </div>
                     </div>
                     <div className="confirm-box">
-                        <div className="confirm-button">确定</div>
+                        <div className="confirm-button">确 定</div>
                     </div>
                 </div>
 
