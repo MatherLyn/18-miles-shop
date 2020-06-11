@@ -30,7 +30,7 @@ class ShoppingCart extends Component<IProps, IState> {
         }
         this.state = {
             managing: false,
-            selectAll: this.selected === store.cart.length,
+            selectAll: ((this.selected === store.cart.length) && (store.cart.length !== 0)),
         }
         for (let i: number = 0; i < store.addresses.length; i++) {
             if (store.addresses[i].default) {
@@ -74,7 +74,7 @@ class ShoppingCart extends Component<IProps, IState> {
             this.selected++;
             if (this.selected === ary.length) {
                 this.setState({
-                    selectAll: true
+                    selectAll: true && store.cart.length !== 0
                 });
             }
         }
@@ -90,7 +90,7 @@ class ShoppingCart extends Component<IProps, IState> {
             }
             this.selected = store.cart.length;
             this.setState({
-                selectAll: true
+                selectAll: true && store.cart.length !== 0
             })
         } else {
             for (let i: number = 0; i < store.cart.length; i++) {
@@ -115,8 +115,9 @@ class ShoppingCart extends Component<IProps, IState> {
                 }
             }
         } else {
-            if (this.selected)
+            if (this.selected) {
                 return this.props.history.push('/settlement');
+            }
         }
     }
 

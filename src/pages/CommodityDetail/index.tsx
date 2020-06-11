@@ -164,11 +164,11 @@ class CommodityDetail extends Component<IProps, IState> {
     }
 
     addToCart = async () => {
-        
+
     }
 
     addToOrder = async () => {
-
+        return this.props.history.push('/settlement');
     }
 
     render() {

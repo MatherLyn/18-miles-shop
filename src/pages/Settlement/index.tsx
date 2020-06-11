@@ -57,9 +57,12 @@ class Settlement extends Component<IProps, IState> {
                             ))
                         }
                         <div className="go-to-address-page">
-                            <div className="go-icon" onClick={this.handleGoToAddress}>
-                                <div className="g-icon"></div>
+                            <div className="left-icon">
+                                <div className="go-icon" onClick={this.handleGoToAddress}>
+                                    <div className="g-icon"></div>
+                                </div>
                             </div>
+                            <div className="address"></div>
                         </div>
                     </div>
                     <div className="commodities">
