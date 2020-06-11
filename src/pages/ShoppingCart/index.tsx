@@ -4,7 +4,8 @@ import { store } from '../../store';
 import './index.less';
 import { observer } from 'mobx-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { getCartList } from '../../cgi';
+import { getCartList, addOrderFromCart } from '../../cgi';
+import { Message } from 'element-react';
 
 interface IProps extends RouteComponentProps {
 
@@ -106,7 +107,16 @@ class ShoppingCart extends Component<IProps, IState> {
         }
     }
 
-    handleClear = () => {
+    private routeTo = (target: string, tab?: string) => {
+        const route: string = `${target}${tab ? `#${tab}` : ''}`
+        if (store.isLogin) {
+            this.props.history.push(route);
+        } else {
+            this.props.history.push(`/login#redirect_url=${encodeURIComponent(route)}`);
+        }
+    }
+
+    handleClear = async () => {
         if (this.state.managing) {
             for (let i: number = store.cart.length - 1; i >= 0; i--) {
                 if (store.cart[i].isChecked) {
@@ -116,7 +126,28 @@ class ShoppingCart extends Component<IProps, IState> {
             }
         } else {
             if (this.selected) {
-                return this.props.history.push('/settlement');
+                const payload: any = {
+                    anonymous: true,
+                };
+                const list = [];
+                for (let i: number = 0; i < store.cart.length; i++) {
+                    if (store.cart[0].isChecked) {
+                        list.push(store.cart[0].id);
+                    }
+                }
+                let addressId = 0;
+                for (let i: number = 0; i < store.addresses.length; i++) {
+                    if (store.addresses[i].default) {
+                        addressId = i;
+                    }
+                }
+                payload.cart_id_list = list;
+                payload.address_id = addressId;
+                const res = await addOrderFromCart(payload);
+                if (res.data.errcode === 0) {
+                    Message.success('成功下单');
+                    this.routeTo('/process', '1');
+                }
             }
         }
     }

@@ -39,4 +39,3 @@ export const ADD_ORDER_URL = '/order';
 export const ADD_ORDER_FROM_CART_URL = '/order/from_cart';
 
 export const CONFIRM_ORDER_URL = '/order/[orderId]/receipt';
-

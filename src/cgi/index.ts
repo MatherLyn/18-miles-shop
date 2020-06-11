@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../store';
-import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, COMMODITY_DETAIL_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL, MODITY_PROFILE_URL, COMMENT_URL, RELEASE_COMMENT_URL, CART_URL, MODIFY_ADDRESS_URL, ADD_ADDRESS_URL, GET_ORDER_URL, ADD_ORDER_URL, CONFIRM_ORDER_URL, ADD_ORDER_FROM_CART_URL, GET_ADDRESS_URL } from './cgi';
+import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, COMMODITY_DETAIL_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL, MODITY_PROFILE_URL, COMMENT_URL, RELEASE_COMMENT_URL, CART_URL, MODIFY_ADDRESS_URL, ADD_ADDRESS_URL, GET_ORDER_URL, ADD_ORDER_URL, CONFIRM_ORDER_URL, ADD_ORDER_FROM_CART_URL, GET_ADDRESS_URL, DELETE_ADDRESS_URL } from './cgi';
 import { LoginConfig, RegisterConfig, SendCodeConfig } from './types';
 
 axios.defaults.baseURL = DEFAULT_URL;
@@ -108,7 +108,7 @@ export async function addAddress(payload: any) {
 
 export async function deleteAddress(id: any) {
     // payload.id是address_id
-    return axios.delete(`${MODIFY_ADDRESS_URL}/${id}`, {
+    return axios.delete(`${DELETE_ADDRESS_URL}/${id}`, {
         headers: {
             Authorization: store.loginAuthorization
         }

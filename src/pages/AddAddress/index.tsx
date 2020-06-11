@@ -26,7 +26,7 @@ class AddAddress extends Component<IProps, IState> {
                 province: '',
                 city: '',
                 county: '',
-                postal_code: '123',
+                postal_code: '',
                 address: '',
                 recipient: '',
                 phone: '',
@@ -74,21 +74,33 @@ class AddAddress extends Component<IProps, IState> {
             MessageBox.alert('收货地址输入有误！', '');
             return;
         }
+        if (this.state.address.postal_code === '') {
+            MessageBox.alert('邮政编码不能为空噢！', '');
+            return;
+        }
         // 检查完成后发请求..
         // type为add时增加，type为modify时修改
         let res;
         if (this.addressId) {
             if (this.state.address.default && this.state.address.id !== store.defaultAddress) {
-                const defaultOne = store.addresses.filter(item => item.id === store.defaultAddress)[0];
-                const defaultChange = await modifyAddress({
-                    ...defaultOne,
-                    default: false
-                });
-                if (defaultChange.data.errcode === 0) {
+                let defaultOne = store.addresses.filter(item => item.id === store.defaultAddress)[0];
+                if (!defaultOne) {
+                    defaultOne = store.addresses[0];
                     res = await modifyAddress({
-                        ...this.state.address,
-                        id: this.addressId
+                        ...defaultOne,
+                        default: true
                     });
+                } else {
+                    const defaultChange = await modifyAddress({
+                        ...defaultOne,
+                        default: false
+                    });
+                    if (defaultChange.data.errcode === 0) {
+                        res = await modifyAddress({
+                            ...this.state.address,
+                            id: this.addressId
+                        });
+                    }
                 }
             } else {
                 res = await modifyAddress({
@@ -103,18 +115,12 @@ class AddAddress extends Component<IProps, IState> {
             Message.success('修改成功');
             this.props.history.goBack();
         }
-        if (this.state.address.postal_code === '') {
-            MessageBox.alert('邮政编码不能为空噢！', '');
-            return;
-        }
-        //检查完成后发请求..
-
     };
 
     handleDelete = async () => {
         const deleteRes = await deleteAddress(this.addressId);
         if (deleteRes.data.errcode === 0) {
-            Message.success('修改成功');
+            Message.success('删除成功');
             this.props.history.goBack();
         }
     }
@@ -167,7 +173,7 @@ class AddAddress extends Component<IProps, IState> {
                         </Switch>
                     </div>
                 </div>
-                <div className="delete" style={{display:this.pageTitle==="编辑收货地址"?'block':'none'}}>删除收货地址</div>
+                <div className="delete" onClick={this.handleDelete} style={{display:this.pageTitle==="编辑收货地址"?'block':'none'}}>删除收货地址</div>
             </div>
         )
     }

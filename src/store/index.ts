@@ -72,7 +72,6 @@ export interface Commodity {
 
 export interface ConcretCommodity {
     id: number;
-    sku_id: number;
     name: string;
     sku_pic: string;
     des_pic?: string;
@@ -88,7 +87,6 @@ export interface ItemDetail {
     name: string;
     spu_pic: string;
     category: Category;
-    // sku_pic: string;
     attrs: Array<CommodityAttributes>;
     skus: Array<ConcretCommodity>;
 }

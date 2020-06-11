@@ -1,4 +1,4 @@
-import { TopCommodity, Category, Good, AddressInfo, UserInfo, OrderDetail, Commodity, ItemDetail } from './index';
+import { TopCommodity, Category, Good, AddressInfo, UserInfo, OrderDetail, Commodity, ItemDetail, ConcretCommodity } from './index';
 import { observer } from 'mobx-react';
 import { observable, action, computed } from 'mobx';
 import { getUserProfile } from '../cgi';
@@ -310,85 +310,20 @@ class Store {
     // 购物车内容
     @observable public cart: Array<Good> = [];
     // 商品详情缓存
-    @observable public detailCache: Array<ItemDetail> = [];
+    @observable public detailCache: ItemDetail | null = null;
     // 收货地址
     @observable public addresses: Array<AddressInfo> = [];
     @observable public defaultAddress: number = 0;
     // 订单内容
-    @observable public order: Array<OrderDetail> = [
-        {
-            spu_id: 1,
-            id: 1,
-            name: '一只鞋',
-            price: 555,
-            sku_img: 'string',
-            num: 13,
-            status: 0,
-            attrs: ['尺寸', '颜色'],
-            v: ['37码', '白色']
-        },
-        {
-            spu_id: 1,
-            id: 12,
-            name: 'string',
-            sku_img: 'string',
-            price: 1234,
-            num: 3,
-            status: 2,
-            attrs: ['尺寸', '颜色'],
-            v: ['37码', '白色']
-        },
-        {
-            spu_id: 1,
-            id: 33,
-            name: 'string',
-            sku_img: 'string',
-            price: 4312,
-            num: 123,
-            status: 1,
-            attrs: ['尺寸', '颜色'],
-            v: ['37码', '白色']
-        },
-        {
-            spu_id: 1,
-            id: 123,
-            name: 'string',
-            sku_img: 'string',
-            price: 4562,
-            num: 3,
-            status: 3,
-            attrs: ['尺寸', '颜色'],
-            v: ['37码', '白色']
-        },
-        {
-            spu_id: 1,
-            id: 44,
-            name: 'string',
-            sku_img: 'string',
-            price: 2345,
-            num: 12,
-            status: 2,
-            attrs: ['尺寸', '颜色'],
-            v: ['37码', '白色']
-        },
-        {
-            spu_id: 1,
-            id: 11,
-            name: 'string',
-            sku_img: 'string',
-            price: 767,
-            num: 1,
-            status: 0,
-            attrs: ['尺寸', '颜色'],
-            v: ['37码', '白色']
-        },
-    ];
+    @observable public order: Array<OrderDetail> = [];
     // 最近搜索
     @observable public recentSearch: Array<string> = [];
     // 搜索结果
     @observable public searchResult: Array<Commodity> = [];
 
     @observable public isLogin: boolean = false;
+
+    @observable public buySku: ConcretCommodity | null = null;
 
     public loginAuthorization: string = '';
 

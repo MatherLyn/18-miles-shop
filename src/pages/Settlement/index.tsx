@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { store } from '../../store';
 import './index.less';
+import { collectAnchor } from '../../util';
 
 interface IProps {
     history: any,
@@ -12,18 +13,35 @@ interface IState {
 }
 
 class Settlement extends Component<IProps, IState> {
+    private skuIds: Array<number> = [];
+    private nums: Array<number> = [];
+    private totalPieces = 0;
+    private totalPrice = 0;
+    private attr: number;
+    private val: number;
+
     constructor(props: IProps) {
         super(props);
-        for (let i: number = 0; i < store.cart.length; i++) {
-            if (store.cart[i].isChecked) {
-                this.totalPrice += store.cart[i].price * store.cart[i].num;
-                this.totalPieces += store.cart[i].num;
+        const paramMap: Map<string, string> = collectAnchor(window.location.href);
+        const skuIdFromRouter: number = parseInt(paramMap.get('skuId') as string) as number;
+        const numFromRouter: number = parseInt(paramMap.get('num') as string) as number;
+        this.attr = parseInt(paramMap.get('attr') as string) as number;
+        this.val = parseInt(paramMap.get('val') as string) as number;
+        if (skuIdFromRouter && numFromRouter) {
+            this.skuIds.push(skuIdFromRouter);
+            this.nums.push(numFromRouter);
+            this.totalPieces = this.nums[0];
+            this.totalPrice = (parseInt(store.buySku?.price as string) as number) * this.totalPieces;
+        } else {
+            for (let i: number = 0; i < store.cart.length; i++) {
+                if (store.cart[i].isChecked) {
+                    this.totalPrice += store.cart[i].price * store.cart[i].num;
+                    this.totalPieces += store.cart[i].num;
+                }
             }
         }
     }
 
-    totalPieces = 0;
-    totalPrice = 0;
     handleReturn = () => {
         this.props.history.goBack();
     };
@@ -32,7 +50,14 @@ class Settlement extends Component<IProps, IState> {
         this.props.history.push('/address');
     };
 
+    submitOrder = () => {
+        
+    }
+
     render() {
+        const sku: any = this.skuIds.length ? store.detailCache?.skus.filter(sku => sku.id === this.skuIds[0])[0] : null;
+        const attr: any = this.skuIds.length ? store.detailCache?.attrs.filter((item: any) => item.id === this.attr)[0] : null;
+        const val: any = this.skuIds.length ? attr.values.filter((item: any) => item.id === this.val)[0].name : null;
         return (
             <div className="settlement-page">
                 <div className="head">
@@ -67,24 +92,43 @@ class Settlement extends Component<IProps, IState> {
                     </div>
                     <div className="commodities">
                         {
-                            store.cart.filter(item => item.isChecked === true).map((content, index) => (
-                                <div className="commodity" key={index}>
+                            this.skuIds.length ? (
+                                <div className="commodity">
                                     <div className="top-wrapper">
-                                        <div className="commodity-image">{content.sku_pic}</div>
+                                        <div className="commodity-image" style={{ backgroundImage: `url(${sku.sku_pic})` }}></div>
                                         <div className="middle-box">
-                                            <div className="commodity-name">{content.name}</div>
-                                            <div className="commodity-attrs">{content.attr_name}</div>
+                                            <div className="commodity-name">{store.detailCache?.name}</div>
+                                            <div className="commodity-attrs">{val}</div>
                                         </div>
                                         <div className="right-box">
-                                            <div className="commodity-price">￥{content.price}</div>
-                                            <div className="commodity-num">×{content.num}</div>
+                                            <div className="commodity-price">￥ {parseInt(sku.price)}</div>
+                                            <div className="commodity-num">× {this.nums[0]}</div>
                                         </div>
                                     </div>
                                     <div className="bottom-wrapper">
-                                        <div className="subtotal">小计：<span className="highlight-text">￥{content.price * content.num}</span></div>
+                                        <div className="subtotal">小计：<span className="highlight-text">￥{sku.price * this.nums[0]}</span></div>
                                     </div>
                                 </div>
-                            ))
+                            ) : (
+                                store.cart.filter(item => item.isChecked === true).map((content, index) => (
+                                    <div className="commodity" key={index}>
+                                        <div className="top-wrapper">
+                                            <div className="commodity-image">{content.sku_pic}</div>
+                                            <div className="middle-box">
+                                                <div className="commodity-name">{content.name}</div>
+                                                <div className="commodity-attrs">{content.attr_name}</div>
+                                            </div>
+                                            <div className="right-box">
+                                                <div className="commodity-price">￥{content.price}</div>
+                                                <div className="commodity-num">×{content.num}</div>
+                                            </div>
+                                        </div>
+                                        <div className="bottom-wrapper">
+                                            <div className="subtotal">小计：<span className="highlight-text">￥{content.price * content.num}</span></div>
+                                        </div>
+                                    </div>
+                                ))
+                            )
                         }
 
 
@@ -93,8 +137,8 @@ class Settlement extends Component<IProps, IState> {
 
                 <div className="submit">
                     <div className="summary">{`共 ${this.totalPieces} 件，`}</div>
-                    <div className="total-price">合计：<span className="highlight-text-bottom">{`${this.totalPrice}`}</span></div>
-                    <div className="submit-button">提交订单</div>
+                    <div className="total-price">合计：<span className="highlight-text-bottom">{this.totalPrice}</span></div>
+                    <div className="submit-button" onClick={this.submitOrder}>提交订单</div>
                 </div>
             </div>);
     }

@@ -5,6 +5,7 @@ import { store } from '../../store';
 import './index.less';
 import CommodityTab from '../../components/CommodityTab';
 import { doSearch, addAnchor } from '../../util';
+import { getOrderList } from '../../cgi';
 
 interface IProps extends RouteComponentProps {
 
@@ -21,6 +22,15 @@ class Process extends Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.curDisplay = window.location.hash.slice(1, window.location.hash.length);
+        this.getOrder();
+    }
+
+    getOrder = async () => {
+        const res = await getOrderList();
+        if (res.data.errcode === 0) {
+            store.order = res.data.data;
+            this.setState({});
+        }
     }
 
     changeTab = (tab: string) => {
