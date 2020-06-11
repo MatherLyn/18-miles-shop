@@ -32,11 +32,21 @@
             }
         }
     }
+    
     .commodityDetail {
         display: flex;
         flex-direction: column;
         position: relative;
         flex: 1;
+        .commodityName {
+            font-size: 15px;
+            width: 100%;
+            padding: 5px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
 
         .span-box-container {
             margin-bottom: 8px;
@@ -51,12 +61,6 @@
                 margin-right: 3px;
                 font-size: 11px;
             }
-        }
-
-        h2 {
-            font-size: 15px;
-            width: 100%;
-            padding: 5px;
         }
 
         .bottomBox {

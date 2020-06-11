@@ -15,6 +15,7 @@ interface IState {
     skuId: number;
     showComments: boolean;
     comment: string;
+    showBuy: boolean;
 }
 
 class CommodityDetail extends Component<IProps, IState> {
@@ -116,6 +117,7 @@ class CommodityDetail extends Component<IProps, IState> {
         this.state = {
             skuId: 0,
             showComments: false,
+            showBuy: true,
             comment: '',
         }
         this.spuId = parseInt(collectAnchor(window.location.href).get('spuId') as string) as number;
@@ -278,6 +280,52 @@ class CommodityDetail extends Component<IProps, IState> {
                             </div>
                         )
                         }
+                    </div>
+                </div>
+
+                <div className="buy-add-to-cart"
+                    style={{
+                        bottom: this.state.showBuy ? '0px' : '-900px'
+                    }}
+                >
+                    <div className="commodity-top-box">
+                        <img className="commodity-img" src={''} alt="" />
+                        <div className="middle-box">
+                            <div className="commodity-price">{'￥123'}</div>
+                            <div className="commodity-stock">{`库存${''}件`}</div>
+                        </div>
+                        <div className="close-icon"></div>
+                    </div>
+                    {
+                        this.item.attrs.map((item, index) =>
+                            <div key={index} className="commodity-box-attr-item">
+                                <div className="commodity-box-attr-name">{`${item.name}`}</div>
+                                <div className="commodity-box-attr-value-box">
+                                    {
+                                        item.values.map((content, k) => (
+                                            //选中某个属性，就加上一个样式类
+                                            <div className={`${'' === '' ? 'commodity-box-attr-value-foucus ' : ''}` + `commodity-box-attr-value`} key={k}
+                                            >{`${content.name}`}</div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )
+                    }
+                    <div className="purchase-quantity">
+                        <div className="purchase-quantity-title">购买数量</div>
+                        <div className="select-quantity">
+                            {/* <div className="minus" onClick={() => this.modifyGoodCount(-1, item.num, index)}>-</div>
+                            <div className="count">{''}</div>
+                            <div className="plus" onClick={() => this.modifyGoodCount(1, item.num, index)}>+</div> */}
+                            <div className="minus">-</div>
+                            <div className="count">{'123'}</div>
+                            <div className="plus">+</div>
+
+                        </div>
+                    </div>
+                    <div className="confirm-box">
+                        <div className="confirm-button">确定</div>
                     </div>
                 </div>
 

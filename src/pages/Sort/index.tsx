@@ -46,7 +46,7 @@ class Sort extends Component<IProps, IState> {
                     <Menu focusIndex={this.state.focusIndex} handleClick={this.handleClick} />
                     <div id="wrapper">
                         <div className="imgBox">
-                            <img src={image1} alt="商品展示1" />
+                            <img src={store.sortCommodities[this.state.focusIndex * 9]?.spu_pic} alt="商品展示1" />
                         </div>
                         <div id="caption">
                             {'-- ' + store.tabs[this.state.focusIndex].name + ' --'}
@@ -62,7 +62,7 @@ class Sort extends Component<IProps, IState> {
                                                         backgroundImage: `url(${content.spu_pic})`
                                                     }}
                                                 />
-                                                <h1>{content.name}</h1>
+                                                <h1 className="commodity-name">{content.name}</h1>
                                             </div>
                                         ) : (
                                             ''
@@ -70,9 +70,9 @@ class Sort extends Component<IProps, IState> {
                                 ))
                             }
                         </div>
-                        <div className="imgBox">
-                            <img src={image2} alt="商品展示2" />
-                        </div>
+                        {/* <div className="imgBox">
+                            <img src={store.sortCommodities[((this.state.focusIndex + 1) * 9)-1]?.spu_pic} alt="商品展示2" />
+                        </div> */}
                     </div>
                 </div>
             </div>

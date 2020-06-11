@@ -36,9 +36,11 @@ class AddAddress extends Component<IProps, IState> {
             this.state = {
                 address: this.convertParamToAddressInfo(paramMap)
             }
+            this.pageTitle="编辑收货地址";
         }
     };
 
+    pageTitle:string="添加收货地址";
     convertParamToAddressInfo = (map: Map<string, string>): AddressInfo => {
         const keys: Array<string> = Reflect.ownKeys(this.state.address) as Array<string>;
         const result: any = {} as AddressInfo;
@@ -101,6 +103,12 @@ class AddAddress extends Component<IProps, IState> {
             Message.success('修改成功');
             this.props.history.goBack();
         }
+        if (this.state.address.postal_code === '') {
+            MessageBox.alert('邮政编码不能为空噢！', '');
+            return;
+        }
+        //检查完成后发请求..
+
     };
 
     handleDelete = async () => {
@@ -127,7 +135,7 @@ class AddAddress extends Component<IProps, IState> {
     handleSwitchOnChange = (e: any) => {
         this.state.address.default = e;
     };
-    
+
     render() {
         return (
             <div className="add-address">
@@ -135,7 +143,7 @@ class AddAddress extends Component<IProps, IState> {
                     <div className="return-icon" onClick={this.handleReturn}>
                         <div className="r-icon"></div>
                     </div>
-                    <h1>添加收货地址</h1>
+                    <h1>{this.pageTitle}</h1>
                     <div className="add-save" onClick={this.handleAdd}>保存</div>
                 </div>
                 <div className="add-address-main-box">
@@ -147,6 +155,7 @@ class AddAddress extends Component<IProps, IState> {
                         <Input className="county" placeholder="例：天河" value={this.state.address.county} onChange={value => this.handleInputChange('county', value)}></Input><div className="tips">区</div>
                     </div>
                     <Input className="input" placeholder="详细地址" value={this.state.address.address} onChange={value => this.handleInputChange('address', value)}></Input>
+                    <Input className="input" placeholder="邮政编码" value={this.state.address.postal_code} onChange={value => this.handleInputChange('postal_code', value)}></Input>
                     <div className="a-box">
                         <h1 className="label">设为默认地址</h1>
                         <Switch
@@ -158,6 +167,7 @@ class AddAddress extends Component<IProps, IState> {
                         </Switch>
                     </div>
                 </div>
+                <div className="delete" style={{display:this.pageTitle==="编辑收货地址"?'block':'none'}}>删除收货地址</div>
             </div>
         )
     }
