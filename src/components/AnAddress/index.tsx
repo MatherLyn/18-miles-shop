@@ -12,11 +12,11 @@ interface IState {
 };
 
 class AnAddress extends Component<IProps, IState> {
-    private address: AddressInfo = store.addresses[this.props.index];
+    private address: AddressInfo = store.addresses.filter(item => item.id === this.props.index)[0];
 
     handleEdit = () => {
         const route: string = addAnchor('/addAddress', {
-            index: this.props.index,
+            addressId: this.props.index,
             ...this.address,
         });
         this.props.history.push(route);

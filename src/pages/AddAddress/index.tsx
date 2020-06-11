@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, MessageBox,Input, Message } from 'element-react'
 import './index.less';
-import { AddressInfo } from '../../store';
+import { AddressInfo, store } from '../../store';
 import { collectAnchor } from '../../util';
 import { modifyAddress, addAddress, deleteAddress } from '../../cgi';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
@@ -78,9 +78,25 @@ class AddAddress extends Component<IProps, IState> {
         // type为add时增加，type为modify时修改
         let res;
         if (this.addressId) {
-            res = await modifyAddress(this.state.address);
+            if (this.state.address.default && this.state.address.id !== store.defaultAddress) {
+                const defaultOne = store.addresses.filter(item => item.id === store.defaultAddress)[0];
+                const defaultChange = await modifyAddress({
+                    ...defaultOne,
+                    default: false
+                });
+                if (defaultChange.data.errcode === 0) {
+                    res = await modifyAddress({
+                        ...this.state.address,
+                        id: this.addressId
+                    });
+                }
+            } else {
+                res = await modifyAddress({
+                    ...this.state.address,
+                    id: this.addressId
+                });
+            }
         } else {
-            debugger
             res = await addAddress(this.state.address);
         }
         if (res?.data.errcode === 0) {

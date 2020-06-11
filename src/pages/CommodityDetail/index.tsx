@@ -3,7 +3,7 @@ import { store, Comment, ItemDetail } from '../../store';
 import { Rate } from 'element-react';
 import { Carousel } from 'element-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { getComments, getCommodityDetail } from '../../cgi';
+import { getComments, getCommodityDetail, saveToCart } from '../../cgi';
 import { addAnchor, collectAnchor } from '../../util';
 import './index.less';
 
