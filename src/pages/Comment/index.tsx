@@ -1,19 +1,43 @@
 import React, { Component } from 'react';
-import { Rate, Input } from 'element-react';
+import { Rate, Input, Message } from 'element-react';
 import commodity1 from './images/commodity1.png';
 import './index.less';
+import { releaseComment } from '../../cgi';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { collectAnchor } from '../../util';
 
-interface IProps {
-    history: any;
+interface IProps extends RouteComponentProps {
+    
 };
-interface IState {
 
+interface IState {
+    comment: string;
+    star: number;
 };
 
 class Comment extends Component<IProps, IState> {
+    private spuId: number;
+
+    constructor (props: IProps) {
+        super(props);
+        this.state = {
+            comment: '',
+            star: 0,
+        }
+        this.spuId = parseInt(collectAnchor(window.location.href).get('spuId') as string) as number;
+    }
+
     handleReturn = () => {
-        // this.props.history.replace("/process");
+        this.props.history.goBack();
     };
+
+    releaseComment = async () => {
+        const releaseRes = await releaseComment(this.spuId, this.state);
+        if (releaseRes.data.errcode === 0) {
+            Message.success('评价成功');
+            this.props.history.replace('/process');
+        }
+    }
 
     render() {
         return (
@@ -25,7 +49,7 @@ class Comment extends Component<IProps, IState> {
                         </div>
                         <h1 className="title">发表评价</h1>
                     </div>
-                    <div className="publish">发布</div>
+                    <div className="publish" onClick={this.releaseComment}>发布</div>
                 </div>
                 <div className="wrapper">
                     <div className="content">
@@ -39,7 +63,7 @@ class Comment extends Component<IProps, IState> {
                         <div className="a-wrapper">
                             <div className="demonstration">商品评价</div>
                             <div className="star-box">
-                                <Rate showText={true} colors={['#FF5000','#FF5000','#FF5000']}/>
+                                <Rate showText={true} colors={['#FF5000','#FF5000','#FF5000']} value={this.state.star} onChange={(value: any) => this.setState({ star: value })} />
                             </div>
                         </div>
                         <Input
@@ -47,6 +71,8 @@ class Comment extends Component<IProps, IState> {
                             rows={3}
                             placeholder="从多个角度评价宝贝，可以帮助更多想买的人"
                             className="input"
+                            value={this.state.comment}
+                            onChange={(value: any) => this.setState({ comment: value })}
                         />
                     </div>
                 </div>
@@ -55,4 +81,4 @@ class Comment extends Component<IProps, IState> {
     }
 }
 
-export default Comment;
+export default withRouter(Comment);

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { store } from '../../store'
-import './index.less'
-import { item } from '../../cgi';
+import { store } from '../../store';
+import './index.less';
 
 interface IProps {
     history: any,

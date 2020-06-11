@@ -3,6 +3,7 @@ import { store } from '../../store';
 import CommodityShow2 from '../../components/CommodityShow2';
 import { doSearch, collectAnchor, addAnchor, throttle } from '../../util';
 import './index.less';
+import { observer } from 'mobx-react';
 
 interface IProps {
     history: any,
@@ -12,6 +13,8 @@ interface IState {
     more: string;
     page: number;
 };
+
+@observer
 class SearchResult extends Component<IProps, IState> {
     private inputRef: React.RefObject<HTMLInputElement> = React.createRef();
     private listRef: React.RefObject<HTMLUListElement> = React.createRef();
@@ -24,6 +27,11 @@ class SearchResult extends Component<IProps, IState> {
             page: 1
         }
         this.map = collectAnchor(window.location.href);
+        const param: any = {};
+        this.map.forEach((value: string, key: string) => {
+            param[key] = value;
+        });
+        doSearch(param, param.arrInStore);
     }
 
     componentDidMount() {
@@ -36,15 +44,20 @@ class SearchResult extends Component<IProps, IState> {
     componentWillUnmount() {
         const listRef = this.listRef.current as HTMLUListElement;
         listRef.onscroll = null;
-        store.searchResult = [];
     }
 
     handleReturn = () => {
+        const listRef = this.listRef.current as HTMLUListElement;
+        listRef.onscroll = null;
+        store.searchResult = [];
         this.props.history.push('/search');
     };
 
     handleSearch = async () => {
         const ref = this.inputRef.current;
+        if (ref?.value === this.map.get('keyword')) {
+            return;
+        }
         const param = {
             keyword: ref?.value,
             page: 1,

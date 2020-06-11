@@ -42,7 +42,6 @@ class Process extends Component<IProps, IState> {
             return;
         }
         this.props.history.push(addAnchor('/searchResult', param));
-        doSearch(param);
     };
 
     render() {
