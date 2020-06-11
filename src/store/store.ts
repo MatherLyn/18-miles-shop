@@ -313,6 +313,7 @@ class Store {
     @observable public detailCache: Array<ItemDetail> = [];
     // 收货地址
     @observable public addresses: Array<AddressInfo> = [];
+    @observable public defaultAddress: number = 0;
     // 订单内容
     @observable public order: Array<OrderDetail> = [
         {

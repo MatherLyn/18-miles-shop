@@ -25,7 +25,13 @@ class Address extends Component<IProps, IState> {
                 store.addresses = res.data.data;
                 this.setState({
                     address: store.addresses
-                })
+                });
+                for (let i = 0; i < store.addresses.length; i++) {
+                    if (this.state.address[i].default) {
+                        store.defaultAddress = store.addresses[i].id as number;
+                        break;
+                    }
+                }
             }
         })
     }
