@@ -23,11 +23,6 @@ class CommodityShow2 extends Component<IProps, IState> {
         this.props.history.push(addAnchor('/commoditydetail', { spuId }));
     }
 
-    handleDetail() {
-        //显示操作详情
-        console.log("显示操作详情");
-    }
-
     render() {
         return (
             <div className="commodityBox2" onClick={e => this.handleRedirectToDetail(this.props.spuId)}>
@@ -45,7 +40,7 @@ class CommodityShow2 extends Component<IProps, IState> {
                     </div>
                     <div className="bottomBox">
                         <h1 className="commodity-price">￥{this.props.price}</h1>
-                        <img className="showDetail" onClick={this.handleDetail} src={detail} alt="加入购物车"></img>
+                        <img className="showDetail" src={detail} alt="加入购物车"></img>
                     </div>
                 </div>
             </div>

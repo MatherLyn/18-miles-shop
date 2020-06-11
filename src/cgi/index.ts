@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../store';
-import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, COMMODITY_DETAIL_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL, MODITY_PROFILE_URL, COMMENT_URL, RELEASE_COMMENT_URL } from './cgi';
+import { DEFAULT_URL, LOGIN_URL, REGISTER_URL, COMMODITY_DETAIL_URL, COMMODITY_LIST, SEND_CODE_URL, PROFILE_URL, MODITY_PROFILE_URL, COMMENT_URL, RELEASE_COMMENT_URL, CART_URL } from './cgi';
 import { LoginConfig, RegisterConfig, SendCodeConfig } from './types';
 
 axios.defaults.baseURL = DEFAULT_URL;
@@ -63,4 +63,18 @@ export async function releaseComment(spuId: number, payload: any) {
             Authorization: store.loginAuthorization
         }
     });
+}
+
+export async function getCartList() {
+    return axios.get(CART_URL, {
+        headers: {
+            Authorization: store.loginAuthorization
+        }
+    });
+}
+
+export async function addToCart (payload: any) {
+    return axios.post(CART_URL, payload, {
+        headers: store.loginAuthorization
+    })
 }

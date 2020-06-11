@@ -21,6 +21,8 @@ interface IState {
 
 @observer
 class ModifyInfo extends Component<IProps, IState> {
+    private hasAvatarChange: boolean = false;
+
     constructor(props: IProps) {
         super(props);
         this.state = {
@@ -58,12 +60,19 @@ class ModifyInfo extends Component<IProps, IState> {
 
     modifyProfile = async () => {
         const config: any = {...this.state};
-        config.avatar = store.userInfo.avatar;
-        await modifyUserProfile(config);
-        Message.success('修改成功！');
-        setTimeout(() => {
+        if (this.hasAvatarChange) {
+            config.avatar = store.userInfo.avatar;
+        } else {
+            delete config.avatar;
+        }
+        const modifyRes = await modifyUserProfile(config);
+        if (modifyRes?.data.errcode === 0) {
+            Message.success('修改成功！');
             this.props.history.goBack();
-        }, 1000);
+            // setTimeout(() => {
+            //     this.props.history.goBack();
+            // }, 1000);
+        }
     }
 
     handleChange = (key: string, value: any) => {
@@ -74,6 +83,7 @@ class ModifyInfo extends Component<IProps, IState> {
     handleAvatarScucess(res: any, file: any) {
         this.setState({ avatar: URL.createObjectURL(file.raw) });
         store.userInfo.avatar = res.urls[0];
+        this.hasAvatarChange = true;
     }
 
     beforeAvatarUpload(file: File) {

@@ -21,13 +21,15 @@ export interface AddressInfo {
 }
 
 export interface Good {
-    sku_pic: string,
-    name: string,
-    attr_name: string,
-    price: number,
-    num: number,
-    stock: number,
-    isChecked: boolean,
+    id: number;
+    sku: ConcretCommodity;
+    sku_pic: string;
+    name: string;
+    attr_name: string;
+    price: number;
+    num: number;
+    stock: number;
+    isChecked: boolean;
 }
 
 export interface UserInfo {
@@ -69,9 +71,10 @@ export interface Commodity {
 
 export interface ConcretCommodity {
     id: number;
+    spu_id: number;
     name: string;
     sku_pic: string;
-    des_pic: string;
+    des_pic?: string;
     price: string;
     stock: number;
     sales: number;

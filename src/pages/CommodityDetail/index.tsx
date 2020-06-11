@@ -61,6 +61,7 @@ class CommodityDetail extends Component<IProps, IState> {
         skus: [
             {
                 id: 0,
+                spu_id:0,
                 name: "一件衣服",
                 sku_pic: "string",
                 des_pic: "string",
@@ -69,9 +70,20 @@ class CommodityDetail extends Component<IProps, IState> {
                 sales: 0,
                 attrs: [],
                 v: [],
+                // id: number;
+                // spu_id: number;
+                // name: string;
+                // sku_pic: string;
+                // des_pic?: string;
+                // price: string;
+                // stock: number;
+                // sales: number;
+                // attrs: Array<any>;
+                // v: Array<any>;
             },
             {
-                id: 0,
+                id: 1,
+                spu_id:1,
                 name: "一件衣服",
                 sku_pic: "string1",
                 des_pic: "string1",
@@ -82,7 +94,8 @@ class CommodityDetail extends Component<IProps, IState> {
                 v: [],
             },
             {
-                id: 0,
+                id: 2,
+                spu_id:2,
                 name: "一件衣服",
                 sku_pic: "string2",
                 des_pic: "string2",
@@ -93,7 +106,8 @@ class CommodityDetail extends Component<IProps, IState> {
                 v: [],
             },
             {
-                id: 0,
+                id: 3,
+                spu_id:3,
                 name: "一件衣服",
                 sku_pic: "string3",
                 des_pic: "string3",
