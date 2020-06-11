@@ -25,7 +25,7 @@ class CommodityTab extends Component<IProps, IState> {
     }
 
     routeToComment = () => {
-        const route: string = addAnchor('/comment', { index: this.props.id });
+        const route: string = addAnchor('/comment', { spuId: this.props.spu_id });
         this.props.history.push(route);
     }
 

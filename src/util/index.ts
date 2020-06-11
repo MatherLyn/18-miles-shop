@@ -60,13 +60,19 @@ export function collectAnchor (pathname: string) {
 
 export async function doSearch (param: any, arrInStore?: string) {
     const res = await getCommodityList(param);
-    const list = res.data as Array<Commodity>;
+    // 处理返回的list数据
+    const list = res.data.data as Array<Commodity>;
     if (arrInStore) {
         // @ts-ignore
         store[arrInStore] = list;
     } else {
-        store.searchResult.concat(list);
+        if (param.page == 1) {
+            store.searchResult = list;
+        } else {
+            store.searchResult = store.searchResult.concat(list);
+        }
     }
+    // 最近搜索
     const length: number = store.recentSearch.length;
     for (let i: number = 0; i < store.recentSearch.length; i++) {
         if (store.recentSearch[i] === param.keyword) {
@@ -77,6 +83,7 @@ export async function doSearch (param: any, arrInStore?: string) {
     if (length > 15) {
         store.recentSearch.pop();
     }
+    console.log(store.searchResult[0].name)
     const keyword = param.keyword ? store.recentSearch.unshift(param.keyword) : null;
     window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
 }

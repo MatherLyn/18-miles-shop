@@ -8,7 +8,7 @@ import icon5 from './image/5.png';
 import icon6 from './image/6.png';
 import icon7 from './image/7.png';
 import icon8 from './image/8.png';
-import { doSearch, addAnchor } from '../../util';
+import { addAnchor } from '../../util';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 import "./index.less";
@@ -32,7 +32,6 @@ class Categories extends Component<IProps, IState> {
             page_num: 8
         }
         this.props.history.push(addAnchor('/searchResult', param));
-        doSearch(param);
     }
 
     render() {

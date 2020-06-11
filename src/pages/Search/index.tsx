@@ -39,10 +39,9 @@ class Search extends Component<IProps, IState> {
         const param = {
             keyword: value,
             page: 1,
-            page_num: 8
+            page_num: 8,
         }
         this.props.history.push(addAnchor('/searchResult', param));
-        doSearch(param);
     };
 
     handleReturn = () => {

@@ -3,6 +3,7 @@
     .header {
         background-color: rgb(250, 250, 250);
         position: fixed;
+        top: 0;
         width: 100%;
 
         .searchBox {
@@ -10,6 +11,7 @@
             padding: 8px;
             justify-content: space-around;
             align-items: center;
+            height: 50px;
 
             .return-icon {
                 width: 20px;
@@ -52,49 +54,101 @@
         }
     }
 
-    .wrapper {
-        background-color: #FFF;
-        margin-bottom: 10px;
+    .middle-content{
+        margin: 50px 0;
+        .wrapper {
+            background-color: #FFF;
+            margin-bottom: 10px;
 
-        .commodity-image {
-            padding-top: 100%;
-        }
-
-        .commodity-info {
-            padding: 15px 20px;
-
-            .commodity-price {
-                font-size: 25px;
-                color: rgb(255, 65, 7);
+            .commodity-image {
+                padding-top: 100%;
             }
 
-            .commodity-name {
-                margin-top: 10px;
-                font-size: 20px;
-                font-weight: 700;
+            .commodity-info {
+                padding: 15px 20px;
+
+                .commodity-price {
+                    font-size: 25px;
+                    color: rgb(255, 65, 7);
+                }
+
+                .commodity-name {
+                    margin-top: 10px;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+            }
+
+            .commodity-attribute{
+                padding: 15px 15px 5px 15px;
+                .attr-title{
+                    margin-bottom: 10px;
+                    font-size: 16px;
+                    // color: rgb(255, 65, 0);
+                }
+                .attr-item{
+                    margin-bottom: 10px;
+                    display: flex;
+                    width: 100%;
+                    .attr-name{
+                        width: 50px;
+                        color:rgb(150, 150, 150);
+                    }
+                    .attr-value{
+                    }
+                }
+            }
+
+            .commodity-comment {
+                display: flex;
+                justify-content: space-between;
+                font-size: 15px;
+                padding: 15px;
+
+                .commodity-comment-title {}
+
+                .commodity-comment-show-all {
+                    color: rgb(255, 65, 0);
+                }
+            }
+
+            .commodity-description-image {
+                padding-top: 100%;
             }
         }
 
-        .commodity-comment {
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 15px;
-
-            .commodity-comment-title {}
-
-            .commodity-comment-show-all {
-                color: rgb(255, 65, 0);
-            }
-        }
-
-        .commodity-description-image {
-            padding-top: 100%;
-        }
+        // .wrapper:nth-of-type(2) {
+        //     margin-top: 46px;
+        // }
+        
     }
-
-    .wrapper:nth-of-type(2) {
-        margin-top: 46px;
+        
+    .bottom-box{
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 50px;
+        width: 100%;
+        padding: 10px 15px;
+        border-top: 1px solid #eee;
+        background-color: #FFF;
+        .bottom-button{
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #FFF;
+        }
+        .add-to-cart{
+            background-color: rgb(255, 154, 2);
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        .buy-now{
+            background-color: rgb(254, 114, 1);
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
     }
 
     .comments {
