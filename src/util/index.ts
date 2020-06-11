@@ -83,7 +83,6 @@ export async function doSearch (param: any, arrInStore?: string) {
     if (length > 15) {
         store.recentSearch.pop();
     }
-    console.log(store.searchResult[0].name)
     const keyword = param.keyword ? store.recentSearch.unshift(param.keyword) : null;
     window.localStorage.setItem('recentSearch', JSON.stringify(store.recentSearch));
 }

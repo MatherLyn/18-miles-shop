@@ -4,9 +4,10 @@ import { store } from '../../store';
 import './index.less';
 import { observer } from 'mobx-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { getCartList } from '../../cgi';
 
 interface IProps extends RouteComponentProps {
-    
+
 }
 
 interface IState {
@@ -19,7 +20,7 @@ class ShoppingCart extends Component<IProps, IState> {
 
     private selected: number = 0;
 
-    private defaultAddress="";
+    private defaultAddress = "";
     constructor(props: IProps) {
         super(props);
         for (let i: number = 0; i < store.cart.length; i++) {
@@ -33,8 +34,15 @@ class ShoppingCart extends Component<IProps, IState> {
         }
         for (let i: number = 0; i < store.addresses.length; i++) {
             if (store.addresses[i].default) {
-                this.defaultAddress=`${store.addresses[i].province}${store.addresses[i].city}${store.addresses[i].county}${store.addresses[i].address}`;
+                this.defaultAddress = `${store.addresses[i].province}${store.addresses[i].city}${store.addresses[i].county}${store.addresses[i].address}`;
             }
+        }
+    }
+
+    async componentDidMount() {
+        const cartRes = await getCartList();
+        if (cartRes.data.errcode === 0) {
+            store.cart = cartRes.data.data;
         }
     }
 
@@ -107,8 +115,8 @@ class ShoppingCart extends Component<IProps, IState> {
                 }
             }
         } else {
-            if(this.selected)
-            return this.props.history.push('/settlement');
+            if (this.selected)
+                return this.props.history.push('/settlement');
         }
     }
 
@@ -144,7 +152,7 @@ class ShoppingCart extends Component<IProps, IState> {
                             return (
                                 <div className="commodityEntry" key={index}>
                                     <div className="checkBox">
-                                        <Checkbox checked={item.isChecked} onChange={e => this.handleCheck(index)}/>
+                                        <Checkbox checked={item.isChecked} onChange={e => this.handleCheck(index)} />
                                     </div>
                                     <div className="pic">
                                         <img src={item.sku_pic} alt="#" />

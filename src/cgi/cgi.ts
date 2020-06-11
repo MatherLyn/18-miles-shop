@@ -21,3 +21,5 @@ export const COMMENT_URL = '/item/[spuId]/comment';
 export const COMMODITY_DETAIL_URL = '/item';
 
 export const RELEASE_COMMENT_URL = '/order/[spuId]/comment';
+
+export const CART_URL = '/cart';

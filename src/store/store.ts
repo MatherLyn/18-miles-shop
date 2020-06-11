@@ -317,26 +317,7 @@ class Store {
         identify: 0
     };
     // 购物车内容
-    @observable public cart: Array<Good> = [
-        {
-            "sku_pic": "http://kanolin.cn/market18/app/public/pic/pic.png",
-            "name": "aaaaaaaaaaaaaaa",
-            "attr_name": "bbbbbb",
-            "price": 123,
-            "num": 2,
-            "stock": 100,
-            "isChecked": false,
-        },
-        {
-            "sku_pic": "http://kanolin.cn/market18/app/public/pic/pic.png",
-            "name": "aaaaaaaaaaaaaaa",
-            "attr_name": "bbbbbb",
-            "price": 123,
-            "num": 2,
-            "stock": 100,
-            "isChecked": false,
-        },
-    ];
+    @observable public cart: Array<Good> = [];
     // 商品详情缓存
     @observable public detailCache: Array<ItemDetail> = [];
     // 收货地址
@@ -464,36 +445,7 @@ class Store {
     // 最近搜索
     @observable public recentSearch: Array<string> = [];
     // 搜索结果
-    @observable public searchResult: Array<Commodity> = [
-        {
-            spu_id: 123,
-            name: 'string',
-            price: 34,
-            spu_pic: 'http://kanolin.cn/market18/app/public/pic/pic.png',
-            category: 'string',
-        },
-        {
-            spu_id: 23,
-            name: 'string',
-            price: 34,
-            spu_pic: 'http://kanolin.cn/market18/app/public/pic/pic.png',
-            category: 'string',
-        },
-        {
-            spu_id: 132,
-            name: 'string',
-            price: 34,
-            spu_pic: 'http://kanolin.cn/market18/app/public/pic/pic.png',
-            category: 'string',
-        },
-        {
-            spu_id: 312,
-            name: 'string',
-            price: 34,
-            spu_pic: 'http://kanolin.cn/market18/app/public/pic/pic.png',
-            category: 'string',
-        },
-    ];
+    @observable public searchResult: Array<Commodity> = [];
 
     @observable public isLogin: boolean = false;
 
