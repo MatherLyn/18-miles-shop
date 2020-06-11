@@ -117,7 +117,7 @@ class CommodityDetail extends Component<IProps, IState> {
         this.state = {
             skuId: 0,
             showComments: false,
-            showBuy: true,
+            showBuy: false,
             comment: '',
         }
         this.spuId = parseInt(collectAnchor(window.location.href).get('spuId') as string) as number;
@@ -197,7 +197,7 @@ class CommodityDetail extends Component<IProps, IState> {
                                     return (
                                         <Carousel.Item key={index}>
                                             <img src={item.sku_pic} alt="" />
-                                            <div>{index}</div>
+                                            {/* <div>{index}</div> */}
                                         </Carousel.Item>
                                     )
                                 })
@@ -246,7 +246,7 @@ class CommodityDetail extends Component<IProps, IState> {
                             this.item.skus.map((content, index) => (
                                 <div key={index} className="commodity-description-image" style={{
                                     backgroundImage: `url(${content.des_pic})`
-                                }}>{index}</div>
+                                }}></div>
                             ))
                         }
                     </div>
