@@ -9,15 +9,23 @@ import { observer } from 'mobx-react';
 import { getAddressList } from '../../cgi';
 
 interface IProps extends RouteComponentProps {};
-interface IState {};
+interface IState {
+    address: any;
+};
 
 @observer
 class Address extends Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
+        this.state = {
+            address: []
+        };
         getAddressList().then(res => {
             if (res.data.errcode === 0) {
                 store.addresses = res.data.data;
+                this.setState({
+                    address: store.addresses
+                })
             }
         })
     }
@@ -42,8 +50,8 @@ class Address extends Component<IProps, IState> {
                 </div>
                 <div className="address-main-box">
                     {
-                        store.addresses.map((content:AddressInfo, index:number) => {
-                            return (<AddAddress key={index} index={index} />);
+                        this.state.address.map((content:AddressInfo, index:number) => {
+                            return (<AddAddress key={index} index={content.id as number} />);
                         })
                     }
                 </div>

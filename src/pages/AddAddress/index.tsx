@@ -76,9 +76,11 @@ class AddAddress extends Component<IProps, IState> {
         // type为add时增加，type为modify时修改
         let res;
         if (this.addressId) {
-            res = await modifyAddress(this.state.address);
+            res = await modifyAddress({
+                ...this.state.address,
+                id: this.addressId
+            });
         } else {
-            debugger
             res = await addAddress(this.state.address);
         }
         if (res?.data.errcode === 0) {
