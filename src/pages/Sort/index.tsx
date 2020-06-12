@@ -3,10 +3,8 @@ import SearchBar from '../../components/SearchBar';
 import Menu from '../../components/Menu';
 import { store } from '../../store';
 import { observer } from 'mobx-react';
-import { withRouter,RouteComponentProps } from 'react-router-dom';
-import { doSearch } from '../../util';
-import image1 from './images/commodity1.png';
-import image2 from './images/commodity2.png';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { doSearch,addAnchor } from '../../util';
 import './index.less';
 
 interface IProps extends RouteComponentProps {
@@ -18,6 +16,15 @@ interface IState {
 
 @observer
 class Sort extends Component<IProps, IState> {
+    constructor(props:IProps){
+        super(props);
+        const param = {
+            category_id: 1,
+            page: 1,
+            page_num: 9,
+        }
+        doSearch(param, 'sortCommodities');
+    }
     public state: IState = {
         focusIndex: 0
     }
@@ -34,8 +41,8 @@ class Sort extends Component<IProps, IState> {
         });
     };
 
-    public handleRedirectToDetail=(skuId:number)=>{
-        this.props.history.push(`/commoditydetail/${skuId}`);
+    public handleRedirectToDetail = (spuId: number) => {
+        this.props.history.push(addAnchor('/commoditydetail', { spuId }));
     };
 
     render() {
@@ -46,28 +53,39 @@ class Sort extends Component<IProps, IState> {
                     <Menu focusIndex={this.state.focusIndex} handleClick={this.handleClick} />
                     <div id="wrapper">
                         <div className="imgBox">
-                            <img src={store.sortCommodities[this.state.focusIndex * 9]?.spu_pic} alt="商品展示1" />
+                            <img src={store.sortCommodities[0]?.spu_pic} alt="商品展示1" />
                         </div>
                         <div id="caption">
                             {'-- ' + store.tabs[this.state.focusIndex].name + ' --'}
                         </div>
                         <div id="displayBox">
                             {
+                                // store.sortCommodities.map((content, index) => (
+                                //     index >= this.state.focusIndex * 9 && index < (this.state.focusIndex + 1) * 9 ?
+                                //         (
+                                //             <div className="box" key={index} onClick={()=>this.handleRedirectToDetail(content.spu_id)}>
+                                //                 <div
+                                //                     style={{
+                                //                         backgroundImage: `url(${content.spu_pic})`
+                                //                     }}
+                                //                 />
+                                //                 <h1 className="commodity-name">{content.name}</h1>
+                                //             </div>
+                                //         ) : (
+                                //             ''
+                                //         )
+                                // ))
                                 store.sortCommodities.map((content, index) => (
-                                    index >= this.state.focusIndex * 9 && index < (this.state.focusIndex + 1) * 9 ?
-                                        (
-                                            <div className="box" key={index} onClick={()=>this.handleRedirectToDetail(content.spu_id)}>
-                                                <div
-                                                    style={{
-                                                        backgroundImage: `url(${content.spu_pic})`
-                                                    }}
-                                                />
-                                                <h1 className="commodity-name">{content.name}</h1>
-                                            </div>
-                                        ) : (
-                                            ''
-                                        )
-                                ))
+                                    <div className="box" key={index} onClick={() => this.handleRedirectToDetail(content.spu_id)}>
+                                        <div
+                                            style={{
+                                                backgroundImage: `url(${content.spu_pic})`
+                                            }}
+                                        />
+                                        <h1 className="commodity-name">{content.name}</h1>
+                                    </div>
+                                )
+                                )
                             }
                         </div>
                         {/* <div className="imgBox">
