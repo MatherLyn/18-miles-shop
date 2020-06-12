@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./index.less"
 import detail from '../../assets/detail.svg';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { addAnchor } from '../../util';
 
 interface IProps extends RouteComponentProps {
     spuId: number;
@@ -17,8 +18,8 @@ interface IState {
 
 //商品展示盒子1
 class CommodityShow1 extends Component<IProps, IState> {
-    handleRedirectToDetail = (index: number) => {
-        this.props.history.push(`/commoditydetail/${index}`);
+    handleRedirectToDetail = (spuId: number) => {
+        this.props.history.push(addAnchor('/commoditydetail', { spuId }));
     }
 
     handleAddToCart = () => {
