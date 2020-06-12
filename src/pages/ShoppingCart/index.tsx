@@ -4,7 +4,7 @@ import { store } from '../../store';
 import './index.less';
 import { observer } from 'mobx-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { getCartList, addOrderFromCart } from '../../cgi';
+import { getCartList, addOrderFromCart, getAddressList } from '../../cgi';
 import { Message } from 'element-react';
 
 interface IProps extends RouteComponentProps {
@@ -138,7 +138,7 @@ class ShoppingCart extends Component<IProps, IState> {
                 let addressId = 0;
                 for (let i: number = 0; i < store.addresses.length; i++) {
                     if (store.addresses[i].default) {
-                        addressId = i;
+                        addressId = store.addresses[i].id as number;
                     }
                 }
                 payload.cart_id_list = list;
@@ -147,6 +147,8 @@ class ShoppingCart extends Component<IProps, IState> {
                 if (res.data.errcode === 0) {
                     Message.success('成功下单');
                     this.routeTo('/process', '1');
+                } else {
+                    Message.error('网络出现问题，请稍后重试');
                 }
             }
         }
@@ -166,6 +168,12 @@ class ShoppingCart extends Component<IProps, IState> {
     }
 
     render() {
+        const addr = store.addresses.filter(item => item.default === true)[0];
+        let total = 0;
+        for (let i = 0; i < store.cart.length; i++) {
+            // @ts-ignore
+            total += store.cart[i].isChecked ? store.cart[i].sku.price * store.cart[i].num : 0;
+        }
         return (
             <div className="shoppingCart">
                 <div className="wrapper">
@@ -176,7 +184,7 @@ class ShoppingCart extends Component<IProps, IState> {
                         </div>
                         <div className="cart-info">
                             <div className="good-count">{`共${store.cart.length}件宝贝`}</div>
-                            <div className="user-address">{`收货地址：${this.defaultAddress}`}</div>
+                            <div className="user-address">{`收货地址：${addr.province}${addr.city}${addr.county}...`}</div>
                         </div>
                     </div>
                     <div className="entry-wrapper">
@@ -187,16 +195,16 @@ class ShoppingCart extends Component<IProps, IState> {
                                         <Checkbox checked={item.isChecked} onChange={e => this.handleCheck(index)} />
                                     </div>
                                     <div className="pic">
-                                        <img src={item.sku_pic} alt="#" />
+                                        <img src={item.sku.sku_pic} alt="#" />
                                     </div>
                                     <div className="info">
                                         <div className="txt">
-                                            <h3>{item.name}</h3>
+                                            <h3>{item.sku.name.slice(0, 6)}...</h3>
                                             <p>{item.attr_name}</p>
-                                            <p>剩余库存：{item.stock}</p>
+                                            <p>剩余库存：{item.sku.stock}</p>
                                         </div>
                                         <div className="num">
-                                            <p>{`¥ ${item.price}`}</p>
+                                            <p>{`¥ ${item.sku.price}`}</p>
                                             <div className="modify">
                                                 <div className="minus" onClick={() => this.modifyGoodCount(-1, item.num, index)}>-</div>
                                                 <div className="count">{item.num}</div>
@@ -219,7 +227,7 @@ class ShoppingCart extends Component<IProps, IState> {
                             this.state.managing ? null : (
                                 <div className="total-price">
                                     <div className="total-price-title">合计：</div>
-                                    <div className="total-price-content">{`¥ ${store.totalPrice}`}</div>
+                                    <div className="total-price-content">{`¥ ${total}`}</div>
                                 </div>
                             )
                         }

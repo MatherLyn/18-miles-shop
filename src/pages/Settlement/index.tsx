@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { store } from '../../store';
 import './index.less';
 import { collectAnchor } from '../../util';
+import { addOrder } from '../../cgi';
+import { Message } from 'element-react';
 
 interface IProps {
     history: any,
@@ -46,12 +48,33 @@ class Settlement extends Component<IProps, IState> {
         this.props.history.goBack();
     };
 
+    private routeTo = (target: string, tab?: string) => {
+        const route: string = `${target}${tab ? `#${tab}` : ''}`
+        if (store.isLogin) {
+            this.props.history.push(route);
+        } else {
+            this.props.history.push(`/login#redirect_url=${encodeURIComponent(route)}`);
+        }
+    }
+
     handleGoToAddress = () => {
         this.props.history.push('/address');
     };
 
-    submitOrder = () => {
-        
+    submitOrder = async () => {
+        const payload = {
+            id: this.skuIds[0],
+            address_id: store.addresses.filter(item => item.default === true)[0].id,
+            num: this.nums[0],
+            anonymous: true
+        }
+        const res = await addOrder(payload);
+        if (res.data.errcode === 0) {
+            Message.success('下单成功');
+            setTimeout(() => {
+                this.routeTo('/process', '0');
+            }, 3000);
+        }
     }
 
     render() {

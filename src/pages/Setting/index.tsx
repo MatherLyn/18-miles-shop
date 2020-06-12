@@ -55,7 +55,7 @@ class Setting extends Component<IProps, IState> {
                 </div>
                 <div className="main-box">
                     <div className="userinfo">
-                        <div className="avatar" style={{ backgroundImage: `url(${avatar})` }} />
+                        <div className="avatar" style={{ backgroundImage: `url(${store.userInfo?.avatar || avatar})` }} />
                         <div className="text-box">
                             <h1>{store.userInfo?.username || ''}</h1>
                         </div>

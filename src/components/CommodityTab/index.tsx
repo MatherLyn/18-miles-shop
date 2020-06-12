@@ -11,8 +11,9 @@ interface IProps extends RouteComponentProps {
     price: number;
     num: number;
     status: number;
-    attrs: Array<string>,
-    v: Array<string>
+    attrs: Array<string>;
+    v: Array<string>;
+    sku: any;
 }
 
 interface IState {
@@ -44,12 +45,12 @@ class CommodityTab extends Component<IProps, IState> {
             <div className="head-box">
                 <div className="commodity-image"
                     style={{
-                        backgroundImage: this.props.sku_img
+                        backgroundImage: `url(${this.props.sku.sku_pic})`
                     }}
                 />
                 <div className="commodity-info">
-                    <div className="commodity-name">{this.props.name}</div>
-                    <div className="commodity-detail">{this.showAttrs()}</div>
+                    <div className="commodity-name">{this.props.sku.name}</div>
+                    {/* <div className="commodity-detail">{this.showAttrs()}</div> */}
                 </div>
                 <div className="order-info">
                     <div className="commodity-price">￥ {this.props.price}</div>

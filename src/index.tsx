@@ -10,7 +10,10 @@ import { store } from './store';
     if (addrres.data.errcode === 0) {
         store.addresses = addrres.data.data;
     }
-    await getUserProfile();
+    const user = await getUserProfile();
+    if (user?.data.errcode === 0) {
+        store.userInfo = user.data.data;
+    }
 })();
 
 

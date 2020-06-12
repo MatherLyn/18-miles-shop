@@ -269,7 +269,7 @@ class CommodityDetail extends Component<IProps, IState> {
                 sku_id: this.state.skuId,
                 num: this.state.num
             });
-            this.props.history.push('/cart');
+            this.props.history.push('/shoppingCart');
         }
     }
 

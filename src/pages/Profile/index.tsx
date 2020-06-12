@@ -60,7 +60,7 @@ class Profile extends Component<IProps, IState> {
                             <div
                                 id="avatar"
                                 style={{
-                                    backgroundImage: `url(${avatar})`
+                                    backgroundImage: `url(${store.userInfo?.avatar || avatar})`
                                 }}
                                 onClick={this.handleLogin}
                             />
