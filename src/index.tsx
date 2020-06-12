@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import { getAddressList, getUserProfile } from './cgi';
+import { getAddressList, getUserProfile, getCommodityList } from './cgi';
 import { store } from './store';
 
 (async function () {

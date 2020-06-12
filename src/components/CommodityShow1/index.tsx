@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./index.less"
-import commodity1 from './images/commodity1.png'
 import detail from '../../assets/detail.svg';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
@@ -31,7 +30,7 @@ class CommodityShow1 extends Component<IProps, IState> {
         return (
             <div className="commodityBox" onClick={e => this.handleRedirectToDetail(this.props.spuId)}>
                 <div className="images">
-                    <img className="commodityImage" src={commodity1} alt="商品图片" />
+                    <img className="commodityImage" src={this.props.spuPic} alt="商品图片" />
                 </div>
                 <div className="commodityDetail">
                     <h2 className="commodityName">{this.props.name}</h2>

@@ -6,8 +6,27 @@ import CommodityShow2 from '../../components/CommodityShow2';
 import ShowSellWell from '../../components/ShowSellWell';
 import { store } from '../../store';
 import './index.less';
+import { getCommodityList } from '../../cgi';
 
 export default class Home extends Component {
+
+    async componentDidMount () {
+        const topSell = await getCommodityList({
+            top: 10,
+            page_num: 10
+        });
+        if (topSell.data.errcode === 0) {
+            store.topCommodities = topSell.data.data;
+        }
+
+        const recommend = await getCommodityList({
+            category_id: ((Math.random() * 7) >> 0) + 1
+        });
+        if (recommend.data.errcode === 0) {
+            store.recommendCommodities = recommend.data.data;
+        }
+        this.setState({});
+    }
 
     buttonOnClick = () => {
         this.props.history.push('/sellwell');
