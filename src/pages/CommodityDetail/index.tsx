@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { store, Comment, ItemDetail } from '../../store';
-import { Rate } from 'element-react';
+import { Rate, Message } from 'element-react';
 import { Carousel } from 'element-react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { getComments, getCommodityDetail, saveToCart } from '../../cgi';
@@ -197,6 +197,11 @@ class CommodityDetail extends Component<IProps, IState> {
 
     // 加入购物车
     showShowBuy = () => {
+        if (!store.isLogin) {
+            Message.error('请先登录');
+            this.props.history.push('/profile');
+            return;
+        }
         this.setState({
             showBuy: true
         })
@@ -204,6 +209,11 @@ class CommodityDetail extends Component<IProps, IState> {
 
     // 立即购买
     addToOrder = () => {
+        if (!store.isLogin) {
+            Message.error('请先登录');
+            this.props.history.push('/profile');
+            return;
+        }
         for (let i: number = 0; i < this.item.skus.length; i++) {
             let b = false;
             for (let j: number = 0; j < this.item.skus[i].attrs.length; j++) {
@@ -264,6 +274,11 @@ class CommodityDetail extends Component<IProps, IState> {
     }
 
     confirmToCart = async () => {
+        if (!store.isLogin) {
+            Message.error('请先登录');
+            this.props.history.push('/profile');
+            return;
+        }
         if (this.state.attr && this.state.val) {
             await saveToCart({
                 sku_id: this.state.skuId,

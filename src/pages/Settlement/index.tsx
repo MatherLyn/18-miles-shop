@@ -72,7 +72,7 @@ class Settlement extends Component<IProps, IState> {
         if (res.data.errcode === 0) {
             Message.success('下单成功');
             setTimeout(() => {
-                this.routeTo('/process', '0');
+                this.routeTo('/process', '1');
             }, 3000);
         }
     }
@@ -147,7 +147,7 @@ class Settlement extends Component<IProps, IState> {
                                             </div>
                                         </div>
                                         <div className="bottom-wrapper">
-                                            <div className="subtotal">小计：<span className="highlight-text">￥{content.price * content.num}</span></div>
+                                            <div className="subtotal">小计：<span className="highlight-text">￥ {content.price * content.num}</span></div>
                                         </div>
                                     </div>
                                 ))
@@ -160,7 +160,7 @@ class Settlement extends Component<IProps, IState> {
 
                 <div className="submit">
                     <div className="summary">{`共 ${this.totalPieces} 件，`}</div>
-                    <div className="total-price">合计：<span className="highlight-text-bottom">{this.totalPrice}</span></div>
+                    <div className="total-price">合计：<span className="highlight-text-bottom">¥ {this.totalPrice}</span></div>
                     <div className="submit-button" onClick={this.submitOrder}>提交订单</div>
                 </div>
             </div>);
