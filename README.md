@@ -127,3 +127,4 @@ try {
 ![sort page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/sort.png)
 
 ### UI design
+UI design refers to www.taobao.com
