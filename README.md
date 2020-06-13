@@ -14,7 +14,7 @@ Typescript + React + mobx + axios + react-router + element-ui + ant-d-mobile
 ### We are students:
 - Studying at South China University of China
 - Majoring in Computer Science.
-- Software engineering class group work. Created by @create-react-app.
+- This is our software engineering class group work. Created by @create-react-app.
 
 ### Attention:
 Time pressed(4 days for frontend developing) and here is the bad code practice in this project:
@@ -41,6 +41,8 @@ class Example extends Component<IProps, IState> {
     private getStoreMember = () => { return this.props.store.member; }
 }
 
+
+
 // 2. Fetching data in ComponentDidMount
 // Reason: if the http request fails, this won't block rendering.
 
@@ -59,6 +61,8 @@ class Example extends Component<IProps, IState> {
         console.log(res);
     }
 }
+
+
 
 // 3. Add necessary error message when http request fails
 // Reason: it is just necessary.
@@ -81,6 +85,8 @@ async getProfile () {
     }
 }
 
+
+
 // 4. Also, make sure when some code fails, your program will not crash
 // Reason: it is just necessary.
 
@@ -94,6 +100,8 @@ try {
 } catch (e) {
     Message.error('Fetch sku failed.')
 }
+
+
 
 // 5. Proper commit message is required
 // Reason: it is just necessary.
@@ -110,3 +118,5 @@ try {
 // shell
 "git commit -m \"feat: utils中新增路由传参功能。\""
 ```
+
+### Screenshots
