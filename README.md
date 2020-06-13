@@ -125,3 +125,5 @@ try {
 ![commoditydetail page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/commoditydetail.png)
 ![cart page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/cart.png)
 ![sort page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/sort.png)
+
+### UI design
