@@ -119,4 +119,9 @@ try {
 "git commit -m \"feat: utils中新增路由传参功能。\""
 ```
 
-### Screenshots
+### Some screenshots
+![index page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/index.png)
+![profile page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/profile.png)
+![commoditydetail page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/commoditydetail.png)
+![cart page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/cart.png)
+![sort page](https://raw.githubusercontent.com/MatherLyn/18-miles-shop/master/screenshots/sort.png)
