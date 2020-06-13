@@ -11,15 +11,14 @@ import touristLogo from './images/tourist.svg';
 import './index.less';
 import { collectAnchor, addAnchor } from '../../util';
 import { store } from '../../store';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-interface IProps {
-    history: any
-}
+interface IProps extends RouteComponentProps {};
 
 interface IState {
 }
 
-export default class Login extends Component<IProps, IState> {
+class Login extends Component<IProps, IState> {
     private redirectUrl: string;
     constructor(props: IProps) {
         super(props);
@@ -122,3 +121,5 @@ export default class Login extends Component<IProps, IState> {
         )
     }
 }
+
+export default withRouter(Login);

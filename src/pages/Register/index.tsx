@@ -2,13 +2,11 @@ import React, { Component } from 'react'
 import { register, sendEmailCode } from '../../cgi';
 import { Input, Button, Message } from 'element-react'
 import logo from './images/logo.png';
-import invisible from './images/invisible.png'
 import './index.less';
 import { collectAnchor } from '../../util';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-interface IProps {
-    history: any
-};
+interface IProps extends RouteComponentProps {};
 
 interface IState {
     email: string;
@@ -17,7 +15,7 @@ interface IState {
     verifyCode: string;
     time: number
 };
-export default class Register extends Component<IProps, IState> {
+class Register extends Component<IProps, IState> {
     private redirectUrl: string;
     private email: string = '';
     private password: string = '';
@@ -174,3 +172,5 @@ export default class Register extends Component<IProps, IState> {
         )
     }
 }
+
+export default withRouter(Register);

@@ -4,15 +4,11 @@ import './index.less';
 import { collectAnchor } from '../../util';
 import { addOrder } from '../../cgi';
 import { Message } from 'element-react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-interface IProps {
-    history: any,
+interface IProps extends RouteComponentProps {};
 
-}
-
-interface IState {
-
-}
+interface IState {};
 
 class Settlement extends Component<IProps, IState> {
     private skuIds: Array<number> = [];
@@ -167,4 +163,4 @@ class Settlement extends Component<IProps, IState> {
     }
 }
 
-export default Settlement;
+export default withRouter(Settlement);

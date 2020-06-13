@@ -16,14 +16,9 @@ import Process from '../pages/Process';
 import Comment from '../pages/Comment';
 import SearchResult from '../pages/SearchResult';
 import ModifyInfo from '../pages/ModifyInfo';
+import { RouteConfig } from 'react-router-config';
 
-interface route {
-    path: string;
-    exact?: boolean;
-    component: any;
-}
-
-const routes: Array<route> = [
+const routes: Array<RouteConfig> = [
     {
         path: '/',
         exact: true,

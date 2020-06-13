@@ -4,11 +4,10 @@ import CommodityShow2 from '../../components/CommodityShow2';
 import { doSearch, collectAnchor, addAnchor, throttle } from '../../util';
 import './index.less';
 import { observer } from 'mobx-react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface IProps {
-    history: any,
+interface IProps extends RouteComponentProps {};
 
-};
 interface IState {
     more: string;
     page: number;
@@ -129,4 +128,4 @@ class SearchResult extends Component<IProps, IState> {
     }
 }
 
-export default SearchResult;
+export default withRouter(SearchResult);

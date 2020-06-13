@@ -4,11 +4,9 @@ import './index.less';
 import { store } from '../../store';
 import { observer } from 'mobx-react';
 import { getUserProfile } from '../../cgi';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface IProps {
-    history: any
-
-};
+interface IProps extends RouteComponentProps {};
 interface IState {
 
 };
@@ -91,4 +89,4 @@ class Setting extends Component<IProps, IState> {
     }
 }
 
-export default Setting;
+export default withRouter(Setting);
